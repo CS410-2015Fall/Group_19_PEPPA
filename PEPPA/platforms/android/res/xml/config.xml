@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.example.peppa" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.fourten.peppa" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
     <feature name="Whitelist">
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
     <allow-intent href="market:*" />
-    <preference name="Fullscreen" value="true" />
-    <name>PEPPA</name>
+    <preference name="Fullscreen" value="false" />
+    <name>PePPA</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Take care of your own personal pet that tends to your schedule in return! It will be your assistant that helps you set your alarm, remind you of important days (midterms or birthdays), recommend what to wear depending on the weather and much more! PePPA will be an interactive scheduler/planner that changes depending on how well you maintain your tasks. Plan ahead and have fun with it too with the assistance of PePPA!
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="" href="">
+        Team PRIORITY
     </author>
-    <icon density="mdpi" platform="android" src="art_assets/launcher_icon.png" />
+    <icon density="mdpi" platform="android" src="art_assets/launcher_icon_alt1.png" />
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
