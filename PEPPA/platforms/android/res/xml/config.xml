@@ -6,7 +6,7 @@
         <param name="onload" value="true" />
     </feature>
     <allow-intent href="market:*" />
-    <preference name="Fullscreen" value="false" />
+    <preference name="Fullscreen" value="true" />
     <name>PePPA</name>
     <description>
         Take care of your own personal pet that tends to your schedule in return! It will be your assistant that helps you set your alarm, remind you of important days (midterms or birthdays), recommend what to wear depending on the weather and much more! PePPA will be an interactive scheduler/planner that changes depending on how well you maintain your tasks. Plan ahead and have fun with it too with the assistance of PePPA!

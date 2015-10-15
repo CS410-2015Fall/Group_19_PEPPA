@@ -114,6 +114,41 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
-.face{
-    left:50%;
+/*NOT APP GENERATED*/
+#container{
+    width:100%;
+    height:100%;
+    position: relative;
 }
+
+#menu_button{
+    z-index: 2;
+    position: absolute;
+    left:10px;
+    top:10px;
+}
+
+#face{
+    z-index: 1;
+    position:relative;
+    width:100%;
+    height:100%;
+}
+#face img{
+  position:absolute;
+      width:100%;
+}
+#face img.open{
+    animation: Facefade 3000ms infinite;
+    -webkit-animation:Facefade 3000ms infinite;
+}
+@keyframes Facefade {
+    0% {
+        opacity: 1.0; 
+    }
+    2% {
+        opacity: 0; 
+    }
+    3%{
+        opacity: 1.0;    
+    }

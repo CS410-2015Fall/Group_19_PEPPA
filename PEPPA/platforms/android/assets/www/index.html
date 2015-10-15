@@ -36,17 +36,23 @@
         <title>PePPA</title>
     </head>
     <body>
-        <div class = "face">
-            <img src="img/face_neutral.png">
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <div id="container">
+            <div id="menu_button">
+                <img src="img/menu_button_large.png">
+            </div>
+            <div id="face">
+                <img class="closed" src="img/face_neutral_eyes_closed.png">
+                <img class="open" src="img/face_neutral.png">
+            </div>
         </div>
-        <div class="app">
+<!--        <div class="app">
             <h1>PePPA</h1>
-            <div id="deviceready" class="blink">
+             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
-        </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        </div> -->
     </body>
 </html>
