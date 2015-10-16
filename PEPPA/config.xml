@@ -7,7 +7,7 @@
     <author email="" href="">
         Team PRIORITY
     </author>
-    <icon src="art_assets/launcher_icon_alt1.png" platform="android" density="mdpi" />
+    <icon src="www/img/launcher_icon_alt1.png" platform="android" density="mdpi" />
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" version="1" />
     <access origin="*" />
