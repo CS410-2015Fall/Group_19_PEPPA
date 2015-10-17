@@ -38,10 +38,18 @@
     <body>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript">
+			function openMenu() {
+				document.getElementByID("main_menu").style.display='';
+			};
+		</script>
         <div id="container">
             <div id="menu_button">
-                <img src="img/menu_button_large.png">
+                <img onclick="openMenu()" src="img/menu_button_large.png">
             </div>
+			<div id="main_menu">
+				<img src="img\tasks_button_alt.png">
+			</div>
             <div id="face">
                 <img class="closed" src="img/face_neutral_eyes_closed.png">
                 <img class="open" src="img/face_neutral.png">
