@@ -128,6 +128,12 @@ h1 {
     top:10px;
 }
 
+#main_menu{
+	position: absolute;
+	left: 50px;
+	top: 50px;
+	display: none;
+}
 #face{
     z-index: 1;
     position:relative;
