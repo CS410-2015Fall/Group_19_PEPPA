@@ -36,25 +36,26 @@
         <title>PePPA</title>
     </head>
     <body>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript">
-			function openMenu() {
-				document.getElementByID("main_menu").style.display='';
-			};
-		</script>
+	<!--	<script type="text/javascript" src="js/test.js"></script> -->
         <div id="container">
-            <div id="menu_button">
-                <img onclick="openMenu()" src="img/menu_button_large.png">
-            </div>
-			<div id="main_menu">
-				<img src="img\tasks_button_alt.png">
+            <div id="menu">
+				<div id="menu_button">
+					<img src="img/menu_button_large.png"></img>
+					<button id="test_button">Test Click</button>
+				</div>
+				<div id="main_menu">
+					<img src="img/tasks_button_alt.png"></img>
+				</div>
+			</div>	
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
 			</div>
             <div id="face">
                 <img class="closed" src="img/face_neutral_eyes_closed.png">
                 <img class="open" src="img/face_neutral.png">
             </div>
-        </div>
+		</div>
 <!--        <div class="app">
             <h1>PePPA</h1>
              <div id="deviceready" class="blink">
@@ -63,4 +64,7 @@
             </div>
         </div> -->
     </body>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/test.js"></script>
 </html>
