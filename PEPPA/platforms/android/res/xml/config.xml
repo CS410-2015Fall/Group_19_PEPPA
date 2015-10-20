@@ -14,7 +14,7 @@
     <author email="" href="">
         Team PRIORITY
     </author>
-    <icon density="mdpi" platform="android" src="art_assets/launcher_icon_alt1.png" />
+    <icon density="mdpi" platform="android" src="www/img/launcher_icon_alt1.png" />
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
