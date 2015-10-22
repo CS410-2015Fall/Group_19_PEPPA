@@ -11,10 +11,6 @@
     left: 20px;
     cursor: pointer;
 }
-.open.right {
-    right: 20px;
-    cursor: pointer;
-}
 .panel {
     background: #7F8C8D;
     color: #ECF0F1;
@@ -48,16 +44,6 @@
 .panel a:hover {
     background-color: #95A5A6;
 }
-.panel.right a:before {
-    content: '';
-    display: block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    position: absolute;
-    background-color: #2ECC71;
-    right: 20px;
-}
 .panel.left a:before {
     content: '';
     display: inline-block;
@@ -71,27 +57,38 @@
     font-size: 18px;
 }
 .panel.left .newsfeed a:before { 
-    content: '';
+    content: '\f09e';
 }
 .panel.left .profile a:before { 
     content: '';
 }
 .panel.left .setting a:before { 
-    content: '';
+    content: '\2699';
 }
 .panel.left .logout a:before { 
-    content: '';
+    content: '\e78e';
 }
 .panel.left .report a:before { 
-    content: '';
+    content: '\f0e0';
+}
+.title {
+	font-size: 24px;
+}
+.header{
+	color:#F0F0F0;
 }
 
 
 
 /*NOT APP GENERATED*/
-#content{
+#container{
     width:100%;
     height:100%;
+}
+#container img{
+	position: absolute;
+	width:50%;
+	height:50%;
 }
 
 #menu{
@@ -133,14 +130,13 @@
 }
 
 #face{
-    z-index: 1;
     width:100%;
     height:100%;
-	position: relative;
 }
 #face img{
-  position:absolute;
-      width:100%;
+	position:absolute;
+	width:90%;
+	height:90%;
 }
 #face img.open{
     animation: Facefade 3000ms infinite;
