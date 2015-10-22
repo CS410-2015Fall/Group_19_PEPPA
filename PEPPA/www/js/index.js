@@ -36,7 +36,8 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 		navigator.notification.alert("Device Ready");
-		document.getElementById("test_button").addEventListener("touchend", openMenu, false);
+		//document.getElementById("test_button").addEventListener("touchend", openMenu, false);
+		document.getElementById("menu_button").addEventListener("touchend", openMenu, false);
 		console.log("Device Ready...");
 		//document.getElementById("menu_button").addEventListener("click", this.openMenu());
 		//document.getElementById("main_menu").setAttribute('style', 'display:block;');
