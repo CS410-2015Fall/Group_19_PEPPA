@@ -21,14 +21,42 @@ package com.fourten.peppa;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
+import android.content.Intent;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class MainActivity extends CordovaActivity
 {
+    Button button;
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
+        setContentView(R.layout.activity_main);
+
+        // Locate the button in activity_main.xml
+        button = (Button) findViewById(R.id.MyButton);
+
+        // Capture button clicks
+        button.setOnClickListener(new OnClickListener() {
+            public void onClick(View arg0) {
+
+                // Start NewActivity.class
+                Intent myIntent = new Intent(MainActivity.this,
+                        ReminderListActivity.class);
+                startActivity(myIntent);
+            }
+        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.layout.activity_main, menu);
+        return true;
     }
 }

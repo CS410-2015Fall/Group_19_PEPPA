@@ -17,7 +17,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html>
+<html lang="en">
     <head>
         <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
@@ -28,23 +28,61 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
+		<title>PePPA</title>
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>PePPA</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>
+		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="css/style.mobile.css"/>
+		<link rel="stylesheet" href="css/test.css"/>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<!--<script src="js/jquery-1.11.3.js"</script>
+		<script src="js/jquery.mobile-1.4.5.js"></script>-->
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.mobile.js"></script>
+		<!--<script src="js/test.js"></script>-->
     </head>
     <body>
+	<div class="demo-wrapper" data-role="page">
+		<div class="panel left" data-role="panel" data-position="left" data-display="push" id="panel-01">
+			<ul>
+				<li class="newsfeed"><a href="#" title="Home">News Feed</a></li>
+				<li class="todolist"><a href="#" title="Task">Tasks</a> </li>
+				<li class="profile"><a href="#" title="Profile">Profile</a></li>
+				<li class="setting"><a href="#" title="Setting">Setting</a></li>
+				<li class="logout"><a href="#" title="Logout">Logout</a></li>
+				<li class="report"><a href="#" title="Report">Report Bug</a></li>
+			</ul>
+		</div>
+		<div class="header" data-role="header">
+			<span class="open left"><a href="#panel-01">&#9776;</a></span>
+			<span class="title">PEPPA</span>
+		</div>
+		<div data-role="main" class="ui-content">
+			<div id="face">
+				<img class="closed" src="img/face_neutral_eyes_closed.png">
+				<img class="open" src="img/face_neutral.png">
+			</div>
+		</div>
+	</div>
 	<!--	<script type="text/javascript" src="js/test.js"></script> -->
+	<!--
         <div id="container">
             <div id="menu">
 				<div id="menu_button">
 					<img src="img/menu_button_large.png"></img>
-					<button id="test_button">Test Click</button>
 				</div>
 				<div id="main_menu">
-					<img src="img/tasks_button_alt.png"></img>
+					<ul>
+						<li>HOME</li>
+						<li>TASKS</li>
+						<li>CALENDAR</li>
+						<li>STORE</li>
+					</ul>
 				</div>
 			</div>	
             <div id="deviceready" class="blink">
@@ -56,6 +94,7 @@
                 <img class="open" src="img/face_neutral.png">
             </div>
 		</div>
+	-->
 <!--        <div class="app">
             <h1>PePPA</h1>
              <div id="deviceready" class="blink">
@@ -64,7 +103,4 @@
             </div>
         </div> -->
     </body>
-	<script type="text/javascript" src="cordova.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
-	<script type="text/javascript" src="js/test.js"></script>
 </html>
