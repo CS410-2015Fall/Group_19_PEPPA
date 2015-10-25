@@ -46,7 +46,8 @@ public class OnBootReceiver extends BroadcastReceiver {
 					java.util.Date date = format.parse(dateTime);
 					cal.setTime(date);
 					
-					reminderMgr.setReminder(rowId, cal); 
+					reminderMgr.setReminder(rowId, cal);
+
 				} catch (java.text.ParseException e) {
 					Log.e("OnBootReceiver", e.getMessage(), e);
 				}

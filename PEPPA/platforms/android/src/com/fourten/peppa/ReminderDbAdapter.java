@@ -103,7 +103,7 @@ public class ReminderDbAdapter {
      * Create a new reminder using the title, body and reminder date time provided. 
      * If the reminder is  successfully created return the new rowId
      * for that reminder, otherwise return a -1 to indicate failure.
-     * 
+     *
      * @param title the title of the reminder
      * @param body the body of the reminder
      * @param reminderDateTime the date and time the reminder should remind the user

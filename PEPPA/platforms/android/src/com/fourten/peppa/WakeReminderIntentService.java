@@ -24,7 +24,6 @@ abstract void doReminderWork(Intent intent);
 		}
 		return(lockStatic);
 	}
-	
 	public WakeReminderIntentService(String name) {
 		super(name);
 	}

@@ -15,9 +15,11 @@
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
+
         </receiver>
         <receiver android:name=".OnAlarmReceiver" />
         <service android:name=".ReminderService" />
+
     </application>
     <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="22" />
     <uses-permission android:name="android.permission.INTERNET" />

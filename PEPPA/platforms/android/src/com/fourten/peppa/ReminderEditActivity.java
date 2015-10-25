@@ -199,13 +199,13 @@ public class ReminderEditActivity extends Activity {
         	
         	String defaultTitle = prefs.getString(defaultTitleKey, null);
         	String defaultTime = prefs.getString(defaultTimeKey, null); 
-        	
+
         	if(defaultTitle != null)
         		mTitleText.setText(defaultTitle); 
         	
         	if(defaultTime != null)
         		mCalendar.add(Calendar.MINUTE, Integer.parseInt(defaultTime));
-        	
+
         }
         
         updateDateButtonText(); 
