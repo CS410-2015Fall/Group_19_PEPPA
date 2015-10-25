@@ -18,7 +18,7 @@ public class ReminderService extends WakeReminderIntentService {
 		Long rowId = intent.getExtras().getLong(ReminderDbAdapter.KEY_ROWID);
 		 
 		NotificationManager mgr = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-						
+ 
 		Intent notificationIntent = new Intent(this, ReminderEditActivity.class); 
 		notificationIntent.putExtra(ReminderDbAdapter.KEY_ROWID, rowId);
 		
