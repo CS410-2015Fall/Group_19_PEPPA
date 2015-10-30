@@ -1,23 +1,24 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-
     <string name="app_name">PePPA</string>
     <string name="launcher_name">@string/app_name</string>
     <string name="activity_name">@string/launcher_name</string>
-    <string name="edit_reminder_title">Task Reminder - Edit</string>
-    <string name="no_reminders">No Reminders Yet</string>
-    <string name="menu_insert">Add Reminder</string>
-    <string name="menu_delete">Delete Reminder</string>
+    <string name="edit_reminder_title">Task Reminder Edit</string>
+    <string name="no_reminders">\t No Tasks Yet</string>
+    <string name="menu_insert">Add a Task Reminder</string>
+    <string name="menu_delete">Click me if you completed the task!</string>
     <string name="menu_settings">Settings</string>
-    <string name="title">Title</string>
-    <string name="body">Body</string>
+    <string name="title">\t Title</string>
+    <string name="body">\t Details</string>
     <string name="confirm">Save</string>
-    <string name="edit_reminder">Edit Reminder</string>
-    <string name="date">Reminder Date</string>
-    <string name="time">Reminder Time</string>
+    <string name="edit_reminder">Edit Task Reminder</string>
+    <string name="date">\t If you want to delete for completion,
+        \n\t go back to Tasks page and swipe from right to left!
+        \n\n\n\ Reminder Date</string>
+    <string name="time"> Reminder Time</string>
     <string name="task_saved_message">Task has been saved</string>
-    <string name="notify_new_task_message">A task needs to be reviewed!</string>
-    <string name="notify_new_task_title">Task Reminder!</string>
+    <string name="notify_new_task_message">Something is due right now!</string>
+    <string name="notify_new_task_title">PePPA Checks ☆。*・°☆</string>
     <string name="pref_category_task_defaults_key">task_default_category</string>
     <string name="pref_category_task_defaults_title">Task Title Default</string>
     <string name="pref_task_title_key">default_reminder_title</string>

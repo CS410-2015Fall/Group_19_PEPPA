@@ -19,7 +19,7 @@ public class OnBootReceiver extends BroadcastReceiver {
 
 		ReminderManager reminderMgr = new ReminderManager(context);
 		
-		ReminderDbAdapter dbHelper = new ReminderDbAdapter(context);
+		RemindersDbAdapter dbHelper = new RemindersDbAdapter(context);
 		dbHelper.open();
 			
 		Cursor cursor = dbHelper.fetchAllReminders();
@@ -27,8 +27,8 @@ public class OnBootReceiver extends BroadcastReceiver {
 		if(cursor != null) {
 			cursor.moveToFirst(); 
 			
-			int rowIdColumnIndex = cursor.getColumnIndex(ReminderDbAdapter.KEY_ROWID);
-			int dateTimeColumnIndex = cursor.getColumnIndex(ReminderDbAdapter.KEY_DATE_TIME); 
+			int rowIdColumnIndex = cursor.getColumnIndex(RemindersDbAdapter.KEY_ROWID);
+			int dateTimeColumnIndex = cursor.getColumnIndex(RemindersDbAdapter.KEY_DATE_TIME); 
 			
 			while(cursor.isAfterLast() == false) {
 
@@ -46,8 +46,7 @@ public class OnBootReceiver extends BroadcastReceiver {
 					java.util.Date date = format.parse(dateTime);
 					cal.setTime(date);
 					
-					reminderMgr.setReminder(rowId, cal);
-
+					reminderMgr.setReminder(rowId, cal); 
 				} catch (java.text.ParseException e) {
 					Log.e("OnBootReceiver", e.getMessage(), e);
 				}

@@ -15,12 +15,12 @@ public class ReminderService extends WakeReminderIntentService {
 	@Override
 	void doReminderWork(Intent intent) {
 		Log.d("ReminderService", "Doing work.");
-		Long rowId = intent.getExtras().getLong(ReminderDbAdapter.KEY_ROWID);
+		Long rowId = intent.getExtras().getLong(RemindersDbAdapter.KEY_ROWID);
 		 
 		NotificationManager mgr = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
- 
+						
 		Intent notificationIntent = new Intent(this, ReminderEditActivity.class); 
-		notificationIntent.putExtra(ReminderDbAdapter.KEY_ROWID, rowId);
+		notificationIntent.putExtra(RemindersDbAdapter.KEY_ROWID, rowId); 
 		
 		PendingIntent pi = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_ONE_SHOT); 
 		
@@ -35,5 +35,12 @@ public class ReminderService extends WakeReminderIntentService {
 		mgr.notify(id, note); 
 		
 		
+	}
+
+	@Override
+	public void onDestroy()
+	{
+		// TODO Auto-generated method stub
+		super.onDestroy();
 	}
 }

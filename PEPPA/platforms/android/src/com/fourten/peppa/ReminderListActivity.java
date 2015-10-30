@@ -1,5 +1,8 @@
 
 package com.fourten.peppa;
+
+import com.fourten.peppa.R;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -18,14 +21,14 @@ public class ReminderListActivity extends ListActivity {
     private static final int ACTIVITY_CREATE=0;
     private static final int ACTIVITY_EDIT=1;
     
-    private ReminderDbAdapter mDbHelper;
+    private RemindersDbAdapter mDbHelper;
     
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reminder_list);
-        mDbHelper = new ReminderDbAdapter(this);
+        mDbHelper = new RemindersDbAdapter(this);
         mDbHelper.open();
         fillData();
         registerForContextMenu(getListView());
@@ -38,7 +41,7 @@ public class ReminderListActivity extends ListActivity {
         startManagingCursor(remindersCursor);
         
         // Create an array to specify the fields we want to display in the list (only TITLE)
-        String[] from = new String[]{ReminderDbAdapter.KEY_TITLE};
+        String[] from = new String[]{RemindersDbAdapter.KEY_TITLE};
         
         // and an array of the fields we want to bind those fields to (in this case just text1)
         int[] to = new int[]{R.id.text1};
@@ -101,7 +104,7 @@ public class ReminderListActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         Intent i = new Intent(this, ReminderEditActivity.class);
-        i.putExtra(ReminderDbAdapter.KEY_ROWID, id);
+        i.putExtra(RemindersDbAdapter.KEY_ROWID, id);
         startActivityForResult(i, ACTIVITY_EDIT); 
     }
 
