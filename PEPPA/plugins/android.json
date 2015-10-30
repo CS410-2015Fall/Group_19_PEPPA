@@ -31,6 +31,10 @@
                         {
                             "xml": "<preference default=\"embedded\" name=\"xwalkMode\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Calendar\"><param name=\"android-package\" value=\"nl.xservices.plugins.Calendar\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -46,6 +50,16 @@
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />",
                             "count": 1
                         }
+                    ],
+                    "/manifest": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.READ_CALENDAR\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_CALENDAR\" />",
+                            "count": 1
+                        }
                     ]
                 }
             }
@@ -59,6 +73,9 @@
             "PACKAGE_NAME": "com.fourten.peppa"
         },
         "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.fourten.peppa"
+        },
+        "cordova-plugin-calendar": {
             "PACKAGE_NAME": "com.fourten.peppa"
         }
     },

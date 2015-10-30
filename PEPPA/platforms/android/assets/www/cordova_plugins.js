@@ -18,6 +18,17 @@ module.exports = [
         "merges": [
             "navigator.notification"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-calendar/www/Calendar.js",
+        "id": "cordova-plugin-calendar.Calendar",
+        "clobbers": [
+            "Calendar"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-calendar/test/tests.js",
+        "id": "cordova-plugin-calendar.tests"
     }
 ];
 module.exports.metadata = 
@@ -25,7 +36,8 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.0.0",
     "cordova-plugin-dialogs": "1.1.1",
-    "cordova-plugin-crosswalk-webview": "1.3.1"
+    "cordova-plugin-crosswalk-webview": "1.3.1",
+    "cordova-plugin-calendar": "4.4.4"
 }
 // BOTTOM OF METADATA
 });
