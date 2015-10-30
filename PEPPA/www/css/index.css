@@ -76,6 +76,8 @@ h1 {
     overflow:visible;
     padding:0px;
     text-align:center;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .event {
@@ -174,6 +176,15 @@ h1 {
     animation: Facefade 3000ms infinite;
     -webkit-animation:Facefade 3000ms infinite;
 }
+
+.bi-invalid-input {
+background-color:#fffacd!important;
+}
+
+.bi-invisible {
+display:none;
+}
+
 @keyframes Facefade {
     0% {
         opacity: 1.0; 
