@@ -12,6 +12,9 @@
     <preference default="14+" name="xwalkVersion" />
     <preference default="--disable-pull-to-refresh-effect" name="xwalkCommandLine" />
     <preference default="embedded" name="xwalkMode" />
+    <feature name="Calendar">
+        <param name="android-package" value="nl.xservices.plugins.Calendar" />
+    </feature>
     <allow-intent href="market:*" />
     <preference name="Fullscreen" value="true" />
     <name>PePPA</name>
@@ -33,7 +36,4 @@
     <preference name="xwalkVersion" value="14+" />
     <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
     <preference name="xwalkMode" value="embedded" />
-    <feature name="Calendar">
-        <param name="android-package" value="nl.xservices.plugins.Calendar" />
-    </feature>
 </widget>
