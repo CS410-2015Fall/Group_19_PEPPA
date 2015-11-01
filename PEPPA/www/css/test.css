@@ -78,7 +78,13 @@
 	color:#F0F0F0;
 }
 
+.bi-invalid-input {
+background-color:#fffacd!important;
+}
 
+.bi-invisible {
+display:none;
+}
 
 /*NOT APP GENERATED*/
 #container{

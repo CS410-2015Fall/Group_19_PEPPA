@@ -35,9 +35,10 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-		navigator.notification.alert("Device Ready");
+//		navigator.notification.alert("Device Ready");
 		//document.getElementById("test_button").addEventListener("touchend", openMenu, false);
-		document.getElementById("menu_button").addEventListener("touchend", openMenu, false);
+//		document.getElementById("menu_button").addEventListener("touchend", openMenu, false);
+//		document.getElementById("signup-button").addEventListener("touchend", signUp, false);
 		console.log("Device Ready...");
 		//document.getElementById("menu_button").addEventListener("click", this.openMenu());
 		//document.getElementById("main_menu").setAttribute('style', 'display:block;');
@@ -50,10 +51,51 @@ var app = {
         var receivedElement = parentElement.querySelector('.received');
 
         listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+        receivedElement.setAttribute('style', 'display:none;');
 
         console.log('Received Event: ' + id);
     }
 };
 
 app.initialize();
+
+$(document).on("mobileinit", function (event, ui) {
+    $.mobile.defaultPageTransition = "slide";
+});
+
+app.signupController = new PePPA.SignUpController();
+app.signinController = new PePPA.SignInController();
+
+$(document).delegate("#signup", "pagebeforeshow", function () {
+    // Reset the signup form.
+    app.signupController.resetSignUpForm();
+});
+
+$(document).delegate("#signup", "pagebeforecreate", function () {
+
+    app.signupController.init();
+	console.log('Sign up initialized');
+    app.signupController.$btnSubmit.off("tap").on("tap", function () {
+		console.log('Sign up submitting');
+        app.signupController.onSignupCommand();
+		console.log('Finished');
+    });
+
+});
+
+$(document).delegate("#login", "pagebeforeshow", function () {
+    // Reset the signup form.
+    app.signinController.resetSignInForm();
+});
+
+
+$(document).delegate("#login", "pagebeforecreate", function () {
+
+    app.signinController.init();
+	console.log("Sign in initialize");
+    app.signinController.$btnSubmit.off("tap").on("tap", function () {
+		console.log('Attempting to sign in');
+        app.signinController.onSignInCommand();
+		console.log("All done");
+    });
+});

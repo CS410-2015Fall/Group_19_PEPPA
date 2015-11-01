@@ -13,10 +13,11 @@ PePPA.SignInController = function () {
 
 PePPA.SignInController.prototype.init = function () {
     this.$signInPage = $("#login");
-    this.$btnSubmit = $("#btn-submit", this.$login);
-    this.$ctnErr = $("#ctn-err", this.$login);
-    this.$txtEmailAddress = $("#txt-email", this.$signInPage);
-    this.$txtPassword = $("#txt-pass", this.$signInPage);
+    this.mainMenuPageId = "#index";
+    this.$btnSubmit = $("#signin-button", this.$signInPage);
+    this.$ctnErr = $("#ctn-err", this.$signInPage);
+    this.$txtEmailAddress = $("#txt-email-address", this.$signInPage);
+    this.$txtPassword = $("#txt-password", this.$signInPage);
     this.$chkKeepSignedIn = $("#chk-keep-signed-in", this.$signInPage);
 };
 
@@ -92,30 +93,31 @@ PePPA.SignInController.prototype.onSignInCommand = function () {
                 var today = new Date();
                 var expirationDate = new Date();
                 expirationDate.setTime(today.getTime() + PePPA.Settings.sessionTimeoutInMSec);
-
+				console.log("Session Data Saving");
                 PePPA.Session.getInstance().set({
                     userProfileModel: resp.extras.userProfileModel,
                     sessionId: resp.extras.sessionId,
                     expirationDate: expirationDate,
                     keepSignedIn:me.$chkKeepSignedIn.is(":checked")
                 });
+				console.log("Session Data Saved");
                 // Go to main menu.
                 $.mobile.navigate(me.mainMenuPageId);
+				alert('Completed log in!');
                 return;
             } else {
                 if (resp.extras.msg) {
                     switch (resp.extras.msg) {
                         case PePPA.ApiMessages.DB_ERROR:
                         // TODO: Use a friendlier error message below.
-                            me.$ctnErr.html("<p>PePPA could not log you on.  Please try again in a few minutes.</p>");
+                            me.$ctnErr.html("<p>Oops! PePPA had a problem and could not log you on.  Please try again in a few minutes.</p>");
                             me.$ctnErr.addClass("bi-ctn-err").slideDown();
                             break;
                         case PePPA.ApiMessages.INVALID_PWD:
                         case PePPA.ApiMessages.EMAIL_NOT_FOUND:
-                            me.$ctnErr.html("<p>Incorrect username or password.  Please try again.</p>");
+                            me.$ctnErr.html("<p>You entered a wrong username or password.  Please try again.</p>");
                             me.$ctnErr.addClass("bi-ctn-err").slideDown();
-                            me.$txtEmailAddress
-.addClass(invalidInputStyle);
+                            me.$txtEmailAddress.addClass(invalidInputStyle);
                             break;
                     }
                 }
@@ -125,7 +127,7 @@ PePPA.SignInController.prototype.onSignInCommand = function () {
             $.mobile.loading("hide");
             console.log(e.message);
             // TODO: Use a friendlier error message below.
-            me.$ctnErr.html("<p>PePPA could not log you on.  Please try again in a few minutes.</p>");
+            me.$ctnErr.html("<p>Oops! PePPA had a problem and could not log you on.  Please try again in a few minutes.</p>");
             me.$ctnErr.addClass("bi-ctn-err").slideDown();
         }
     });

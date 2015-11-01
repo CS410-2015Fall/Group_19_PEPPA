@@ -29,7 +29,7 @@
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
 		<title>PePPA</title>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' http://peppa-server.herokuapp.com">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
@@ -38,16 +38,24 @@
 		<link rel="stylesheet" href="css/style.css"/>
 		<link rel="stylesheet" href="css/style.mobile.css"/>
 		<link rel="stylesheet" href="css/test.css"/>
+		<!--<script src="js/jquery-1.11.3.js"</script>-->
 		<script type="text/javascript" src="cordova.js"></script>
-		<script type="text/javascript" src="js/index.js"></script>
-		<!--<script src="js/jquery-1.11.3.js"</script>
-		<script src="js/jquery.mobile-1.4.5.js"></script>-->
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery.mobile.js"></script>
+<!--		<script src="js/jquery.mobile-1.4.5.js"></script>-->
+		<script type="text/javascript" src="js/signin.js"></script>
+		<script type="text/javascript" src="js/session.js"></script>
+		<script type="text/javascript" src="js/settings.js"></script>
+		<script type="text/javascript" src="js/messages.js"></script>
+		<script type="text/javascript" src="js/signUpController.js"></script>		
+		<script type="text/javascript" src="js/index.js"></script>
+		<!--<script type="text/javascript" src="js/settings.js"></script>
+		<script src="js/sign-in.js"></script>
+		<script type="text/javascript" src="js/messages.js"></script>
 		<!--<script src="js/test.js"></script>-->
     </head>
     <body>
-	<div class="demo-wrapper" data-role="page">
+	<div class="demo-wrapper" data-role="page" id="index">
 		<div class="panel left" data-role="panel" data-position="left" data-display="push" id="panel-01">
 			<ul>
 				<li class="newsfeed"><a href="#" title="Home">Home</a></li>
@@ -94,12 +102,12 @@
             </div>
 		</div>
 	-->
-<!--        <div class="app">
-            <h1>PePPA</h1>
+        <div class="app">
+<!--            <h1>PePPA</h1>-->
              <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+                <p class="event listening" hidden></p>
+                <p class="event received" hidden></p>
             </div>
-        </div> -->
+        </div> 
     </body>
 </html>
