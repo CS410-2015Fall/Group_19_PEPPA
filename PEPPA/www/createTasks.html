@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+
+    <!-- jQuery Mobile Include -->
+    <link rel="stylesheet" href="css/style.mobile.css"/>
+    <script src="js/jquery.js"></script>
+        
+    <!-- Mobiscroll JS and CSS Includes -->
+    <link href="css/mobiscroll.custom-2.17.0.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/mobiscroll.custom-2.17.0.min.js" type="text/javascript"></script>
+
+    <style type="text/css">
+
+        /* Listview demo styling */
+        .mbsc-lv-cont { margin: 1em -1em; }
+    </style>
+
+    <script>
+        $(function () {
+
+            function init() {
+                
+                // Select demo initialization
+                $('#demo_select').mobiscroll().select({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Date demo initialization
+                $('#demo_date').mobiscroll().date({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Date & Time demo initialization
+                $('#demo_datetime').mobiscroll().datetime({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    minDate: new Date(2014,3,10,9,22),  // More info about minDate: http://docs.mobiscroll.com/2-17-0/datetime#!opt-minDate
+                    maxDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),   // More info about maxDate: http://docs.mobiscroll.com/2-17-0/datetime#!opt-maxDate
+                    stepMinute: 5  // More info about stepMinute: http://docs.mobiscroll.com/2-17-0/datetime#!opt-stepMinute
+                });
+                
+                // Time demo initialization
+                $('#demo_time').mobiscroll().time({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Calendar demo initialization
+                $('#demo_calendar').mobiscroll().calendar({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Calandar & Date demo initialization
+                $('#demo_calendar_date').mobiscroll().calendar({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    controls: ['calendar', 'date']  // More info about controls: http://docs.mobiscroll.com/2-17-0/calendar#!opt-controls
+                });
+                
+                // Calendar & Date & Time demo initialization
+                $('#demo_calendar_datetime').mobiscroll().calendar({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    controls: ['calendar', 'date', 'time']  // More info about controls: http://docs.mobiscroll.com/2-17-0/calendar#!opt-controls
+                });
+                
+                // Color demo initialization
+                $('#demo_color').mobiscroll().color({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Scroller demo initialization
+                $('#demo_scroller').mobiscroll({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    wheels: [  // More info about wheels: http://docs.mobiscroll.com/2-17-0/scroller#!opt-wheels
+                         [ {
+                              label: 'Label 1',
+                              keys: [1, 2, 3],
+                              values: ['x', 'y', 'z']
+                         },
+                         {
+                              label: 'Label 2',
+                              keys: [1, 2],
+                              values: ['a', 'b']
+                         } ],
+                         [ {
+                              label: 'Label 3',
+                              values: [1, 2]
+                         },
+                         {
+                              label: 'Label 4',
+                              values: [4, 5]
+                         }
+                    ]
+               ]});
+                
+                // Listview demo initialization
+                $('#demo_listview').mobiscroll().listview({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    stages: [   // More info about stages: http://docs.mobiscroll.com/2-17-0/listview#!opt-stages
+                        { 
+                            percent: -20, 
+                            color: 'red', 
+                            icon: 'remove', 
+                            action: function (li, inst) { inst.remove(li); return false; } 
+                        }, 
+                        { 
+                            percent: 20, 
+                            color: 'green', 
+                            icon: 'checkmark', 
+                            action: function (li) { li.css('text-decoration', 'line-through'); } 
+                        } 
+                    ]
+                });
+                
+                // Widget confirm demo initialization
+                $('#demo_widget').mobiscroll().widget({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    buttons: [ 'ok', 'cancel' ]  // More info about buttons: http://docs.mobiscroll.com/2-17-0/widget#!opt-buttons
+                });
+
+                $('#show-widget').click(function () { $('#demo_widget').mobiscroll('show') });
+                
+            }    
+
+            // -------------------------------------------------------------------
+            // Demo page code START, you can ignore this in your implementation
+            var demo, theme, mode, display, lang;
+            
+            $('.settings').on('change', function() {
+                demo = $('#demo').val();
+                theme = $('#theme').val() || $.mobiscroll.defaults.theme,
+                mode = $('#mode').val(),
+                display = $('#display').val(),
+                lang = $('#language').val();
+
+                $('.demo-cont').hide();
+                $("#demo_cont_" + demo).show();
+                
+                init();
+            });
+
+            $('#demo').trigger('change');
+            // Demo page code END
+            // -------------------------------------------------------------------
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper" data-role="page">
+        <div class="header" data-role="header">
+            <span class="open left"><a href="index.html">&#8678;</a></span>
+            <span class="title">Tasks</span>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <div class="add-task" id="addtask">
+                <h3>Create a Task</h3>
+                <form id="taskform">
+                    <input type="text" placeholder="Title"/>
+                    <input type"text" placeholder="Details"/>
+                </form>
+                <!-- ------------------------------------------------------------------ -->
+        <!-- Demo configurator markup START, ignore this in your implementation -->
+        <div>
+            <label for="demo">Select Reminder Type</label>
+            <select name="demo" id="demo" class="settings">
+                <option value="select" selected>Select</option>
+                <option value="date" >Date</option>
+                <option value="datetime" >Date & Time</option>
+                <option value="time" >Time</option>
+                <option value="calendar" >Calendar</option>
+                <option value="calendar_date" >Calandar & Date</option>
+                <option value="calendar_datetime" >Calendar & Date & Time</option>
+                <option value="listview" >Listview</option>
+                <option value="widget" >Widget confirm</option>
+            </select>
+        </div>
+        <!-- Demo configurator markup END -->
+        <!-- ------------------------------------------------------------------ -->
+
+
+        <!-- Select demo markup -->
+    
+        <!-- Date demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_date">
+            <label for="demo_date">Select Date</label>
+            <input type="text" id="demo_date" />  
+        </div>
+    
+        <!-- Date & Time demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_datetime">
+            <label for="demo_datetime">Select Date & Time</label>
+            <input type="text" id="demo_datetime" />  
+        </div>
+    
+        <!-- Time demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_time">
+            <label for="demo_time">Select Time</label>
+            <input type="text" id="demo_time" />  
+        </div>
+    
+        <!-- Calendar demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_calendar">
+            <label for="demo_calendar">Select Calendar</label>
+            <input type="text" id="demo_calendar" />  
+        </div>
+    
+        <!-- Calandar & Date demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_calendar_date">
+            <label for="demo_calendar_date">Select Calandar & Date</label>
+            <input type="text" id="demo_calendar_date" />  
+        </div>
+    
+        <!-- Calendar & Date & Time demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_calendar_datetime">
+            <label for="demo_calendar_datetime">Select Calendar & Date & Time</label>
+            <input type="text" id="demo_calendar_datetime" />  
+        </div>
+
+        <!-- Listview demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_listview">
+            <h2>To do list</h2><p>Swipe left or right </p>
+            <ul id="demo_listview" class="listview">
+                <li>Take out the trash</li>
+                <li>Buy flowers</li>
+                <li>Implement listview component</li>
+            </ul>   
+        </div>
+    
+        <!-- Widget confirm demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_widget">
+            <div id="demo_widget">
+                <h3 class="md-text-center" style="text-align: center">Title</h3>
+                <p class="md-text-center">Are you feeling good today?</p>
+            </div> 
+            <button id="show-widget">Show widget</button>   
+        </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script src="js/jquery.mobile.js"></script>
+
+</body>
+
+</html>

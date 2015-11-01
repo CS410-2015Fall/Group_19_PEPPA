@@ -10,12 +10,7 @@
 	<link rel="stylesheet" href="css/style.css"/>
 	<link rel="stylesheet" href="css/style.mobile.css"/>
 	<link rel="stylesheet" href="css/index.css"/>
-	<script type="text/javascript" src="cordova.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
-		<!--<script src="js/jquery-1.11.3.js"</script>
-		<script src="js/jquery.mobile-1.4.5.js"></script>-->
-	<script src="js/jquery.js"></script>
-	<script src="js/jquery.mobile.js"></script>
+
 </head>
 <body>
 	<div class="wrapper" data-role="page">
@@ -23,13 +18,21 @@
 			<span class="open left"><a href="index.html">&#8678;</a></span>
 			<span class="title">Tasks</span>
 		</div>
+
 		<div data-role="main" class="ui-content">
-<!-- 			<ul>
-				<li class="snacks">Snacks</li>
-				<li class="accessories">Accessories</li>
-				<li class="pets">DLC Pets</li>
-			</ul> -->
+			<div class="task-list" id="tasklist">
+				<button id="button" class="float-left submit-button" >Add a Task</button>
+				<script type="text/javascript">
+				document.getElementById("button").onclick = function() {
+					location.href = "createTasks.html";
+				}
+				</script>
+			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile.js"></script>
 </body>
 </html>
