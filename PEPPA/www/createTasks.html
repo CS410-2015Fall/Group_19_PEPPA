@@ -7,6 +7,8 @@
     <meta name="msapplication-tap-highlight" content="no">
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
 
     <!-- jQuery Mobile Include -->
     <link rel="stylesheet" href="css/style.mobile.css"/>
@@ -87,76 +89,6 @@
                     lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
                     controls: ['calendar', 'date', 'time']  // More info about controls: http://docs.mobiscroll.com/2-17-0/calendar#!opt-controls
                 });
-                
-                // Color demo initialization
-                $('#demo_color').mobiscroll().color({
-                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
-                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
-                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
-                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
-                });
-                
-                // Scroller demo initialization
-                $('#demo_scroller').mobiscroll({
-                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
-                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
-                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
-                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
-                    wheels: [  // More info about wheels: http://docs.mobiscroll.com/2-17-0/scroller#!opt-wheels
-                         [ {
-                              label: 'Label 1',
-                              keys: [1, 2, 3],
-                              values: ['x', 'y', 'z']
-                         },
-                         {
-                              label: 'Label 2',
-                              keys: [1, 2],
-                              values: ['a', 'b']
-                         } ],
-                         [ {
-                              label: 'Label 3',
-                              values: [1, 2]
-                         },
-                         {
-                              label: 'Label 4',
-                              values: [4, 5]
-                         }
-                    ]
-               ]});
-                
-                // Listview demo initialization
-                $('#demo_listview').mobiscroll().listview({
-                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
-                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
-                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
-                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
-                    stages: [   // More info about stages: http://docs.mobiscroll.com/2-17-0/listview#!opt-stages
-                        { 
-                            percent: -20, 
-                            color: 'red', 
-                            icon: 'remove', 
-                            action: function (li, inst) { inst.remove(li); return false; } 
-                        }, 
-                        { 
-                            percent: 20, 
-                            color: 'green', 
-                            icon: 'checkmark', 
-                            action: function (li) { li.css('text-decoration', 'line-through'); } 
-                        } 
-                    ]
-                });
-                
-                // Widget confirm demo initialization
-                $('#demo_widget').mobiscroll().widget({
-                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
-                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
-                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
-                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
-                    buttons: [ 'ok', 'cancel' ]  // More info about buttons: http://docs.mobiscroll.com/2-17-0/widget#!opt-buttons
-                });
-
-                $('#show-widget').click(function () { $('#demo_widget').mobiscroll('show') });
-                
             }    
 
             // -------------------------------------------------------------------
@@ -193,11 +125,17 @@
         <div data-role="main" class="ui-content">
             <div class="add-task" id="addtask">
                 <h3>Create a Task</h3>
-                <form id="taskform">
-                    <input type="text" placeholder="Title"/>
-                    <input type"text" placeholder="Details"/>
-                </form>
-                <!-- ------------------------------------------------------------------ -->
+                    <ul class="list-group ">
+        </ul>
+
+        <div class="form-group">
+          <input id="main-input" type="text" class="form-control" placeholder="Add a new Task!">
+        </div>
+
+        <button type="button" class="btn btn-success" id="main-button">Add A Task</button>
+      </div>
+                    
+                    <!-- ------------------------------------------------------------------ -->
         <!-- Demo configurator markup START, ignore this in your implementation -->
         <div>
             <label for="demo">Select Reminder Type</label>
@@ -209,14 +147,10 @@
                 <option value="calendar" >Calendar</option>
                 <option value="calendar_date" >Calandar & Date</option>
                 <option value="calendar_datetime" >Calendar & Date & Time</option>
-                <option value="listview" >Listview</option>
-                <option value="widget" >Widget confirm</option>
             </select>
         </div>
         <!-- Demo configurator markup END -->
         <!-- ------------------------------------------------------------------ -->
-
-
         <!-- Select demo markup -->
     
         <!-- Date demo markup -->
@@ -255,30 +189,16 @@
             <input type="text" id="demo_calendar_datetime" />  
         </div>
 
-        <!-- Listview demo markup -->
-        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_listview">
-            <h2>To do list</h2><p>Swipe left or right </p>
-            <ul id="demo_listview" class="listview">
-                <li>Take out the trash</li>
-                <li>Buy flowers</li>
-                <li>Implement listview component</li>
-            </ul>   
-        </div>
-    
-        <!-- Widget confirm demo markup -->
-        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_widget">
-            <div id="demo_widget">
-                <h3 class="md-text-center" style="text-align: center">Title</h3>
-                <p class="md-text-center">Are you feeling good today?</p>
-            </div> 
-            <button id="show-widget">Show widget</button>   
-        </div>
+        
+
             </div>
         </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script src="js/jquery.mobile.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </body>
 
