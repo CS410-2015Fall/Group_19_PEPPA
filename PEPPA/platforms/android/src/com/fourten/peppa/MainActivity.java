@@ -38,27 +38,5 @@ public class MainActivity extends CordovaActivity
 
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
-        setContentView(R.layout.activity_main);
-
-        // Locate the button in activity_main.xml
-        button = (Button) findViewById(R.id.MyButton);
-
-        // Capture button clicks
-        button.setOnClickListener(new OnClickListener() {
-            public void onClick(View arg0) {
-
-                // Start NewActivity.class
-                Intent myIntent = new Intent(MainActivity.this,
-                        ReminderListActivity.class);
-                startActivity(myIntent);
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.layout.activity_main, menu);
-        return true;
     }
 }
