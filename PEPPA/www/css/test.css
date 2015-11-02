@@ -152,3 +152,7 @@
     3%{
         opacity: 1.0;    
     }
+	
+.clickable-div {
+	cursor: pointer;
+}

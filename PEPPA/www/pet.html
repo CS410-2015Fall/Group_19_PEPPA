@@ -12,10 +12,11 @@
 	<link rel="stylesheet" href="css/test.css"/>
 	<script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
-		<!--<script src="js/jquery-1.11.3.js"</script>
-		<script src="js/jquery.mobile-1.4.5.js"></script>-->
+	<script src="js/jquery-1.11.3.js"</script>
+	<script src="js/jquery.mobile-1.4.5.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery.mobile.js"></script>
+	<script src="js/customize.js"></script>
 		<!--<script src="js/test.js"></script>-->
 </head>
 <body>
@@ -25,12 +26,23 @@
 			<span class="title">CUSTOMIZE PET</span>
 		</div>
 		<div data-role="main" class="ui-content">
-			<ul>
-				<li class="Head">Head</li>
-				<li class="Neck">Neck</li>
-				<li class="Body">Body</li>
-				<li class="Feet">Feet</li>
-			</ul>
+			<p>Select A Head</p>
+			<div class="clickable-div">
+				<a data-role="button" id="head_1"><img src="img/sample_head_1.png"/></a>
+				<a data-role="button" id="head_2"><img src="img/sample_head_2.png"/></a>
+				<a data-role="button" id="head_3"><img src="img/sample_head_3.png"/></a>
+			</div>
+		
+		<!--	<form id="heads">
+			<select id="menu" size="1">
+			<option value="none" selected="selected">Select a Head</option>
+			<option value="head_1">Head 1</option>
+			<option value="head_2">Head 2</option>
+			<option value="head_3">Head 3</option>
+			</select>
+			</form>
+		-->
+			<div id="head">HEAD</div>
 		</div>
 	</div>
 </body>
