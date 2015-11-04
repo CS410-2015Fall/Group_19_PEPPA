@@ -66,6 +66,10 @@ $(document).on("mobileinit", function (event, ui) {
 app.signupController = new PePPA.SignUpController();
 app.signinController = new PePPA.SignInController();
 
+$(document).delegate("#index", "pagebeforeshow", function() {
+	console.log(PePPA.Session.getInstance().get());
+});
+
 $(document).delegate("#signup", "pagebeforeshow", function () {
     // Reset the signup form.
     app.signupController.resetSignUpForm();

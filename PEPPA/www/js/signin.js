@@ -93,6 +93,7 @@ PePPA.SignInController.prototype.onSignInCommand = function () {
                 var today = new Date();
                 var expirationDate = new Date();
                 expirationDate.setTime(today.getTime() + PePPA.Settings.sessionTimeoutInMSec);
+				console.log(expirationDate);
 				console.log("Session Data Saving");
                 PePPA.Session.getInstance().set({
                     userProfileModel: resp.extras.userProfileModel,
@@ -101,6 +102,8 @@ PePPA.SignInController.prototype.onSignInCommand = function () {
                     keepSignedIn:me.$chkKeepSignedIn.is(":checked")
                 });
 				console.log("Session Data Saved");
+				console.log(PePPA.Session.getInstance().get());
+				
                 // Go to main menu.
                 $.mobile.navigate(me.mainMenuPageId);
 				alert('Completed log in!');
