@@ -10,27 +10,45 @@
 	<link rel="stylesheet" href="css/style.css"/>
 	<link rel="stylesheet" href="css/style.mobile.css"/>
 	<link rel="stylesheet" href="css/test.css"/>
+	<link rel="stylesheet" href="css/customize.css"/>
 	<script type="text/javascript" src="cordova.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
-		<!--<script src="js/jquery-1.11.3.js"</script>
-		<script src="js/jquery.mobile-1.4.5.js"></script>-->
+	<script type="text/javascript" src="js/index.js"></script>	
+	<script src="js/jquery-1.11.3.js"</script>
+	<script src="js/jquery.mobile-1.4.5.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery.mobile.js"></script>
+	<script type="text/javascript" src="js/customize.js"></script>
 		<!--<script src="js/test.js"></script>-->
 </head>
 <body>
-	<div class="demo-wrapper" data-role="page">
+	<div class="demo-wrapper" data-role="page" id="pet_customize">
 		<div class="header" data-role="header">
 			<span class="open left"><a href="index.html">&#8678;</a></span>
 			<span class="title">CUSTOMIZE PET</span>
 		</div>
 		<div data-role="main" class="ui-content">
-			<ul>
-				<li class="Head">Head</li>
-				<li class="Neck">Neck</li>
-				<li class="Body">Body</li>
-				<li class="Feet">Feet</li>
-			</ul>
+			<h1>Choose an Option</h1>
+			<div data-role="tabs" "id="tabs">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#tab-head" data-ajax="false">Head</a></li>
+						<li><a href="#tab-eyes" data-ajax="false">Eyes</a></li>
+						<li><a href="#tab-neck" data-ajax="false">Neck</a></li>
+					</ul>
+				</div>
+				<div id="tab-head" class="ui-content ui-grid-b">
+					<div class="ui-block-a"><a data-role="button" data-inline="true" id="head_1"><img src="img/sample_head_1.png" height="40" width="40"/></a></div>
+					<div class="ui-block-b"><a data-role="button" data-inline="true" id="head_2"><img src="img/sample_head_2.png" height="40" width="40"/></a></div>
+					<div class="ui-block-c"><a data-role="button" data-inline="true" id="head_3"><img src="img/sample_head_3.png" height="40" width="40"/></a></div>
+				</div>
+				<div id="tab-eyes" class="ui-content">
+					<div>Placeholder for Eye Accessories</div>
+				</div>
+				<div id="tab-neck" class="ui-content">
+					<div>Placeholder for Neck Accessories</div>
+				</div>
+			</div>
+			<div id="head">HEAD</div>
 		</div>
 	</div>
 </body>
