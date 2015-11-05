@@ -3,12 +3,14 @@
     position:fixed;
     height: 555px;
     width:355px;
+/*    background-color: lightgrey;*/
     animation: movement 5s infinite;
     animation-direction: alternate;
     -webkit-animation: movement 5s infinite;
     -webkit-animation-direction: alternate;
 }
 
+/*LEFT EYE*/
 .ly{
     position: absolute;
     transform: scale(0.5,0.5);
@@ -27,6 +29,14 @@
     animation: blink 5s infinite;
     -webkit-animation: blink 5s infinite;
 }
+#leh{
+    position:absolute;
+    top: 152px;
+    left: -60px;
+    opacity: 0;
+}
+
+/*RIGHT EYE*/
 .ry{
     position: absolute;
     transform: scale(0.5,0.5);
@@ -44,8 +54,14 @@
     animation: blink 5s infinite;
     -webkit-animation: blink 5s infinite;
 }
+#reh{
+    position:absolute;
+    top: 152px;
+    right: -60px;
+    opacity: 0;
+}
 
-
+/*NOSE*/
 #nos{
     position: absolute;
     transform: scale(0.5,0.5);
@@ -53,6 +69,8 @@
     left:14%;
     
 }
+
+/*MOUTH*/
 .mu{
     position: absolute;
     transform: scale(0.5,0.5);
@@ -91,6 +109,13 @@
     animation: pant 5s infinite;
     -webkit-animation: pant 5s infinite;
 }
+#pmh{
+    position: absolute;
+    opacity: 0;
+}
+
+
+
 
 @keyframes blink {
     0%{

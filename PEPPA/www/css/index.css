@@ -67,6 +67,26 @@
 
 
 /*NOT APP GENERATED*/
+#menu{
+    position: absolute;
+    left:5px;
+    top:5px;
+}
+
+#menu_button{
+    z-index: 2;
+    position: absolute;
+    left:10px;
+    top:10px;
+}
+
+#main_menu{
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    display: none;
+}
+
 #panel, #flip{
     padding: 5px;
     text-align: center;
@@ -78,3 +98,5 @@
     padding: 50px;
     display: none;
 }
+
+

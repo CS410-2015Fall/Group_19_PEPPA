@@ -16,30 +16,59 @@ REWARD 	= CURRENT STATE + # of treats 	+ time played with pet
 f(x) 	= 		cs		+ 	t 			+ p
 
 */
-document.addEventListener("deviceready", onDeviceReady, false);
 
-function onDeviceReady(){
-	console.log('pet_int.js Initialized.');
-	document.addEventListener("mouseover", petting());
+$(document).ready(function(){
+	document.addEventListener("deviceready", pet_Status, false);
+	// onDeviceReady();
+});
+
+// function onDeviceReady(){
+	// $(window).unbind();
+	// $(window).bind();
+	// pet_status();
+
+// }
+
+function pet_Status(){
+	// console.log('pet_Status');
+	// document.getElementById("ly").onmouseover = function(){mouseOver()};
+	// document.getElementById("ly").onmouseout = function(){mouseOut()};
+	// document.getElementById("ley").addEventListener("mouseover", mouseOver);
+	// document.getElementById("ley").addEventListener("mouseout", mouseOut);
+	$(".face").touchstart(function(){
+		$("#lec").hide();
+		$("#ley").css("animation-play-state", "paused");
+		$("#ley").hide();
+		$("#leh").css("opacity", 1.0);		
+		$("#leh").show();
+		$("#rec").hide();
+		$("#rey").css("animation-play-state", "paused");
+		$("#rey").hide();
+		$("#reh").css("opacity", 1.0);
+		$("#reh").show();
+		$("tee").hide();
+		$("ton").hide();
+		$("tpa").hide();
+		$("pmh").css("opacity", 1.0);
+		$("pmh").show();
+
+	});
+	$(".face").touchend(function(){
+		$("#lec").show();
+		$("#ley").show();
+		$("#ley").css("animation-play-state", "running");
+		$("#leh").css("opacity", 0);
+		$("#leh").hide();
+		$("#rec").show();
+		$("#rey").show();
+		$("#rey").css("animation-play-state", "running");
+		$("#reh").css("opacity", 0);
+		$("#reh").hide();
+		$("tee").show();
+		$("ton").show();
+		$("tpa").show();
+		$("pmh").css("opacity", 0);
+		$("pmh").hide();
+
+	});
 };
-
-function state(cs,t,p){
-
-};
-
-function petting(){
-	//var face = document.getElementByClassName("face");
-	var leye = document.getElementById("ly");
-	var reye = document.getElementById("ry");
-	var nose = document.getElementById("nos");
-	//var mu	=  document.getElementByClassName("mu");
-	// leye
-	if(leye.src.match('img/LeftEye.png')||
-		(reye.src.match('img/RightEye.png'))){
-		console.log('source matched');
-	}
-	console.log('TOUCHED');
-};
-
-
-
