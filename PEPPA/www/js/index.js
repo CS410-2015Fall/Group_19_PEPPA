@@ -57,28 +57,3 @@ var app = {
 };
 
 app.initialize();
-
-$(document).delegate("#pet_customize", "pagebeforeshow", function () {        
-
-        var $petPage = $("#pet_customize"),
-            $btnSubmit1 = $("#head_1", $petPage),
-            $btnSubmit2 = $("#head_2", $petPage),
-            $btnSubmit3 = $("#head_3", $petPage);
-			
-
-        $btnSubmit1.off("tap").on("tap", function () {
-		console.log("WHAT THE FUCK IS THIS");
-		$("#head").html("Head 1 Selected");		
-		})
-		
-        $btnSubmit2.off("tap").on("tap", function () {
-		console.log("WHAT THE FUCK IS THIS");
-		$("#head").html("Head 2 Selected");		
-		})
-
-        $btnSubmit3.off("tap").on("tap", function () {
-		console.log("WHAT THE FUCK IS THIS");
-		$("#head").html("Head 3 Selected");		
-		})
-
-});	
