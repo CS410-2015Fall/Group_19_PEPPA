@@ -16,21 +16,55 @@ REWARD 	= CURRENT STATE + # of treats 	+ time played with pet
 f(x) 	= 		cs		+ 	t 			+ p
 
 */
+/*Current State*/
+var pState = 28;
 
 $(document).ready(function(){
-	document.addEventListener("deviceready", petting, false);
-	// onDeviceReady();
+	document.addEventListener("deviceready", onDeviceReady, false);
 });
 
-// function onDeviceReady(){
+ function onDeviceReady(){
 	// $(window).unbind();
 	// $(window).bind();
-	// pet_status();
+	document.addEventListener("pause", onPause, false);
+	document.addEventListener("resume", onResume, false);
+	$("#lec").show();
+	$("#ley").show();
+	$("#leh").hide();
+	$("#rec").show();
+	$("#rey").show();
+	$("#reh").hide();
+	stateDet(pState);
+	$("#pmh").hide();
+	petting();
+};
 
-// }
-
+function stateDet(pState){
+	console.log("stateDet called" + pState)
+	if(0 <= pState && pState < 30){
+		$("#msa").show();
+		$("#mcl").hide();
+		$("#tee").hide();
+		$("#ton").hide();
+		$("#tpa").hide();
+		console.log("Sad state value: " + pState);
+	} else if(30 <= pState && pState < 70){
+		$("#msa").hide();
+		$("#mcl").show();
+		$("#tee").hide();
+		$("#ton").hide();
+		$("#tpa").hide();
+		console.log("Neutral state value: " + pState);
+	} else{
+		$("#msa").hide();
+		$("#mcl").hide();
+		$("#tee").show();
+		$("#ton").show();
+		$("#tpa").show();
+		console.log("Happy state value: " + pState);
+	}
+}
 function petting(){
-	//animation
 	$(".face").touchstart(function(){
 		$("#lec").hide();
 		$("#ley").css("animation-play-state", "paused");
@@ -42,12 +76,18 @@ function petting(){
 		$("#rey").hide();
 		$("#reh").css("opacity", 1.0);
 		$("#reh").show();
+		$("#mcl").hide();
+		$("#msa").hide();
 		$("#tee").hide();
 		$("#ton").hide();
 		$("#tpa").hide();
-		$("#pmh").css("opacity", 1.0);
 		$("#pmh").show();
-
+		if(pState == 100){
+			pState = 100;
+		} else{
+			pState = pState + 0.5;		
+		}
+		console.log("touchstart " + pState);
 	});
 	$(".face").touchend(function(){
 		$("#lec").show();
@@ -60,11 +100,16 @@ function petting(){
 		$("#rey").css("animation-play-state", "running");
 		$("#reh").css("opacity", 0);
 		$("#reh").hide();
-		$("#tee").show();
-		$("#ton").show();
-		$("#tpa").show();
-		$("#pmh").css("opacity", 0);
 		$("#pmh").hide();
-
+		stateDet(pState);
 	});
-};
+}
+
+function onPause(){
+localStorage["rpState"] = pState;
+}
+
+function onResume () {
+	var pState = parseInt(localStorage["rpState"]);
+		console.log("onResume " + pState);
+}
