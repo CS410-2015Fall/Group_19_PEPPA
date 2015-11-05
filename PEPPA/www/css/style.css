@@ -8,10 +8,10 @@
   font-weight: normal;
   font-style: normal;
 }
-.demo-wrapper {
+.wrapper {
 	background-color: #0066FF;
 }
-.demo-wrapper .header {
+.wrapper .header {
 	text-align: center;
 	line-height: 55px;
 	width: 100%;
@@ -21,12 +21,12 @@
 	text-shadow: 0 0 0 rgba(255,255,255,0);
 	position: relative;
 }
-.demo-wrapper .header .title { 
+.wrapper .header .title { 
 	font-family: 'Verdana';
 }
-.demo-wrapper .header a,
-.demo-wrapper .header a:hover,
-.demo-wrapper .header a:active { 
+.wrapper .header a,
+.wrapper .header a:hover,
+.wrapper .header a:active { 
 	color: #fff !important;
 	text-decoration: none;
 	font-family: 'hk-demo';
@@ -34,29 +34,29 @@
 	font-size: 17px;
 	font-weight: normal;
 }
-.demo-wrapper .open a,
-.demo-wrapper .open a:hover {
+.wrapper .open a,
+.wrapper .open a:hover {
 	padding: 7px 15px;
 	background-color: #0066FF;
 	border-radius: 3px;
 }
-.demo-wrapper .header .open { 
+.wrapper .header .open { 
 	color: #fff;
 	position: absolute;
 }
-.demo-wrapper .header .open.left {
+.wrapper .header .open.left {
 	left: 20px;
 	cursor: pointer;
 }
-.demo-wrapper .header .open.right {
+.wrapper .header .open.right {
 	right: 20px;
 	cursor: pointer;
 }
-.demo-wrapper .panel {
+.wrapper .panel {
 	background: #99CCFF;
 	color: #C3E1FF;
 }
-.demo-wrapper .panel a {
+.wrapper .panel a {
 	color: #FFF !important;
 	text-shadow: 0 0 0 rgba(0,0,0,0);
 	font-size: 14px;
@@ -68,24 +68,25 @@
 	position: relative;
 	font-weight: 400;
 }
-.demo-wrapper .panel ul {
+.wrapper .panel ul {
 	padding: 0;
 	margin: 0;
 	list-style: none;
 	border-bottom: 1px solid #99CCFF;
 }
-.demo-wrapper .panel .avatar {
+.wrapper .panel .avatar {
 	position: absolute;
 	top: 8px;
 	left: 20px;
 }
-.demo-wrapper .ui-panel-inner {
+.wrapper .ui-panel-inner {
 	padding: 0;
 }
-.demo-wrapper .panel a:hover {
+<<<<<<< HEAD
+.wrapper .panel a:hover {
 	background-color: #99CCFF;
 }
-.demo-wrapper .panel.right a:before {
+.wrapper .panel.right a:before {
 	content: '';
 	display: block;
 	width: 12px;
@@ -95,7 +96,7 @@
 	background-color: #2ECC71;
 	right: 20px;
 }
-.demo-wrapper .panel.left a:before {
+.wrapper .panel.left a:before {
 	content: '';
 	display: inline-block;
 	position: absolute;
@@ -107,18 +108,23 @@
 	text-align: center;
 	font-size: 18px;
 }
-.demo-wrapper .panel.left .newsfeed a:before { 
-	content: '\f09e';
+.wrapper .panel.left .home a:before { 
+	content: url(../img/menu_button.png);
 }
-.demo-wrapper .panel.left .profile a:before { 
+.wrapper .panel.left .schedule a:before { 
+	/*content: '\f09e';*/
+	content: url(../img/oct_schedule_button.png);
+}
+.wrapper .panel.left .customize a:before { 
 	content: '👤';
 }
-.demo-wrapper .panel.left .setting a:before { 
-	content: '\2699';
+.wrapper .panel.left .weather a:before { 
+	content: url(../img/weather_button.png);
 }
-.demo-wrapper .panel.left .logout a:before { 
-	content: '\e78e';
+.wrapper .panel.left .tasks a:before { 
+	content: url(../img/tasks_button_alt.png);
 }
-.demo-wrapper .panel.left .report a:before { 
-	content: '\f0e0';
+.wrapper .panel.left .setting a:before { 
+	content: '\2699'; 
+	/*settings(gear icon)*/
 }
