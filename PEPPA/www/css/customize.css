@@ -1,8 +1,28 @@
 #face img.headAcc{
-	height: 35%;
-	width: 35%;
+	height: 125px;
+	width: 250px;
 	border: 0;
-	position: relative;
-	left: 40px;
+	position: absolute;
+	left: 60px;
 	z-index: 2;
+}
+
+#face img.eyeAcc{
+	height: 100px;
+	width: 200px;
+	border: 0;
+	position: absolute;
+	left: 75px;
+	top: 230px;
+	z-index: 2;
+}
+
+#face img.neckAcc{
+	height: 100px;
+	width: 200px;
+	border: 0;
+	position: absolute;
+	left: 75px;
+	top: 500px;
+	z-index: 0;
 }

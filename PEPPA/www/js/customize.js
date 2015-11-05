@@ -14,7 +14,11 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
             $btnSubmit2 = $("#head_2", $petPage),
             $btnSubmit3 = $("#head_3", $petPage);
 			
-		var $indexPage = $("#index");
+			$btnSubmit4 = $("#eyes_1", $petPage);
+			$btnSubmit5 = $("#eyes_2", $petPage);
+			
+			$btnSubmit6 = $("#neck_1", $petPage);
+			$btnSubmit7 = $("#neck_2", $petPage);
 			
 
         $btnSubmit1.off("tap").on("tap", function () {
@@ -28,7 +32,7 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		var imgTag = document.createElement('img');
 		imgTag.setAttribute('id',"headAccessory");
 		imgTag.setAttribute('class',"headAcc");
-		imgTag.setAttribute('src',"img/sample_head_1.png");
+		imgTag.setAttribute('src',"img/hat.png");
 		faceDiv.appendChild(imgTag);
 		})
 		
@@ -43,7 +47,7 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		var imgTag = document.createElement('img');
 		imgTag.setAttribute('id',"headAccessory");
 		imgTag.setAttribute('class',"headAcc");
-		imgTag.setAttribute('src',"img/sample_head_2.png");
+		imgTag.setAttribute('src',"img/bowtie_b.png");
 		faceDiv.appendChild(imgTag);
 		})
 
@@ -58,10 +62,71 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		var imgTag = document.createElement('img');
 		imgTag.setAttribute('id',"headAccessory");
 		imgTag.setAttribute('class',"headAcc");
-		imgTag.setAttribute('src',"img/sample_head_3.png");
+		imgTag.setAttribute('src',"img/bowtie_p.png");
 		faceDiv.appendChild(imgTag);
 		})
-
+		
+		// eye accessories
+		$btnSubmit4.off("tap").on("tap", function () {
+		console.log("WHAT THE FUCK IS THIS");
+		$("#eyes").html("Eyes 1 Selected");	
+		var faceDiv = document.getElementById("face");
+		if ($('#eyeAccessory').length > 0) {
+			var e = document.getElementById("eyeAccessory");
+			e.parentNode.removeChild(e);
+		}
+		var imgTag = document.createElement('img');
+		imgTag.setAttribute('id',"eyeAccessory");
+		imgTag.setAttribute('class',"eyeAcc");
+		imgTag.setAttribute('src',"img/glasses.png");
+		faceDiv.appendChild(imgTag);
+		})
+		
+        $btnSubmit5.off("tap").on("tap", function () {
+		console.log("WHAT THE FUCK IS THIS");
+		$("#eyes").html("Eyes 2 Selected");	
+		var faceDiv = document.getElementById("face");
+		if ($('#eyeAccessory').length > 0) {
+			var e = document.getElementById("eyeAccessory");
+			e.parentNode.removeChild(e);
+		}
+		var imgTag = document.createElement('img');
+		imgTag.setAttribute('id',"eyeAccessory");
+		imgTag.setAttribute('class',"eyeAcc");
+		imgTag.setAttribute('src',"img/monocle.png");
+		faceDiv.appendChild(imgTag);
+		})
+		
+		// neck accessories
+		$btnSubmit6.off("tap").on("tap", function () {
+		console.log("WHAT THE FUCK IS THIS");
+		$("#neck").html("Neck 1 Selected");	
+		var faceDiv = document.getElementById("face");
+		if ($('#neckAccessory').length > 0) {
+			var e = document.getElementById("neckAccessory");
+			e.parentNode.removeChild(e);
+		}
+		var imgTag = document.createElement('img');
+		imgTag.setAttribute('id',"neckAccessory");
+		imgTag.setAttribute('class',"neckAcc");
+		imgTag.setAttribute('src',"img/bowtie_b.png");
+		faceDiv.appendChild(imgTag);
+		})
+		
+        $btnSubmit7.off("tap").on("tap", function () {
+		console.log("WHAT THE FUCK IS THIS");
+		$("#neck").html("Neck 2 Selected");	
+		var faceDiv = document.getElementById("face");
+		if ($('#neckAccessory').length > 0) {
+			var e = document.getElementById("neckAccessory");
+			e.parentNode.removeChild(e);
+		}
+		var imgTag = document.createElement('img');
+		imgTag.setAttribute('id',"neckAccessory");
+		imgTag.setAttribute('class',"neckAcc");
+		imgTag.setAttribute('src',"img/bowtie_p.png");
+		faceDiv.appendChild(imgTag);
+		})
 });	
 
 $("#head_1").click(function() {
