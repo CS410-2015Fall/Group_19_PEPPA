@@ -38,6 +38,7 @@
 		<link rel="stylesheet" href="css/style.css"/>
 		<link rel="stylesheet" href="css/style.mobile.css"/>
 		<link rel="stylesheet" href="css/test.css"/>
+		<link rel="stylesheet" href="css/customize.css"/>
 		<!--<script src="js/jquery-1.11.3.js"</script>-->
 		<script type="text/javascript" src="cordova.js"></script>
 		<script src="js/jquery.js"></script>
@@ -60,13 +61,13 @@
 		<div class="panel left" data-role="panel" data-position="left" data-display="push" id="panel-01">
 			<ul>
 				<li class="newsfeed"><a href="#" title="Home">Home</a></li>
-				<li class="profile"><a href="#customize" title="Profile">Profile</a></li>
+				<li class="profile"><a href="#customize" title="Profile">Customize Pet</a></li>
 				<li class="setting"><a href="#" title="Setting">Setting</a></li>
 				<li class="login"><a href="login.html" title="Login">Log-in or Set-up</a></li>
 				<li class="report"><a href="#" title="Report">Report Bug</a></li>
 			</ul>
 		</div>
-		<div class="header" data-role="header">
+		<div class="header" data-role="header" data-theme="b">
 			<span class="open left"><a href="#panel-01">&#9776;</a></span>
 			<span class="title">PEPPA</span>
 		</div>
@@ -78,14 +79,14 @@
 		</div>
 	</div>
 	<!-- CUSTOMIZE PAGE -->
-	<div data-role="page" id="customize">
-		<div class="header" data-role="header">
+	<div class="demo-wrapper" data-role="page" id="customize">
+		<div class="header" data-role="header" data-theme="b">
 			<span class="open left"><a href="#index">&#8678;</a></span>
 			<span class="title">CUSTOMIZE PET</span>
 		</div>
 		<div data-role="main" class="ui-content">
 			<h1>Choose an Option</h1>
-			<div data-role="tabs" "id="tabs">
+			<div data-role="tabs" id="tabs">
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#tab-head" data-ajax="false">Head</a></li>
