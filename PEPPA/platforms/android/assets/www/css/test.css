@@ -1,0 +1,164 @@
+.open a, .open a:hover {
+    padding: 7px 15px;
+    background-color: #000;
+    border-radius: 3px;
+}
+.open { 
+    color: #fff;
+    position: absolute;
+}
+.open.left {
+    left: 20px;
+    cursor: pointer;
+}
+.panel {
+    background: #7F8C8D;
+    color: #ECF0F1;
+}
+.panel a {
+    color: #FFF !important;
+    text-shadow: 0 0 0 rgba(0,0,0,0);
+    font-size: 14px;
+    padding: 15px 20px 15px 60px;
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid #475657;
+    border-top: 1px solid #95A5A6;
+    position: relative;
+    font-weight: 400;
+}
+.panel ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-bottom: 1px solid #95A5A6;
+}
+.panel .avatar {
+    position: absolute;
+    top: 8px;
+    left: 20px;
+}
+.ui-panel-inner {
+    padding: 0;
+}
+.panel a:hover {
+    background-color: #95A5A6;
+}
+.panel.left a:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 15px;
+    left: 20px;
+    font-family: 'hk-demo';
+    text-align: center;
+    font-size: 18px;
+}
+.panel.left .newsfeed a:before { 
+    content: '\f09e';
+}
+.panel.left .profile a:before { 
+    content: '';
+}
+.panel.left .setting a:before { 
+    content: '\2699';
+}
+.panel.left .logout a:before { 
+    content: '\e78e';
+}
+.panel.left .report a:before { 
+    content: '\f0e0';
+}
+.title {
+	font-size: 24px;
+}
+.header{
+	color:#F0F0F0;
+}
+
+.bi-invalid-input {
+background-color:#fffacd!important;
+}
+
+.bi-invisible {
+display:none;
+}
+
+/*NOT APP GENERATED*/
+#container{
+    width:100%;
+    height:100%;
+}
+#container img{
+	position: absolute;
+	width:50%;
+	height:50%;
+}
+
+#menu{
+	position: absolute;
+	left:5px;
+	top:5px;
+}
+
+#menu_button{
+    z-index: 2;
+    position: absolute;
+    left:10px;
+    top:10px;
+}
+
+#main_menu{
+	position: absolute;
+	left: 50px;
+	top: 50px;
+	display: none;
+}
+
+#panel, #flip{
+	padding: 5px;
+	text-align: center;
+	background-color: #e5eecc;
+	border: solid 1px #c3c3c3;
+}
+
+#panel {
+	padding: 50px;
+	display: none;
+}
+
+#test_button{
+	position: absolute;
+	left: 60px;
+	top: 60px;
+}
+
+#face{
+    width:100%;
+    height:100%;
+}
+#face img{
+	position:absolute;
+	width:90%;
+	height:90%;
+}
+#face img.open{
+    animation: Facefade 3000ms infinite;
+    -webkit-animation:Facefade 3000ms infinite;
+}
+@keyframes Facefade {
+    0% {
+        opacity: 1.0; 
+    }
+    2% {
+        opacity: 0; 
+    }
+    3%{
+        opacity: 1.0;    
+    }
+	
+.clickable-div {
+	cursor: pointer;
+}
