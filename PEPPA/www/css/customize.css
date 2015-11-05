@@ -1,0 +1,8 @@
+#face img.headAcc{
+	height: 35%;
+	width: 35%;
+	border: 0;
+	position: relative;
+	left: 40px;
+	z-index: 2;
+}

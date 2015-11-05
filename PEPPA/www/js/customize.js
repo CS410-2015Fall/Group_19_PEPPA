@@ -7,27 +7,59 @@ selectheadmenu.onchange=function() {
 	}
 };*/
 
-$(document).delegate("#pet_customize", "pagebeforecreate", function () {        
+$(document).delegate("#customize", "pagebeforecreate", function () {        
 
-        var $petPage = $("#pet_customize"),
+        var $petPage = $("#customize"),
             $btnSubmit1 = $("#head_1", $petPage),
             $btnSubmit2 = $("#head_2", $petPage),
             $btnSubmit3 = $("#head_3", $petPage);
 			
+		var $indexPage = $("#index");
+			
 
         $btnSubmit1.off("tap").on("tap", function () {
 		console.log("WHAT THE FUCK IS THIS");
-		$("#head").html("Head 1 Selected");		
+		$("#head").html("Head 1 Selected");	
+		var faceDiv = document.getElementById("face");
+		if ($('#headAccessory').length > 0) {
+			var e = document.getElementById("headAccessory");
+			e.parentNode.removeChild(e);
+		}
+		var imgTag = document.createElement('img');
+		imgTag.setAttribute('id',"headAccessory");
+		imgTag.setAttribute('class',"headAcc");
+		imgTag.setAttribute('src',"img/sample_head_1.png");
+		faceDiv.appendChild(imgTag);
 		})
 		
         $btnSubmit2.off("tap").on("tap", function () {
 		console.log("WHAT THE FUCK IS THIS");
-		$("#head").html("Head 2 Selected");		
+		$("#head").html("Head 2 Selected");	
+		var faceDiv = document.getElementById("face");
+		if ($('#headAccessory').length > 0) {
+			var e = document.getElementById("headAccessory");
+			e.parentNode.removeChild(e);
+		}
+		var imgTag = document.createElement('img');
+		imgTag.setAttribute('id',"headAccessory");
+		imgTag.setAttribute('class',"headAcc");
+		imgTag.setAttribute('src',"img/sample_head_2.png");
+		faceDiv.appendChild(imgTag);
 		})
 
         $btnSubmit3.off("tap").on("tap", function () {
 		console.log("WHAT THE FUCK IS THIS");
 		$("#head").html("Head 3 Selected");		
+		var faceDiv = document.getElementById("face");
+		if ($('#headAccessory').length > 0) {
+			var e = document.getElementById("headAccessory");
+			e.parentNode.removeChild(e);
+		}
+		var imgTag = document.createElement('img');
+		imgTag.setAttribute('id',"headAccessory");
+		imgTag.setAttribute('class',"headAcc");
+		imgTag.setAttribute('src',"img/sample_head_3.png");
+		faceDiv.appendChild(imgTag);
 		})
 
 });	
