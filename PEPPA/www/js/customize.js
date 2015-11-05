@@ -22,7 +22,6 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 			
 
         $btnSubmit1.off("tap").on("tap", function () {
-		console.log("WHAT THE FUCK IS THIS");
 		$("#head").html("Head 1 Selected");	
 		var faceDiv = document.getElementById("face");
 		if ($('#headAccessory').length > 0) {
@@ -37,7 +36,6 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		})
 		
         $btnSubmit2.off("tap").on("tap", function () {
-		console.log("WHAT THE FUCK IS THIS");
 		$("#head").html("Head 2 Selected");	
 		var faceDiv = document.getElementById("face");
 		if ($('#headAccessory').length > 0) {
@@ -52,7 +50,6 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		})
 
         $btnSubmit3.off("tap").on("tap", function () {
-		console.log("WHAT THE FUCK IS THIS");
 		$("#head").html("Head 3 Selected");		
 		var faceDiv = document.getElementById("face");
 		if ($('#headAccessory').length > 0) {
@@ -68,7 +65,6 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		
 		// eye accessories
 		$btnSubmit4.off("tap").on("tap", function () {
-		console.log("WHAT THE FUCK IS THIS");
 		$("#eyes").html("Eyes 1 Selected");	
 		var faceDiv = document.getElementById("face");
 		if ($('#eyeAccessory').length > 0) {
@@ -83,7 +79,6 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		})
 		
         $btnSubmit5.off("tap").on("tap", function () {
-		console.log("WHAT THE FUCK IS THIS");
 		$("#eyes").html("Eyes 2 Selected");	
 		var faceDiv = document.getElementById("face");
 		if ($('#eyeAccessory').length > 0) {
@@ -99,7 +94,6 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		
 		// neck accessories
 		$btnSubmit6.off("tap").on("tap", function () {
-		console.log("WHAT THE FUCK IS THIS");
 		$("#neck").html("Neck 1 Selected");	
 		var faceDiv = document.getElementById("face");
 		if ($('#neckAccessory').length > 0) {
@@ -114,7 +108,6 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		})
 		
         $btnSubmit7.off("tap").on("tap", function () {
-		console.log("WHAT THE FUCK IS THIS");
 		$("#neck").html("Neck 2 Selected");	
 		var faceDiv = document.getElementById("face");
 		if ($('#neckAccessory').length > 0) {
