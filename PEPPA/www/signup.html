@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Sign Up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,23 +23,23 @@
 </head>
 
 <body>
-	<div class="demo-wrapper" data-role="page" id="signup">
-		<div class="header" data-role="header">
+	<div class="wrapper" data-role="page" id="signup">
+        <div class="header" data-role="header" data-theme="b">
 			<span class="open left"><a href="login.html">&#8678;</a></span>
 			<span class="title">SIGN UP</span>
 		</div>
     <div role="main" class="ui-content">
         <h3>Sign Up</h3>
 		<div id="ctn-err" class="bi-invisible"></div>
-        <label for="txt-first-name">First Name</label>
+        <label>First Name</label>
         <input type="text" name="txt-first-name" id="txt-first-name" value="">
-        <label for="txt-last-name">Last Name</label>
+        <label>Last Name</label>
         <input type="text" name="txt-last-name" id="txt-last-name" value="">
-        <label for="txt-email-address">Email Address</label>
+        <label>Email Address</label>
         <input type="text" name="txt-email-address" id="txt-email-address" value="">
-        <label for="txt-password">Password</label>
+        <label>Password</label>
         <input type="password" name="txt-password" id="txt-password" value="">
-        <label for="txt-password-confirm">Confirm Password</label>
+        <label>Confirm Password</label>
         <input type="password" name="txt-password-confirm" id="txt-password-confirm" value="">
 		<button id="signup-button" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5">Submit</button>
             <div data-role="popup" id="dlg-sign-up-sent" data-dismissible="false" style="max-width:400px;">

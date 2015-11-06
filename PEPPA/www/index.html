@@ -20,11 +20,11 @@
 <html lang="en">
     <head>
         <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
+        Customize this policy to fit your own app's needs. For more guclassance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
         Some notes:
             * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * https://ssl.gstatic.com is required only on Androclass and is needed for TalkBack to function properly
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
@@ -33,17 +33,18 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, wclassth=device-wclassth">
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>
 		<link rel="stylesheet" href="css/style.css"/>
 		<link rel="stylesheet" href="css/style.mobile.css"/>
-		<link rel="stylesheet" href="css/test.css"/>
+		<link rel="stylesheet" href="css/index.css"/>
 		<link rel="stylesheet" href="css/customize.css"/>
-		<!--<script src="js/jquery-1.11.3.js"</script>-->
-		<script type="text/javascript" src="cordova.js"></script>
+		<link rel="stylesheet" href="css/pet_int.css"/>
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery.mobile.js"></script>
-<!--		<script src="js/jquery.mobile-1.4.5.js"></script>-->
+		<!--<script src="js/jquery-1.11.3.js"</script>-->
+		<!--<script src="js/jquery.mobile-1.4.5.js"></script>-->
+		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="js/signin.js"></script>
 		<script type="text/javascript" src="js/session.js"></script>
 		<script type="text/javascript" src="js/settings.js"></script>
@@ -51,40 +52,81 @@
 		<script type="text/javascript" src="js/signUpController.js"></script>		
 		<script type="text/javascript" src="js/index.js"></script>
 		<script type="text/javascript" src="js/customize.js"></script>
-		<!--<script type="text/javascript" src="js/settings.js"></script>
-		<script src="js/sign-in.js"></script>
-		<script type="text/javascript" src="js/messages.js"></script>
-		<!--<script src="js/test.js"></script>-->
+		<script type="text/javascript" src="js/pet_int.js"></script>
     </head>
     <body>
 	<div class="demo-wrapper" data-role="page" id="index">
 		<div class="panel left" data-role="panel" data-position="left" data-display="overlay" id="panel-01">
 			<ul>
-				<li class="newsfeed"><a href="#" title="Home">Home</a></li>
+				<li class="home"><a href="#" title="Home">Home</a></li>
+				<!-- <li class="schedule"><a href="schedule.html" title="Schedule">Schedule</a></li> -->
 				<li class="profile"><a href="#customize" title="Profile">Customize Pet</a></li>
-				<li class="setting"><a href="#" title="Setting">Setting</a></li>
+				<li class="tasks"><a href="tasks.html" title="Tasks">Tasks</a></li>
+				<!-- <li class="weather"><a href="weather.html" title="Weather">Weather</a></li>
+				<li class="setting"><a href="settings.html" title="Setting">Setting</a></li>	 -->
 				<li class="login"><a href="login.html" title="Login">Log-in or Set-up</a></li>
-				<li class="report"><a href="#" title="Report">Report Bug</a></li>
+				<!-- <li class="report"><a href="#" title="Report">Report Bug</a></li> -->
 			</ul>
 		</div>
 		<div class="header" data-role="header" data-theme="b">
 			<span class="open left"><a href="#panel-01">&#9776;</a></span>
-			<span class="title">PEPPA</span>
+			<span class="title"></span>
 		</div>
 		<div data-role="main" class="ui-content">
-			<div id="face">
-				<img class="closed" src="img/face_neutral_eyes_closed.png">
-				<img class="open" src="img/face_neutral.png">
+			<div class="face" id="face">
+				<div class="ly">
+					<img id="lec" src="img/LeftEye_closed.png">
+					<img id="ley" src="img/LeftEye.png">
+					<img id="leh" src="img/EyesHappy.png">
+				</div>
+ 				<div class="ry">
+					<img id="rec" src="img/RightEye_closed.png">
+					<img id="rey" src="img/RightEye.png">
+					<img id="reh" src="img/EyesHappy.png">
+				</div>
+				<img id="nos" src="img/Nose.png">
+ 				<div class="mu">
+					<img id="mcl" src="img/MouthClosed.png">
+					<img id="msa" src="img/MouthSad.png">
+					<img id="tee" src="img/MouthHappy.png">
+					<img id="ton" src="img/Tongue.png">
+					<img id="tpa" src="img/TonguePant.png">
+					<img id="pmh" src ="img/PettingMouth.png">
+				</div>
+				<div class="ctmz" id="ctmz">
+				</div>
 			</div>
 		</div>
 	</div>
-	<!-- CUSTOMIZE PAGE -->
-	<div class="demo-wrapper" data-role="page" id="customize">
+	<div class="wrapper" data-role="page" id="customize">
 		<div class="header" data-role="header" data-theme="b">
 			<span class="open left"><a href="#index">&#8678;</a></span>
 			<span class="title">CUSTOMIZE PET</span>
 		</div>
 		<div data-role="main" class="ui-content">
+			<!-- <div class="face" id ="face">
+				<div class="ly">
+					<img id="lec" src="img/LeftEye_closed.png">
+					<img id="ley" src="img/LeftEye.png">
+					<img id="leh" src="img/EyesHappy.png">
+				</div>
+ 				<div class="ry">
+					<img id="rec" src="img/RightEye_closed.png">
+					<img id="rey" src="img/RightEye.png">
+					<img id="reh" src="img/EyesHappy.png">
+				</div>
+				<img id="nos" src="img/Nose.png">
+ 				<div class="mu">
+					<img id="mcl" src="img/MouthClosed.png">
+					<img id="msa" src="img/MouthSad.png">
+					<img id="tee" src="img/MouthHappy.png">
+					<img id="ton" src="img/Tongue.png">
+					<img id="tpa" src="img/TonguePant.png">
+					<img id="pmh" src ="img/PettingMouth.png">
+				</div>
+				<div class="ctmz">
+				</div>
+			</div> -->
 			<h1>Choose an Option</h1>
 			<div data-role="tabs" id="tabs">
 				<div data-role="navbar">
@@ -95,58 +137,26 @@
 					</ul>
 				</div>
 				<div id="tab-head" class="ui-content ui-grid-b">
-					<div class="ui-block-a"><a data-role="button" data-inline="true" id="head_1"><img src="img/hat.png" height="40" width="40"/></a></div>
-					<div class="ui-block-b"><a data-role="button" data-inline="true" id="head_2"><img src="img/bowtie_b.png" height="40" width="40"/></a></div>
-					<div class="ui-block-c"><a data-role="button" data-inline="true" id="head_3"><img src="img/bowtie_p.png" height="40" width="40"/></a></div>
+					<div class="ui-block-a"><a data-role="button" data-inline="true" id="head_1"><img src="img/hat.png" height="40%" width="40%"/></a></div>
+					<div class="ui-block-b"><a data-role="button" data-inline="true" id="head_2"><img src="img/bowtie_b.png" height="40%" width="40%"/></a></div>
+					<div class="ui-block-c"><a data-role="button" data-inline="true" id="head_3"><img src="img/bowtie_p.png" height="40%" width="40%"/></a></div>
+					<div class="ui-block-d"><a data-role="button" data-inline="true" id="head_4"></a></div>
 				</div>
 				<div id="tab-eyes" class="ui-content ui-grid-a">
-					<div class="ui-block-a"><a data-role="button" data-inline="true" id="eyes_1"><img src="img/glasses.png" height="40" width="40"/></a></div>
-					<div class="ui-block-b"><a data-role="button" data-inline="true" id="eyes_2"><img src="img/monocle.png" height="40" width="40"/></a></div>
+					<div class="ui-block-a"><a data-role="button" data-inline="true" id="eyes_1"><img src="img/glasses.png" height="40%" width="40%"/></a></div>
+					<div class="ui-block-b"><a data-role="button" data-inline="true" id="eyes_2"><img src="img/monocle.png" height="40%" width="40%"/></a></div>
+					<div class="ui-block-c"><a data-role="button" data-inline="true" id="eyes_3"></a></div>
 				</div>
 				<div id="tab-neck" class="ui-content ui-grid-a">
-					<div class="ui-block-a"><a data-role="button" data-inline="true" id="neck_1"><img src="img/bowtie_b.png" height="40" width="40"/></a></div>
-					<div class="ui-block-b"><a data-role="button" data-inline="true" id="neck_2"><img src="img/bowtie_p.png" height="40" width="40"/></a></div>
+					<div class="ui-block-a"><a data-role="button" data-inline="true" id="neck_1"><img src="img/bowtie_b.png" height="40%" width="40%"/></a></div>
+					<div class="ui-block-b"><a data-role="button" data-inline="true" id="neck_2"><img src="img/bowtie_p.png" height="40%" width="40%"/></a></div>
+					<div class="ui-block-c"><a data-role="button" data-inline="true" id="neck_3"></a></div>
 				</div>
 			</div>
-			<div id="head">HEAD</div>
+<!-- 			<div id="head">HEAD</div>
 			<div id="eyes">EYES</div>
-			<div id="neck">NECK</div>
+			<div id="neck">NECK</div> -->
 		</div>
 	</div>
-		
-	
-	<!--	<script type="text/javascript" src="js/test.js"></script> -->
-	<!--
-        <div id="container">
-            <div id="menu">
-				<div id="menu_button">
-					<img src="img/menu_button_large.png"></img>
-				</div>
-				<div id="main_menu">
-					<ul>
-						<li>HOME</li>
-						<li>TASKS</li>
-						<li>CALENDAR</li>
-						<li>STORE</li>
-					</ul>
-				</div>
-			</div>	
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-			</div>
-            <div id="face">
-                <img class="closed" src="img/face_neutral_eyes_closed.png">
-                <img class="open" src="img/face_neutral.png">
-            </div>
-		</div>
-	-->
-        <div class="app">
-<!--            <h1>PePPA</h1>-->
-             <div id="deviceready" class="blink">
-                <p class="event listening" hidden></p>
-                <p class="event received" hidden></p>
-            </div>
-        </div> 
     </body>
 </html>

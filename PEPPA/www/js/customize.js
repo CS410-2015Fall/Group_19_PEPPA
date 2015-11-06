@@ -7,7 +7,7 @@ selectheadmenu.onchange=function() {
 	}
 };*/
 
-$(document).delegate("#customize", "pagebeforecreate", function () {        
+$(document).delegate("#customize", "pagebeforecreate", function () {
 
         var $petPage = $("#customize"),
             $btnSubmit1 = $("#head_1", $petPage),
@@ -20,10 +20,13 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 			$btnSubmit6 = $("#neck_1", $petPage);
 			$btnSubmit7 = $("#neck_2", $petPage);
 			
+			$btnSubmit8 = $("#head_4", $petPage);
+			$btnSubmit9 = $("#eyes_3", $petPage);
+			$btnSubmit10 = $("#neck_3", $petPage);
 
         $btnSubmit1.off("tap").on("tap", function () {
 		$("#head").html("Head 1 Selected");	
-		var faceDiv = document.getElementById("face");
+		var faceDiv = document.getElementById("ctmz");
 		if ($('#headAccessory').length > 0) {
 			var e = document.getElementById("headAccessory");
 			e.parentNode.removeChild(e);
@@ -37,7 +40,7 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		
         $btnSubmit2.off("tap").on("tap", function () {
 		$("#head").html("Head 2 Selected");	
-		var faceDiv = document.getElementById("face");
+		var faceDiv = document.getElementById("ctmz");
 		if ($('#headAccessory').length > 0) {
 			var e = document.getElementById("headAccessory");
 			e.parentNode.removeChild(e);
@@ -51,7 +54,7 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 
         $btnSubmit3.off("tap").on("tap", function () {
 		$("#head").html("Head 3 Selected");		
-		var faceDiv = document.getElementById("face");
+		var faceDiv = document.getElementById("ctmz");
 		if ($('#headAccessory').length > 0) {
 			var e = document.getElementById("headAccessory");
 			e.parentNode.removeChild(e);
@@ -66,7 +69,7 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		// eye accessories
 		$btnSubmit4.off("tap").on("tap", function () {
 		$("#eyes").html("Eyes 1 Selected");	
-		var faceDiv = document.getElementById("face");
+		var faceDiv = document.getElementById("ctmz");
 		if ($('#eyeAccessory').length > 0) {
 			var e = document.getElementById("eyeAccessory");
 			e.parentNode.removeChild(e);
@@ -80,7 +83,7 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		
         $btnSubmit5.off("tap").on("tap", function () {
 		$("#eyes").html("Eyes 2 Selected");	
-		var faceDiv = document.getElementById("face");
+		var faceDiv = document.getElementById("ctmz");
 		if ($('#eyeAccessory').length > 0) {
 			var e = document.getElementById("eyeAccessory");
 			e.parentNode.removeChild(e);
@@ -95,7 +98,7 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		// neck accessories
 		$btnSubmit6.off("tap").on("tap", function () {
 		$("#neck").html("Neck 1 Selected");	
-		var faceDiv = document.getElementById("face");
+		var faceDiv = document.getElementById("ctmz");
 		if ($('#neckAccessory').length > 0) {
 			var e = document.getElementById("neckAccessory");
 			e.parentNode.removeChild(e);
@@ -109,7 +112,7 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		
         $btnSubmit7.off("tap").on("tap", function () {
 		$("#neck").html("Neck 2 Selected");	
-		var faceDiv = document.getElementById("face");
+		var faceDiv = document.getElementById("ctmz");
 		if ($('#neckAccessory').length > 0) {
 			var e = document.getElementById("neckAccessory");
 			e.parentNode.removeChild(e);
@@ -120,13 +123,32 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		imgTag.setAttribute('src',"img/bowtie_p.png");
 		faceDiv.appendChild(imgTag);
 		})
+		//Remove Items
+		$btnSubmit8.off("tap").on("tap", function () {
+		var faceDiv = document.getElementById("ctmz");
+		if ($('#headAccessory').length > 0) {
+			var e = document.getElementById("headAccessory");
+			e.parentNode.removeChild(e);
+		}})
+		$btnSubmit9.off("tap").on("tap", function () {
+		var faceDiv = document.getElementById("ctmz");
+		if ($('#eyeAccessory').length > 0) {
+			var e = document.getElementById("eyeAccessory");
+			e.parentNode.removeChild(e);
+		}})
+		$btnSubmit10.off("tap").on("tap", function () {
+		var faceDiv = document.getElementById("ctmz");
+		if ($('#neckAccessory').length > 0) {
+			var e = document.getElementById("neckAccessory");
+			e.parentNode.removeChild(e);
+		}})
 });	
 
-$("#head_1").click(function() {
-	console.log("Clicked the first item");
-	alert("First pressed");
-	$("#head").html("Head 1 Selected");
-});	
+// $("#head_1").click(function() {
+// 	console.log("Clicked the first item");
+// 	alert("First pressed");
+// 	$("#head").html("Head 1 Selected");
+// });	
 
 // $("#head_1").click(function() {
 	// console.log("Clicked the first item");

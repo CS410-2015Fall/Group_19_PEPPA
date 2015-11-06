@@ -1,28 +1,22 @@
-#face img.headAcc{
-	height: 125px;
-	width: 250px;
-	border: 0;
+#ctmz .headAcc{
 	position: absolute;
-	left: 60px;
+	left:12%;
+	transform:scale(0.5,0.5);
 	z-index: 2;
 }
 
-#face img.eyeAcc{
-	height: 100px;
-	width: 200px;
-	border: 0;
+#ctmz .eyeAcc{
 	position: absolute;
-	left: 75px;
-	top: 230px;
+	top:30%;
+	left:-30%;
+	transform:scale(0.5,0.5);
 	z-index: 2;
 }
 
-#face img.neckAcc{
-	height: 100px;
-	width: 200px;
-	border: 0;
+#ctmz .neckAcc{
 	position: absolute;
-	left: 75px;
-	top: 500px;
-	z-index: 0;
+	top:90%;
+	left:30%;
+	transform:scale(0.5,0.5);
+	z-index: -1;
 }

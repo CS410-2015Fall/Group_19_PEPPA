@@ -27,7 +27,6 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-		//document.addEventListener( "touchstart", function(e){ openMenu(e); }, false );
 	},
     // deviceready Event Handler
     //
@@ -35,24 +34,63 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-		navigator.notification.alert("Device Ready");
-		document.getElementById("test_button").addEventListener("touchend", openMenu, false);
-		console.log("Device Ready...");
-		//document.getElementById("menu_button").addEventListener("click", this.openMenu());
-		//document.getElementById("main_menu").setAttribute('style', 'display:block;');
+//		navigator.notification.alert("Device Ready");
     },
 	
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
+        // var listeningElement = parentElement.querySelector('.listening');
+        // var receivedElement = parentElement.querySelector('.received');
+        // listeningElement.setAttribute('style', 'display:none;');
+        // receivedElement.setAttribute('style', 'display:block;');
         console.log('Received Event: ' + id);
     }
 };
 
 app.initialize();
+
+$(document).on("mobileinit", function (event, ui) {
+    $.mobile.defaultPageTransition = "slide";
+});
+
+app.signupController = new PePPA.SignUpController();
+app.signinController = new PePPA.SignInController();
+
+$(document).delegate("#index", "pagebeforeshow", function() {
+	console.log(PePPA.Session.getInstance().get());
+});
+
+$(document).delegate("#signup", "pagebeforeshow", function () {
+    // Reset the signup form.
+    app.signupController.resetSignUpForm();
+});
+
+$(document).delegate("#signup", "pagebeforecreate", function () {
+
+    app.signupController.init();
+	console.log('Sign up initialized');
+    app.signupController.$btnSubmit.off("tap").on("tap", function () {
+		console.log('Sign up submitting');
+        app.signupController.onSignupCommand();
+		console.log('Finished');
+    });
+
+});
+
+$(document).delegate("#login", "pagebeforeshow", function () {
+    // Reset the signup form.
+    app.signinController.resetSignInForm();
+});
+
+
+$(document).delegate("#login", "pagebeforecreate", function () {
+
+    app.signinController.init();
+	console.log("Sign in initialize");
+    app.signinController.$btnSubmit.off("tap").on("tap", function () {
+		console.log('Attempting to sign in');
+        app.signinController.onSignInCommand();
+		console.log("All done");
+    });
+});
