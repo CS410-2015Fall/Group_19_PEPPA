@@ -72,27 +72,11 @@ h1 {
     color:#F0F0F0;
 }
 
-
-
 /*NOT APP GENERATED*/
-#menu{
-    position: absolute;
-    left:5px;
-    top:5px;
-}
 
-#menu_button{
-    z-index: 2;
-    position: absolute;
-    left:10px;
-    top:10px;
-}
-
-#main_menu{
-    position: absolute;
-    left: 50px;
-    top: 50px;
-    display: none;
+*:not(input,textarea) {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
 }
 
 #panel, #flip{

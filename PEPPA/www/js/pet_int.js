@@ -18,7 +18,8 @@ f(x) 	= 		cs		+ 	t 			+ p
 */
 /*Current State*/
 var pState = 28;
-
+/*time played with pet*/
+var play = 0;
 $(document).ready(function(){
 	document.addEventListener("deviceready", onDeviceReady, false);
 });
@@ -36,11 +37,13 @@ $(document).ready(function(){
 	$("#reh").hide();
 	stateDet(pState);
 	$("#pmh").hide();
+	annoy();
 	petting();
+	
 };
 
+/*State (smile) determining function*/
 function stateDet(pState){
-	console.log("stateDet called" + pState)
 	if(0 <= pState && pState < 30){
 		$("#msa").show();
 		$("#mcl").hide();
@@ -64,17 +67,20 @@ function stateDet(pState){
 		console.log("Happy state value: " + pState);
 	}
 }
+
+/*Animation for pet and value to add to current state*/
 function petting(){
-	$(".face").touchstart(function(){
+	$(".face").touchstart(function(e){
+		if(e.target != this){
+			return;
+		}
 		$("#lec").hide();
 		$("#ley").css("animation-play-state", "paused");
 		$("#ley").hide();
-		$("#leh").css("opacity", 1.0);		
 		$("#leh").show();
 		$("#rec").hide();
 		$("#rey").css("animation-play-state", "paused");
 		$("#rey").hide();
-		$("#reh").css("opacity", 1.0);
 		$("#reh").show();
 		$("#mcl").hide();
 		$("#msa").hide();
@@ -82,34 +88,113 @@ function petting(){
 		$("#ton").hide();
 		$("#tpa").hide();
 		$("#pmh").show();
-		if(pState == 100){
-			pState = 100;
-		} else{
-			pState = pState + 0.5;		
+	});
+	$(".face").touchmove(function(e){
+		if(e.target != this){
+			return;
 		}
-		console.log("touchstart " + pState);
+		play = play + 0.1;
+		console.log("play value: " + play);
 	});
 	$(".face").touchend(function(){
 		$("#lec").show();
 		$("#ley").show();
 		$("#ley").css("animation-play-state", "running");
-		$("#leh").css("opacity", 0);
 		$("#leh").hide();
 		$("#rec").show();
 		$("#rey").show();
 		$("#rey").css("animation-play-state", "running");
-		$("#reh").css("opacity", 0);
 		$("#reh").hide();
 		$("#pmh").hide();
+		
+		if(pState >= 100){
+			pState = 100;
+		} else{
+			pState = pState + play;
+			play = 0;
+		}
+		console.log("touchstart " + pState);
+		stateDet(pState);
+	});
+};
+
+
+function annoy() {
+	$(".ly").touchstart(function(){
+		$("#ley").hide();
+		$("#mcl").hide();
+		$("#msa").show();
+		$("#tee").hide();
+		$("#ton").hide();
+		$("#tpa").hide();
+		annoyReward();
+	});
+	$(".ly").touchend(function(){
+		$("#ley").show();
+		$("#rey").show();
+		stateDet(pState);
+	});
+
+	$(".ry").touchstart(function(){
+		$("#rey").hide();
+		$("#mcl").hide();
+		$("#msa").show();
+		$("#tee").hide();
+		$("#ton").hide();
+		$("#tpa").hide();
+		annoyReward();
+	});
+	$(".ry").touchend(function(){
+		$("#ley").show();
+		$("#rey").show();
+		stateDet(pState);
+	});
+
+	$("#nos").touchstart(function(){
+		$("#mcl").hide();
+		$("#msa").show();
+		$("#tee").hide();
+		$("#ton").hide();
+		$("#tpa").hide();
+		annoyReward();
+	});
+	$("#nos").touchend(function(){
+		stateDet(pState);
+	});
+
+	$(".mu").touchstart(function(){
+		$("#mcl").hide();
+		$("#msa").show();
+		$("#tee").hide();
+		$("#ton").hide();
+		$("#tpa").hide();
+		annoyReward();
+	});
+	$(".mu").touchend(function(){
 		stateDet(pState);
 	});
 }
+function annoyReward(){
+	if(pState < 0){
+		pState = 0;
+	} else{
+		pState = pState - 0.5;
+	}
+	console.log("annoyed");
+};
+
+function resetAnim(){
+	$("#ley").css("animation-play-state", "pause");
+	$("#rey").css("animation-play-state", "pause");
+	$("#ley").css("animation-play-state", "running");
+	$("#rey").css("animation-play-state", "running");
+}
 
 function onPause(){
-localStorage["rpState"] = pState;
+window.localStorage["rpState"] = pState;
 }
 
 function onResume () {
-	var pState = parseInt(localStorage["rpState"]);
+	var pState = parseInt(window.localStorage["rpState"]);
 		console.log("onResume " + pState);
 }
