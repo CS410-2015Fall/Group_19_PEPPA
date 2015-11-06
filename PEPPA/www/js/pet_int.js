@@ -14,7 +14,10 @@ play with pet + toys: 	0.1/30s
 
 REWARD 	= CURRENT STATE + # of treats 	+ time played with pet
 f(x) 	= 		cs		+ 	t 			+ p
-
+cs= get from localstorage that was taken from server;
+p = touchmove; get the distance travled and * 0.1
+t = treats given; can give as much as you want, but formula will allow max of 2 points
+	use summation 1/n as n -> to infinity; ~2.
 */
 /*Current State*/
 var pState = 28;
@@ -173,7 +176,7 @@ function annoy() {
 	$(".mu").touchend(function(){
 		stateDet(pState);
 	});
-}
+};
 function annoyReward(){
 	if(pState < 0){
 		pState = 0;
@@ -188,11 +191,11 @@ function resetAnim(){
 	$("#rey").css("animation-play-state", "pause");
 	$("#ley").css("animation-play-state", "running");
 	$("#rey").css("animation-play-state", "running");
-}
+};
 
 function onPause(){
 window.localStorage["rpState"] = pState;
-}
+};
 
 function onResume () {
 	var pState = parseInt(window.localStorage["rpState"]);
