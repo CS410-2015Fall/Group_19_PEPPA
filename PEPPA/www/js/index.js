@@ -47,6 +47,9 @@ var app = {
         // receivedElement.setAttribute('style', 'display:block;');
         console.log('Received Event: ' + id);
     }
+
+
+
 };
 
 app.initialize();
@@ -95,3 +98,6 @@ $(document).delegate("#login", "pagebeforecreate", function () {
 		console.log("All done");
     });
 });
+
+
+

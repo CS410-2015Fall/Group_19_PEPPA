@@ -8,10 +8,9 @@ selectheadmenu.onchange=function() {
 };*/
 
 $(document).delegate("#customize", "pagebeforecreate", function () {
-
-        var $petPage = $("#customize"),
-            $btnSubmit1 = $("#head_1", $petPage),
-            $btnSubmit2 = $("#head_2", $petPage),
+        var $petPage = $("#customize");
+            $btnSubmit1 = $("#head_1", $petPage);
+            $btnSubmit2 = $("#head_2", $petPage);
             $btnSubmit3 = $("#head_3", $petPage);
 			
 			$btnSubmit4 = $("#eyes_1", $petPage);
@@ -68,31 +67,37 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 		
 		// eye accessories
 		$btnSubmit4.off("tap").on("tap", function () {
-		$("#eyes").html("Eyes 1 Selected");	
-		var faceDiv = document.getElementById("ctmz");
-		if ($('#eyeAccessory').length > 0) {
-			var e = document.getElementById("eyeAccessory");
-			e.parentNode.removeChild(e);
-		}
-		var imgTag = document.createElement('img');
-		imgTag.setAttribute('id',"eyeAccessory");
-		imgTag.setAttribute('class',"eyeAcc");
-		imgTag.setAttribute('src',"img/glasses.png");
-		faceDiv.appendChild(imgTag);
+        	$("#glas").css("opacity",1.0);
+			$("#mono").css("opacity",0);
+			console.log("glasses checked");
+		// $("#eyes").html("Eyes 1 Selected");	
+		// var faceDiv = document.getElementById("ctmz");
+		// if ($('#eyeAccessory').length > 0) {
+		// 	var e = document.getElementById("eyeAccessory");
+		// 	e.parentNode.removeChild(e);
+		// }
+		// var imgTag = document.createElement('img');
+		// imgTag.setAttribute('id',"eyeAccessory");
+		// imgTag.setAttribute('class',"glas");
+		// imgTag.setAttribute('src',"img/glasses.png");
+		// faceDiv.appendChild(imgTag);
 		})
 		
         $btnSubmit5.off("tap").on("tap", function () {
-		$("#eyes").html("Eyes 2 Selected");	
-		var faceDiv = document.getElementById("ctmz");
-		if ($('#eyeAccessory').length > 0) {
-			var e = document.getElementById("eyeAccessory");
-			e.parentNode.removeChild(e);
-		}
-		var imgTag = document.createElement('img');
-		imgTag.setAttribute('id',"eyeAccessory");
-		imgTag.setAttribute('class',"eyeAcc");
-		imgTag.setAttribute('src',"img/monocle.png");
-		faceDiv.appendChild(imgTag);
+        	$("#glas").css("opacity",0);
+			$("#mono").css("opacity",1.0);
+			console.log("monocle checked");
+		// $("#eyes").html("Eyes 2 Selected");	
+		// var faceDiv = document.getElementById("ctmz");
+		// if ($('#eyeAccessory').length > 0) {
+		// 	var e = document.getElementById("eyeAccessory");
+		// 	e.parentNode.removeChild(e);
+		// }
+		// var imgTag = document.createElement('img');
+		// imgTag.setAttribute('id',"eyeAccessory");
+		// imgTag.setAttribute('class',"mono");
+		// imgTag.setAttribute('src',"img/monocle.png");
+		// faceDiv.appendChild(imgTag);
 		})
 		
 		// neck accessories
@@ -131,11 +136,16 @@ $(document).delegate("#customize", "pagebeforecreate", function () {
 			e.parentNode.removeChild(e);
 		}})
 		$btnSubmit9.off("tap").on("tap", function () {
-		var faceDiv = document.getElementById("ctmz");
-		if ($('#eyeAccessory').length > 0) {
-			var e = document.getElementById("eyeAccessory");
-			e.parentNode.removeChild(e);
-		}})
+		// var faceDiv = document.getElementById("ctmz");
+		// if ($('#eyeAccessory').length > 0) {
+		// 	var e = document.getElementById("eyeAccessory");
+		// 	e.parentNode.removeChild(e);
+		//	}
+		// !!! JUST FOR DEMO
+        	$("#glas").css("opacity",0);
+			$("#mono").css("opacity",0);
+
+		})
 		$btnSubmit10.off("tap").on("tap", function () {
 		var faceDiv = document.getElementById("ctmz");
 		if ($('#neckAccessory').length > 0) {
