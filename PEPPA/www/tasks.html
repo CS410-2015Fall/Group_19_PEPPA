@@ -14,7 +14,6 @@
 		<link rel="stylesheet" href="css/pet_int.css"/>
 		<link rel="stylesheet" href="css/task_base.css">
 		<!-- CSS overrides - remove if you don't need it -->
-		<link rel="stylesheet" href="css/task_app.css">
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery.mobile.js"></script>
 		<!--<script src="js/jquery-1.11.3.js"</script>-->
@@ -75,8 +74,6 @@
 					<% } %>
 				</ul>
 			</section>
-
-
 			
 			<footer id="footer">
 				<span id="todo-count">
@@ -92,11 +89,11 @@
 					</li>
 					<li>
 						<a class="<% this.filterIndex === 2 ? 'selected' : '' %>" href="#/completed">Completed</a>
-					</li>
-				</ul>
-				<% if(this.model.completed() > 0) { %>
+					</li><% if(this.model.completed() > 0) { %>
 				<button id="clear-completed" data-absurd-event="click:clearCompleted">Clear completed (<% this.model.completed() %>)</button>
 				<% } %>
+				</ul>
+				
 			</footer>
 		</section>
 		
