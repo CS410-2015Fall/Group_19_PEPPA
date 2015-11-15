@@ -1,0 +1,262 @@
+/*FACE ANIMATION*//*768x1280*/
+.face{
+    position:fixed;
+    height: 555px;
+    width:355px;
+/*    background-color: lightgrey;*/
+    animation: movement 5s infinite;
+    animation-direction: alternate;
+    -webkit-animation: movement 5s infinite;
+    -webkit-animation-direction: alternate;
+}
+
+/*LEFT EYE*/
+.ly{
+    position: absolute;
+    transform: scale(0.4,0.4);
+    top:20%;
+    left: 20%;
+
+}
+#lec{ /*base*/
+    position: relative;
+    top: 152px;
+    opacity: 1.0;
+}
+#ley{
+    position: absolute;
+    opacity: 1.0;
+    animation: blink 5s infinite;
+    -webkit-animation: blink 5s infinite;
+}
+#leh{
+    position:absolute;
+    top: 152px;
+    left: 0px;
+    opacity: 1.0;
+}
+
+/*RIGHT EYE*/
+.ry{
+    position: absolute;
+    transform: scale(0.4,0.4);
+    top:20%;
+    right:20%;
+}
+#rec{/*base*/
+    position: relative;
+    top: 152px;
+    opacity: 1.0;
+}
+#rey{
+    position: absolute;
+    opacity: 1.0;
+    animation: blink 5s infinite;
+    -webkit-animation: blink 5s infinite;
+}
+#reh{
+    position:absolute;
+    top: 152px;
+    right: 0px;
+    opacity: 1.0;
+}
+
+/*NOSE*/
+#nos{
+    position: absolute;
+    transform: scale(0.4,0.4);
+    top:45%;
+    left:14%;
+    
+}
+
+/*MOUTH*/
+.mu{
+    position: absolute;
+    transform: scale(0.4,0.4);
+    height:10px;
+    width:10px;
+    top:65%;
+    left:17.6%;
+}
+#mcl{
+      position: absolute;
+      opacity: 1.0;
+      top:-15px;
+      left:239px;
+}
+#msa{
+      position: absolute;
+      opacity: 1.0;
+      top:-15px;
+      left:230px;
+}
+#tee{
+      position: absolute;
+      opacity: 1.0;
+}
+#ton{
+      position: absolute;
+      opacity: 1.0;
+      top:215px;
+      left:258px;
+}
+#tpa{
+      position: absolute;
+      opacity: 1.0;
+      top:215px;
+      left:258px;
+    animation: pant 5s infinite;
+    -webkit-animation: pant 5s infinite;
+}
+#pmh{
+    position: absolute;
+    opacity: 1.0;
+    top: -25px;
+}
+
+
+
+
+@keyframes blink {
+    0%{
+        opacity: 1.0;
+    }
+    1%{
+        opacity: 1.0;
+    }
+    2%{
+        opacity: 0;
+    }
+    3%{
+        opacity: 1.0;
+    }
+    70%{
+        opacity: 1.0;
+    }
+    72%{
+        opacity: 0;
+    }
+    73%{
+        opacity: 1.0;
+    }
+    75%{
+        opacity: 0;
+    }
+    77%{
+        opacity: 1.0;
+    }
+}
+@keyframes pant{
+    0%{
+        opacity: 1.0;
+    }
+    1%{
+        opacity: 1.0;
+    }
+    9%{
+        opacity: 1.0;
+    }
+    10%{
+        opacity: 0;
+    }
+    11%{
+        opacity: 0;
+    }
+    19%{
+        opacity: 0;
+    }
+    20%{
+        opacity: 1.0;
+    }
+    21%{
+        opacity: 1.0;
+    }
+    29%{
+        opacity: 1.0;
+    }
+    30%{
+        opacity: 0;
+    }
+    31%{
+        opacity: 0;
+    }
+    39%{
+        opacity: 0;
+    }
+    40%{
+        opacity: 1.0;
+    }
+    41%{
+        opacity: 1.0;
+    }
+    49%{
+        opacity: 1.0;
+    }
+    50%{
+        opacity: 0;
+    }
+    51%{
+        opacity: 0;
+    }
+    59%{
+        opacity: 0;
+    }
+    60%{
+        opacity: 1.0;
+    }
+    61%{
+        opacity: 1.0;
+    }
+    69%{
+        opacity: 1.0;
+    }
+    70%{
+        opacity: 0;
+    }
+    71%{
+        opacity: 0;
+    }
+    79%{
+        opacity: 0;
+    }
+    80%{
+        opacity: 1.0;
+    }
+    81%{
+        opacity: 1.0;
+    }
+    89%{
+        opacity: 1.0;
+    }
+    90%{
+        opacity: 0;
+    }
+    91%{
+        opacity: 0;
+    }
+    99%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1.0;
+    }
+}
+
+@keyframes movement{
+    0%{
+        bottom: 0px;
+    }
+    25%{
+        bottom: 10px;
+    }
+    50%{
+        bottom:0px
+    }
+    75%{
+        bottom:10px;
+    }
+    100%{
+        bottom:0px;
+    }
+}

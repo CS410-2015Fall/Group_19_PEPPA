@@ -1,3 +1,4 @@
+/*CORDOVA GENERATED*/
 .open a, .open a:hover {
     padding: 7px 15px;
     background-color: #000;
@@ -38,8 +39,16 @@
     top: 8px;
     left: 20px;
 }
-.ui-panel-inner {
-    padding: 0;
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+	margin-left: auto;
+	margin-right: auto;
 }
 .panel a:hover {
     background-color: #95A5A6;
@@ -56,21 +65,6 @@
     text-align: center;
     font-size: 18px;
 }
-.panel.left .newsfeed a:before { 
-    content: '\f09e';
-}
-.panel.left .profile a:before { 
-    content: '';
-}
-.panel.left .setting a:before { 
-    content: '\2699';
-}
-.panel.left .logout a:before { 
-    content: '\e78e';
-}
-.panel.left .report a:before { 
-    content: '\f0e0';
-}
 .title {
     font-size: 24px;
 }
@@ -78,37 +72,11 @@
     color:#F0F0F0;
 }
 
-
-
 /*NOT APP GENERATED*/
-#container{
-    width:100%;
-    height:100%;
-}
-#container img{
-    position: absolute;
-    width:50%;
-    height:50%;
-}
 
-#menu{
-    position: absolute;
-    left:5px;
-    top:5px;
-}
-
-#menu_button{
-    z-index: 2;
-    position: absolute;
-    left:10px;
-    top:10px;
-}
-
-#main_menu{
-    position: absolute;
-    left: 50px;
-    top: 50px;
-    display: none;
+*:not(input,textarea) {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
 }
 
 #panel, #flip{
@@ -123,32 +91,10 @@
     display: none;
 }
 
-#test_button{
-    position: absolute;
-    left: 60px;
-    top: 60px;
+.bi-invalid-input {
+background-color:#fffacd!important;
 }
 
-#face{
-    width:100%;
-    height:100%;
+.bi-invisible {
+display:none;
 }
-#face img{
-    position:absolute;
-    width:90%;
-    height:90%;
-}
-#face img.open{
-    animation: Facefade 3000ms infinite;
-    -webkit-animation:Facefade 3000ms infinite;
-}
-@keyframes Facefade {
-    0% {
-        opacity: 1.0; 
-    }
-    2% {
-        opacity: 0; 
-    }
-    3%{
-        opacity: 1.0;    
-    }

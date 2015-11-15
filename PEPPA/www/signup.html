@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/style.mobile.css"/>
+	<link rel="stylesheet" href="css/test.css"/>
+	<link  rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css"/>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile.js"></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/settings.js"></script>
+	<script type="text/javascript" src="js/signUpController.js"></script>
+	<script type="text/javascript" src="js/messages.js"></script>
+	<!--<script src="js/jquery-1.11.3.js"</script>
+	<script src="js/jquery.mobile-1.4.5.js"></script>-->
+	<!--<script src="js/test.js"></script>-->
+</head>
+
+<body>
+	<div class="wrapper" data-role="page" id="signup">
+        <div class="header" data-role="header" data-theme="b">
+			<span class="open left"><a href="login.html">&#8678;</a></span>
+			<span class="title">SIGN UP</span>
+		</div>
+    <div role="main" class="ui-content">
+        <h3>Sign Up</h3>
+		<div id="ctn-err" class="bi-invisible"></div>
+        <label>First Name</label>
+        <input type="text" name="txt-first-name" id="txt-first-name" value="">
+        <label>Last Name</label>
+        <input type="text" name="txt-last-name" id="txt-last-name" value="">
+        <label>Email Address</label>
+        <input type="text" name="txt-email-address" id="txt-email-address" value="">
+        <label>Password</label>
+        <input type="password" name="txt-password" id="txt-password" value="">
+        <label>Confirm Password</label>
+        <input type="password" name="txt-password-confirm" id="txt-password-confirm" value="">
+		<button id="signup-button" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5">Submit</button>
+            <div data-role="popup" id="dlg-sign-up-sent" data-dismissible="false" style="max-width:400px;">
+                <div data-role="header">
+                    <h1>Almost done...</h1>
+                </div>
+                <div role="main" class="ui-content">
+                    <h3>Confirm Your Email Address</h3>
+                    <p>We sent you an email with instructions on how to confirm your email address. Please check your inbox and follow the instructions in the email.</p>
+                    <div class="mc-text-center"><a href="login.html" class="ui-btn ui-corner-all ui-shadow ui-btn-b mc-top-margin-1-5">OK</a></div>
+
+                </div>
+            </div>
+        </div><!-- /content -->
+    </div><!-- /page -->
+</body>
+</html>

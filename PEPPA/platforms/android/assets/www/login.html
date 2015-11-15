@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/style.mobile.css"/>
+	<link rel="stylesheet" href="css/test.css"/>
+	<link  rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css"/>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile.js"></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/settings.js"></script>
+	<script type="text/javascript" src="js/signin.js"></script>
+	<script type="text/javascript" src="js/messages.js"></script>
+	<!--<script src="js/test.js"></script>-->
+</head>
+<body>
+	<div class="demo-wrapper" data-role="page" id="login">
+		<div class="header" data-role="header">
+			<span class="open left"><a href="index.html">&#8678;</a></span>
+			<span class="title">LOG IN</span>
+		</div>
+		<div data-role="main" class="ui-content" align="center">
+			<h3>Sign In</h3>
+				<div id="ctn-err" class="bi-invisible"></div>
+				<label for="txt-email-address">Email Address</label>
+				<input type="text" name="txt-email-address" id="txt-email-address" value="">
+				<label for="txt-password">Password</label>
+				<input type="password" name="txt-password" id="txt-password" value="">
+				<fieldset data-role="controlgroup">                
+					<label align="center"><input type="checkbox" name="chk-keep-signed-in" id="chk-keep-signed-in"> Keep me signed in</label>
+				</fieldset>
+				<!--<a href="#dlg-invalid-credentials" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5">Submit</a>-->
+				<button id="signin-button" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5">Submit</button>
+				<a href="signup.html" class="ui-btn ui-btn-b ui-corner-all">Sign Up</a>
+				<p class="mc-top-margin-1-5"><a href="#begin-password-reset-page">Can't access your account?</a></p>
+			</div>
+			<div data-role="popup" id="dlg-invalid-credentials" data-dismissible="false" style="max-width:400px;">
+				<div role="main" class="ui-content">
+				<h3 class="mc-text-danger">Login Failed</h3>
+				<p>Did you enter the right credentials?</p>
+			<div class="mc-text-center"><a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b mc-top-margin-1-5">OK</a></div>
+			</div>
+		</div>
+		</div>
+	</div>
+</body>
+</html>
+
