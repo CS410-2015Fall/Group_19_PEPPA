@@ -42,8 +42,8 @@ ntd.refresh_list = function() {
     localStorage.ntd_list = JSON.stringify(ntd.list || []);
 };
 
-// Initialize the index page
-$(document).delegate('#taskpage','pageinit', function() {
+// Initialize the one page
+$(document).delegate('#one','pageinit', function() {
     // If no list is already present, initialize it
     if (!localStorage.ntd_list) {
         localStorage.ntd_list = "[]";
@@ -55,7 +55,7 @@ $(document).delegate('#taskpage','pageinit', function() {
         ntd.selected = $(this).data('task');
     });
     // Refresh the list everytime the page is reloaded
-    $('#taskpage').bind('pagebeforeshow', ntd.refresh_list);
+    $('#one').bind('pagebeforeshow', ntd.refresh_list);
 });
 
 // Bind the 'Done' and 'Not Done' buttons to task removal
@@ -65,6 +65,6 @@ $(document).delegate('#confirm', 'pageinit', function(){
 
 // Make the transition in reverse for the buttons on the done and notdone pages
 $(document).delegate('#done, #notdone', 'pageinit', function(){
-    // We reverse transition for any button linking to index page
-    $('[href="#taskpage"]').attr('data-direction','reverse');
+    // We reverse transition for any button linking to one page
+    $('[href="#one"]').attr('data-direction','reverse');
 })

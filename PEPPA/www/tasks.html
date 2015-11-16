@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="css/index.css"/>
 <link rel="stylesheet" href="css/customize.css"/>
 <link rel="stylesheet" href="css/pet_int.css"/>
+<link rel="stylesheet" href="css/todo.css"/>
 
 
 <script src="js/jquery.js"></script>
@@ -27,73 +28,28 @@
 <script type="text/javascript" src="js/signUpController.js"></script>		
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/pet_int.js"></script>
+<script type="text/javascript" src="js/todo.js"></script>
+
 <!--<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>-->
 </head>
 
 <body>
-		<div class="wrapper" data-role="page" id="tasks">
-		<div class="header" data-role="header" data-theme="b">
-			<span class="open left"><a href="index.html">&#8678;</a></span>
-			<span class="title">Tasks</span>
+<div class="wrapper" data-role="page" id="tasks">
+	<div class="header" data-role="header" data-theme="b">
+		<span class="open left"><a href="index.html">&#8678;</a></span>
+		<span class="title">Tasks</span>
+	</div>
+	<div data-role="main" class="ui-content">
+		<div id='list'>
+ 			<form class='new'>
+    			<input id='new' placeholder='New Item' type='text'>
+    			<button class='button'>Add a Task</button>
+  			</form>
+  			<ul class='list'>
+  			</ul>
 		</div>
-
-<div id="taskpage" data-url="taskpage" data-role="page"></div>
-
-<div data-role="content">
-
-<ul id="task_list" data-role="listview">
-<li data-role="list-divider">Task List</li>
-<li data-role="list-divider">Add a task</li>
-</ul>
-
-<form id="form_336" method="GET">
-
-<div data-role="fieldcontain">
-<label for="inp_337"></label>
-<input type="text" name="inp_337" id="inp_337" />
+	</div>
 </div>
-
-<input id="add" type="button" data-icon="plus" value="Add"/>
-</form>
-
-</div></div>
-
-<div id="confirm" data-url="confirm" data-role="page">
-<div data-role="header" data-theme="b">
-<h1>Finish Task</h1>
-</div>
-
-<div data-role="content">
-<span style="color: #0080ff;">Mark this task as:</span>
-<a class="remove_task" href="#done" data-role="button" data-icon="check" data-theme="b">Done</a>
-<a class="remove_task" href="#notdone" data-role="button" data-icon="delete" data-theme="e">Not Done</a>
-<br><br>
-<a href="#taskpage" data-role="button" data-icon="info">Cancel</a>
-
-</div></div>
-
-<div id="done" data-url="done" data-role="page">
-<div data-role="header" data-theme="b">
-<h1>Task Completed</h1>
-</div>
-
-<div data-role="content">
-<span style="color: #0080ff;"><strong>Great Job! Keep up with your tasks!<br></strong><br></span>
-<a href="#taskpage" data-role="button" data-icon="star">Go Back to Task List</a>
-
-</div></div>
-
-<div id="notdone" data-url="notdone" data-role="page" data-theme="f">
-<div data-role="header" data-theme="e">
-<h1>Not Completed</h1>
-</div>
-
-<div data-role="content">
-<span style="color: #ff7f00;"><strong>Try harder next time!<br><br></strong></span>
-<a href="#taskpage" data-role="button" data-icon="star" data-theme="e">Go Back to Task List</a>
-
-</div></div></div>
-
 </body>
 </html>

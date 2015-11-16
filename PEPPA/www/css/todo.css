@@ -1,0 +1,65 @@
+*, *:before, *:after {
+  margin:0; padding:0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+ul, ol { list-style:none}
+
+body, input {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14pt;
+  color: white;
+  text-align: justify;
+  line-height: normal;
+  font-smoothing: antialiased;
+}
+#list {
+  position: relative;
+}
+#list .new {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  clear: both;
+  height: 100px;
+}
+
+#list .list {
+  position: relative;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+#list .list .item {
+  clear: both;
+  height: 50px;
+}
+#list .list .item input {
+  cursor: default;
+  float: left;
+  width: calc(100% - 150px);
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border: 0;
+  background: transparent;
+  text-indent: 25px;
+}
+#list .list .item input.checked {
+  opacity: 8;
+  text-decoration: line-through;
+}
+#list .list .item ol {
+  float: right;
+}
+#list .list .item ol li {
+  cursor: pointer;
+  float: left;
+  width: 50px;
+  height: 50px;
+  font-size: 20pt;
+  line-height: 50px;
+  text-align: center;
+}
