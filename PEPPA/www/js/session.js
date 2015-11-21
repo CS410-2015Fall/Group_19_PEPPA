@@ -19,7 +19,8 @@ PePPA.Session = (function () {
 
                 try {
                     result = JSON.parse(window.localStorage.getItem(sessionIdKey));
-                } catch(e){}
+                } catch(e){
+				console.log("Data could not be retrieved");}
 
                 return result;
             }

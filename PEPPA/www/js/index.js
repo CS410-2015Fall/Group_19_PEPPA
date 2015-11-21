@@ -34,7 +34,11 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        
+		var session = PePPA.Session.getInstance().get();
+		var today = new Date();
+		if (session && session.keepSignedIn && new Date(session.expirationDate).getTime() > today.getTime()) {
+		alert("Logged in as " + session.userProfileModel.firstName);
+		}
 //		navigator.notification.alert("Device Ready");
     },
 	
@@ -60,10 +64,19 @@ $(document).on("mobileinit", function (event, ui) {
 
 app.signupController = new PePPA.SignUpController();
 app.signinController = new PePPA.SignInController();
-
-$(document).delegate("#index", "pagebeforeshow", function() {
-	console.log(PePPA.Session.getInstance().get());
+/*
+$(document).on("pagecontainerbeforechange", function (event, ui) {
+if (typeof ui.toPage !== "object") return;
+switch (ui.toPage.attr("id")) {
+    case "index":
+	var session = PePPA.Session.getInstance().get(),
+	today = new Date();
+	if (session && session.keepSignedIn && new Date(session.expirationDate).getTime() > today.getTime()) {
+	alert("Logged in as " + session.userProfileModel.firstName);
+	}
+	}
 });
+*/
 
 $(document).delegate("#signup", "pagebeforeshow", function () {
     // Reset the signup form.
