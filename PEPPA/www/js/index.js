@@ -16,64 +16,77 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- function initialize(){
-   this.bindEvents();
-};
-// Bind Event Listeners
-//
-// Bind any events that are required on startup. Common events are:
-// 'load', 'deviceready', 'offline', and 'online'.
-function bindEvents(){
-document.addEventListener('deviceready', this.onDeviceReady, false);
-};
-// deviceready Event Handler
-//
-// The scope of 'this' is the event. In order to call the 'receivedEvent'
-// function, we must explicitly call 'app.receivedEvent(...);'
-function onDeviceReady() {
-    // app.receivedEvent('deviceready');
-    backb();
+//  function initialize(){
+//    this.bindEvents();
+// };
+// // Bind Event Listeners
+// //
+// // Bind any events that are required on startup. Common events are:
+// // 'load', 'deviceready', 'offline', and 'online'.
+// function bindEvents(){
+// document.addEventListener('deviceready', this.onDeviceReady, false);
+// };
+// // deviceready Event Handler
+// //
+// // The scope of 'this' is the event. In order to call the 'receivedEvent'
+// // function, we must explicitly call 'app.receivedEvent(...);'
+// function onDeviceReady() {
+//     // app.receivedEvent('deviceready');
+//     backb();
+// };
+
+$(document).ready(function(){
+    document.addEventListener("deviceready", onDeviceReady, false);
+});
+
+ function onDeviceReady(){
+    // $(window).unbind();
+    // $(window).bind();
+    $("#lec").show();
+    $("#ley").show();
+    $("#leh").hide();
+    $("#rec").show();
+    $("#rey").show();
+    $("#reh").hide();
+    $("#pmh").hide();
 };
 
+document.addEventListener("deviceready", backb, false);
+
 function backb(){
-    $(document).addEventListener("backbutton", function(e){
+    document.addEventListener("backbutton", function(){
         if($.mobile.activePage.is('#index')){
-            /* 
-             Event preventDefault/stopPropagation not required as adding backbutton
-              listener itself override the default behaviour. Refer below PhoneGap link.
-            */
-            //e.preventDefault();
             navigator.app.exitApp();
         }
         else {
-            else { window.location.href = $("#index"); }
+            navigator.app.backHistory();
         }
-    }, false);    
-}
+    });
+};
 
 $(document).on("mobileinit", function (event, ui) {
     $.mobile.defaultPageTransition = "slide";
 });
 
-app.signupController = new PePPA.SignUpController();
-app.signinController = new PePPA.SignInController();
+signupController = new PePPA.SignUpController();
+signinController = new PePPA.SignInController();
 
 $(document).delegate("#index", "pagebeforeshow", function() {
-	console.log(PePPA.Session.getInstance().get());
+	// console.log(PePPA.Session.getInstance().get());
 });
 
 $(document).delegate("#signup", "pagebeforeshow", function () {
     // Reset the signup form.
-    app.signupController.resetSignUpForm();
+    signupController.resetSignUpForm();
 });
 
 $(document).delegate("#signup", "pagebeforecreate", function () {
 
-    app.signupController.init();
+    signupController.init();
 	console.log('Sign up initialized');
-    app.signupController.$btnSubmit.off("tap").on("tap", function () {
+    signupController.$btnSubmit.off("tap").on("tap", function () {
 		console.log('Sign up submitting');
-        app.signupController.onSignupCommand();
+        signupController.onSignupCommand();
 		console.log('Finished');
     });
 
@@ -81,17 +94,17 @@ $(document).delegate("#signup", "pagebeforecreate", function () {
 
 $(document).delegate("#login", "pagebeforeshow", function () {
     // Reset the signup form.
-    app.signinController.resetSignInForm();
+    signinController.resetSignInForm();
 });
 
 
 $(document).delegate("#login", "pagebeforecreate", function () {
 
-    app.signinController.init();
+    signinController.init();
 	console.log("Sign in initialize");
-    app.signinController.$btnSubmit.off("tap").on("tap", function () {
+    signinController.$btnSubmit.off("tap").on("tap", function () {
 		console.log('Attempting to sign in');
-        app.signinController.onSignInCommand();
+        signinController.onSignInCommand();
 		console.log("All done");
     });
 });

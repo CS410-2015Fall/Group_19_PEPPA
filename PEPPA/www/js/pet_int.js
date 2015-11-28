@@ -20,32 +20,36 @@ t = treats given; can give as much as you want, but formula will allow max of 2 
 	use summation 1/n as n -> to infinity; ~2.
 */
 /*Current State*/
-var pState = 28;
+
 /*time played with pet*/
 var play = 0;
-$(document).ready(function(){
-	document.addEventListener("deviceready", onDeviceReady, false);
-});
 
- function onDeviceReady(){
-	// $(window).unbind();
-	// $(window).bind();
-	document.addEventListener("pause", onPause, false);
-	document.addEventListener("resume", onResume, false);
-	$("button").addEventListener("click", todo);
-	$("#lec").show();
-	$("#ley").show();
-	$("#leh").hide();
-	$("#rec").show();
-	$("#rey").show();
-	$("#reh").hide();
-	stateDet(pState);
-	$("#pmh").hide();
-	annoy();
-	petting();
-	
-};
+document.addEventListener("pause", onPause, false);
+document.addEventListener("resume", onResume, false);
+document.addEventListener("deviceready", savedState);
+document.addEventListener("deviceready", annoy);
+document.addEventListener("deviceready", petting);
+// document.addEventListener("deviceready",function(){stateDet(pState);});
+console.log("PET_INT RAN");
+// $(document).ready(function(){
+// 	document.addEventListener("deviceready", onDeviceReady, false);
+// });
 
+//  function onDeviceReady(){
+// 	// $(window).unbind();
+// 	// $(window).bind();
+
+// };
+function savedState(){
+	console.log("onResume " + parseFloat(window.localStorage.getItem("rpState")));
+	if (pState = parseFloat(window.localStorage.getItem("rpState")) == null){
+		pState = 30;
+		stateDet(pState);
+	} else{
+		pState = parseFloat(window.localStorage.getItem("rpState"));
+		stateDet(pState);
+	}
+}
 /*State (smile) determining function*/
 function stateDet(pState){
 	if(0 <= pState && pState < 30){
@@ -74,6 +78,7 @@ function stateDet(pState){
 
 /*Animation for pet and value to add to current state*/
 function petting(){
+	console.log("petting ran");
 	$(".face").touchstart(function(e){
 		if(e.target != this){
 			return;
@@ -196,10 +201,11 @@ function resetAnim(){
 };
 
 function onPause(){
-window.localStorage["rpState"] = pState;
+	window.localStorage.setItem("rpState",pState);
+
 };
 
 function onResume () {
-	var pState = parseInt(window.localStorage["rpState"]);
+	pState = parseFloat(window.localStorage.getItem("rpState"));
 		console.log("onResume " + pState);
 }

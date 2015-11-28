@@ -1,3 +1,5 @@
+$("button").click(todo());
+
 function todo(){
     console.log("todo ran");
     $('.new').submit(function () {
