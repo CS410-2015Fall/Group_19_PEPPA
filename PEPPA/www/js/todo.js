@@ -1,4 +1,4 @@
-$("button").click(todo());
+document.addEventListener("deviceready", todo);
 
 function todo(){
     console.log("todo ran");
