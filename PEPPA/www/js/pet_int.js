@@ -32,6 +32,7 @@ $(document).ready(function(){
 	// $(window).bind();
 	document.addEventListener("pause", onPause, false);
 	document.addEventListener("resume", onResume, false);
+	$("button").addEventListener("click", todo);
 	$("#lec").show();
 	$("#ley").show();
 	$("#leh").hide();
@@ -178,12 +179,13 @@ function annoy() {
 	});
 };
 function annoyReward(){
+	console.log("annoyed");
 	if(pState < 0){
 		pState = 0;
 	} else{
 		pState = pState - 0.5;
 	}
-	console.log("annoyed");
+	
 };
 
 function resetAnim(){
