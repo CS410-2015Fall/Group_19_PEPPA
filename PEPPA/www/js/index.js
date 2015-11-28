@@ -16,43 +16,40 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-	},
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-        
-//		navigator.notification.alert("Device Ready");
-    },
-	
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        // var listeningElement = parentElement.querySelector('.listening');
-        // var receivedElement = parentElement.querySelector('.received');
-        // listeningElement.setAttribute('style', 'display:none;');
-        // receivedElement.setAttribute('style', 'display:block;');
-        console.log('Received Event: ' + id);
-    }
-
-
-
+ function initialize(){
+   this.bindEvents();
+};
+// Bind Event Listeners
+//
+// Bind any events that are required on startup. Common events are:
+// 'load', 'deviceready', 'offline', and 'online'.
+function bindEvents(){
+document.addEventListener('deviceready', this.onDeviceReady, false);
+};
+// deviceready Event Handler
+//
+// The scope of 'this' is the event. In order to call the 'receivedEvent'
+// function, we must explicitly call 'app.receivedEvent(...);'
+function onDeviceReady() {
+    // app.receivedEvent('deviceready');
+    backb();
 };
 
-app.initialize();
+function backb(){
+    $(document).addEventListener("backbutton", function(e){
+        if($.mobile.activePage.is('#index')){
+            /* 
+             Event preventDefault/stopPropagation not required as adding backbutton
+              listener itself override the default behaviour. Refer below PhoneGap link.
+            */
+            //e.preventDefault();
+            navigator.app.exitApp();
+        }
+        else {
+            else { window.location.href = $("#index"); }
+        }
+    }, false);    
+}
 
 $(document).on("mobileinit", function (event, ui) {
     $.mobile.defaultPageTransition = "slide";
