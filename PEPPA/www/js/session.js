@@ -23,7 +23,13 @@ PePPA.Session = (function () {
 				console.log("Data could not be retrieved");}
 
                 return result;
-            }
+            },
+			
+			clear: function () {
+			
+				window.localStorage.clear();
+				console.log("Cleared local data");
+			}	
         };
     };
 

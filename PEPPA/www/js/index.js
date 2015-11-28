@@ -33,12 +33,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-		var session = PePPA.Session.getInstance().get();
-		var today = new Date();
-		if (session && session.keepSignedIn && new Date(session.expirationDate).getTime() > today.getTime()) {
-		alert("Logged in as " + session.userProfileModel.firstName);
-		}
+        app.receivedEvent('deviceready');		
 //		navigator.notification.alert("Device Ready");
     },
 	
@@ -51,9 +46,7 @@ var app = {
         // receivedElement.setAttribute('style', 'display:block;');
         console.log('Received Event: ' + id);
     }
-
-
-
+	
 };
 
 app.initialize();
@@ -64,6 +57,7 @@ $(document).on("mobileinit", function (event, ui) {
 
 app.signupController = new PePPA.SignUpController();
 app.signinController = new PePPA.SignInController();
+app.signoutController = new PePPA.SignOutController();
 /*
 $(document).on("pagecontainerbeforechange", function (event, ui) {
 if (typeof ui.toPage !== "object") return;
@@ -112,5 +106,23 @@ $(document).delegate("#login", "pagebeforecreate", function () {
     });
 });
 
+$(document).delegate("#logout", "pagebeforecreate", function () {
+    app.signoutController.init();
+	console.log("Sign out initialize");
+	console.log('Attempting to sign out');
+    app.signoutController.logout();
+	console.log("All done");
+    });
 
-
+$(document).delegate("#index", "pagebeforeshow", function () {
+var session = PePPA.Session.getInstance().get();
+var today = new Date();
+if (session && session.keepSignedIn && new Date(session.expirationDate).getTime() > today.getTime()) {
+	document.getElementById("l-in").style.display = "none";
+	document.getElementById("l-out").style.display = "inline";
+	}
+	else if (session == null){
+	document.getElementById("l-out").style.display = "none";
+	document.getElementById("l-in").style.display = "inline";	
+	}	
+});
