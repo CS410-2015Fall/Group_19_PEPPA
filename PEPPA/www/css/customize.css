@@ -21,20 +21,7 @@
 	z-index: -1;
 }
 
-#mono{
+#tab{
 	position: absolute;
-	top:-30%;
-	left:20%;
-	transform:scale(0.5,0.5);
-	z-index: 2;
-	opacity: 0;
-}
-
-#glas{
-	position: absolute;
-	top:30%;
-	left:-30%;
-	transform:scale(0.5,0.5);
-	z-index: 2;
-	opacity: 0;
+	top: 100px;
 }

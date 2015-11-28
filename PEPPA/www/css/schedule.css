@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+.row:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+.col-1 {
+	width: 14.29%;
+}
+.col-2 {
+	width: 28.57%;
+}
+.col-3 {
+	width: 42.86%;
+}
+.col-4 {
+	width: 57.14%;
+}
+.col-5 {
+	width: 71.43%;
+}
+.col-6 {
+	width: 85.71%;
+}
+.col-7 {
+	width: 100%;
+}
+
