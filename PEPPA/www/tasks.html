@@ -33,26 +33,20 @@
 			<span class="open left"><a href="index.html">&#8678;</a></span>
 			<span class="title">Tasks</span>
 		</div>
-		<div data-role="main" class="ui-content">
-			<div class="tasks" id="tasks">
-<!-- 				<div id ="add">
-				<input type="text" name="new item" id="newitem" placeholder="what to do?">
-				<input type="submit" value="Add">
-				</div>
-				<br>
-				<div id ="todo">
-					<ul id ="todolist">
-					</ul>
-				</div>
-				<br>
-				<div id = "complete">
-					
-				</div> -->
-				<form id="tasks-list">
- 					<input id="task">
-				</form>
-				<ul id="tasks"></ul>
-			</div>
+	<div data-role="main" class="ui-content">
+		<div class="tasks" id="tasks">
+			<form id="newtask" data-ajax="false">
+				<label for="add_task">I need to...</label>
+				<input type="text" name="task" id="textinput" placeholder="wash my dog">
+				<input type="submit" data-inline="true" value="Add Task" data-theme="b">
+			</form>
+			<ul id="tasklist" data-role="listview">
+				<li>New items should appear under here</li>
+			</ul>
+		</div>
+	</div>
+	<div class="footer" data-role="footer" data-theme="b" data-position="fixed" data-id="store">
+		Footer
 	</div>
 </body>
 </html>
