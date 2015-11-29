@@ -11,8 +11,7 @@ $(document).delegate("#taskpage", "pagebeforecreate", function() {
 			$('#tasklist').append($('<li/>', {
 				id: i,
 				//'data-role': "list-divider"
-				'data-icon': "delete"
-			}).html(item));
+			}).append($('<a href="#" data-icon="delete"></a>').html(item)));
 		}
 	}
 });
@@ -38,9 +37,10 @@ $(document).ready(function() {
 		$('#tasklist').append($('<li/>', {
 			id: i,
 			//'data-role': "list-divider"
-			'data-icon': "delete"
-		}).append($('<a href=#></a>').html(input)));
+		}).append($('<a href="#" data-icon="delete"></a>').html(input)));
 		
 		$('#tasklist').listview('refresh');
+		document.getElementById("textinput").value="";
+		return false;
 	};
 });
