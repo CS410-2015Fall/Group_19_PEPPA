@@ -1,3 +1,36 @@
+document.addEventListener("pause", onPauseC, false);
+document.addEventListener("resume", onResumeC, false);
+
+var Accessories ={
+	
+}
+
+document.addEventListener("deviceready", savedState);
+
+
+
+function savedState(){
+	console.log("onResumeC: " + parseFloat(window.localStorage.getItem("rcState")));
+	if (cState = parseFloat(window.localStorage.getItem("rcState")) == null){
+		cState = 30;
+		stateDet(cState);
+	} else{
+		cState = parseFloat(window.localStorage.getItem("rcState"));
+		stateDet(cState);
+	}
+}
+
+
+function onPauseC(){
+	window.localStorage.setItem("rcState", JSON.stringify(cState));
+};
+
+function onResumeC() {
+
+	cState = JSON.parse(window.localStorage.getItem("rcState"));
+		console.log("onResumeC: " + cState);
+}
+
 $(document).delegate("#tab-head", "pagebeforecreate", function () {
         var $petPage = $("#tab-head");
             $btnSubmit1 = $("#head_1", $petPage);

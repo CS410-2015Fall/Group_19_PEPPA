@@ -24,8 +24,8 @@ t = treats given; can give as much as you want, but formula will allow max of 2 
 /*time played with pet*/
 var play = 0;
 
-document.addEventListener("pause", onPause, false);
-document.addEventListener("resume", onResume, false);
+document.addEventListener("pause", onPausePI, false);
+document.addEventListener("resume", onResumePI, false);
 document.addEventListener("deviceready", savedState);
 document.addEventListener("deviceready", annoy);
 document.addEventListener("deviceready", petting);
@@ -41,7 +41,7 @@ console.log("PET_INT RAN");
 
 // };
 function savedState(){
-	console.log("onResume " + parseFloat(window.localStorage.getItem("rpState")));
+	console.log("onResumePI: " + parseFloat(window.localStorage.getItem("rpState")));
 	if (pState = parseFloat(window.localStorage.getItem("rpState")) == null){
 		pState = 30;
 		stateDet(pState);
@@ -200,12 +200,12 @@ function resetAnim(){
 	$("#rey").css("animation-play-state", "running");
 };
 
-function onPause(){
+function onPausePI(){
 	window.localStorage.setItem("rpState",pState);
 
 };
 
-function onResume () {
+function onResumePI() {
 	pState = parseFloat(window.localStorage.getItem("rpState"));
-		console.log("onResume " + pState);
+		console.log("onResumePI: " + pState);
 }
