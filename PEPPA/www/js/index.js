@@ -46,7 +46,7 @@ function backb(){
             navigator.app.exitApp();
         }
         else {
-            else { window.location.href = $("#index"); }
+            window.location.href = $("#index");
         }
     }, false);    
 }

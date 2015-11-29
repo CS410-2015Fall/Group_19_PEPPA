@@ -1,7 +1,7 @@
 var tasknumber = -1;
 var savedtasknumber = -1;
 
-$(document).delegate("#tasks", "pagebeforecreate", function() {
+$(document).delegate("#taskpage", "pagebeforecreate", function() {
 	var item;
 	for (i = 0; i<window.localStorage.length; i++) {
 		if ($(i).length != 0) {
@@ -15,13 +15,9 @@ $(document).delegate("#tasks", "pagebeforecreate", function() {
 			}).html(item));
 		}
 	}
-	for (i = 0; i<window.localStorage.length; i++) {
-		window.localStorage.removeItem(i);
-	}
 });
 $(document).ready(function() {
 	document.getElementById("newtask").onsubmit = function() {
-		$('#tasklist').listview('refresh');
 	//$("input[type=submit]").click(function(e) {
 		//var tasklist = document.getElementById("tasklist");
 		savedtasknumber = window.localStorage.getItem("savedtasknumber");
@@ -46,6 +42,5 @@ $(document).ready(function() {
 		}).append($('<a href=#></a>').html(input)));
 		
 		$('#tasklist').listview('refresh');
-		return false;
 	};
 });
