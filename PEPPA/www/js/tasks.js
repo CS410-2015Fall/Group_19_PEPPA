@@ -10,7 +10,8 @@ $(document).delegate("#tasks", "pagebeforecreate", function() {
 			item = window.localStorage.getItem(i);
 			$('#tasklist').append($('<li/>', {
 				id: i,
-				'data-role': "list-divider"
+				//'data-role': "list-divider"
+				'data-icon': "delete"
 			}).html(item));
 		}
 	}
@@ -40,8 +41,9 @@ $(document).ready(function() {
 		console.log(input);
 		$('#tasklist').append($('<li/>', {
 			id: i,
-			'data-role': "list-divider"
-		}).html(input));
+			//'data-role': "list-divider"
+			'data-icon': "delete"
+		}).append($('<a href=#></a>').html(input)));
 		
 		$('#tasklist').listview('refresh');
 		return false;
