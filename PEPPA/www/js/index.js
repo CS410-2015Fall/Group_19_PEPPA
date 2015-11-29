@@ -108,6 +108,3 @@ $(document).delegate("#login", "pagebeforecreate", function () {
 		console.log("All done");
     });
 });
-
-
-

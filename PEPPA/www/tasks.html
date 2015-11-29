@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<!-- <head>
 	<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' http://peppa-server.herokuapp.com">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="format-detection" content="telephone=no">
 	<meta name="msapplication-tap-highlight" content="no">
-	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, wclassth=device-wclassth">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, wclassth=device-wclassth"> -->
 
 	<!--<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>-->
 <!-- 	<link rel="stylesheet" href="css/jquery.mobile-1.1.0.custom.css"/>
@@ -30,7 +30,7 @@
 	<!-- <script type="text/javascript" src="js/tasks.js"></script> -->
 <!--<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>-->
-</head>
+<!-- </head>
 
 <body>
 <div class="wrapper" data-role="page" id="tasks">
@@ -44,11 +44,70 @@
     			<input id='new' placeholder='New Item' type='text'>
     			<button type='submit' id="addt">Add a Task</button>
   			</form>
-  			<ul class='list'>
+  			<ul class='list'> -->
   				<!-- <li>PreCreated</li> -->
-  			</ul>
+<!--   			</ul>
+		</div> -->
+	<head>
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' http://peppa-server.herokuapp.com">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, wclassth=device-wclassth">
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>
+		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="css/style.mobile.css"/>
+		<link rel="stylesheet" href="css/index.css"/>
+		<link rel="stylesheet" href="css/customize.css"/>
+		<link rel="stylesheet" href="css/pet_int.css"/>
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.mobile.js"></script>
+		<!--<script src="js/jquery-1.11.3.js"</script>-->
+		<!--<script src="js/jquery.mobile-1.4.5.js"></script>-->
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/signin.js"></script>
+		<script type="text/javascript" src="js/session.js"></script>
+		<script type="text/javascript" src="js/settings.js"></script>
+		<script type="text/javascript" src="js/messages.js"></script>
+		<script type="text/javascript" src="js/signUpController.js">
+		</script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/customize.js"></script>
+		<script type="text/javascript" src="js/pet_int.js"></script>
+		<script type="text/javascript" src="js/tasks.js"></script>
+    </head>
+	<body>
+		<div class="wrapper" data-role="page" id="taskpage">
+			<div class="header" data-role="header" data-theme="b">
+				<span class="open left"><a href="index.html" data-ajax="false">&#8678;</a></span>
+				<span class="title">Tasks</span>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="tasks" id="addtask">
+					<a href="#newtaskpage" data-role="button" data-icon="plus" data-ajax="false">Add Task</a>
+					<ul id="tasklist" data-role="listview">
+						<li>New items should appear under here</li>
+						<li><a href="#" data-icon="delete" data-ajax="false">Task Example</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
-</body>
+	<!-- new task page-->
+		<div class="wrapper" data-role="page" id="newtaskpage">
+			<div class="header" data-role="header" data-theme="b">
+				<span class="open left"><a href="#tasks">&#8678;</a></span>
+				<span class="title">New Task</span>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div class="tasks" id="tasks">
+					<form id="newtask" data-ajax="false">
+						<label for="add_task">I need to...</label>
+						<input type="text" name="task" id="textinput" placeholder="wash my dog">
+						<input type="submit" data-inline="true" value="Create" data-theme="b">
+					</form>
+					<a href="#taskpage" data-rel="back" data-role="button" data-theme="b" data-ajax="false">Back</a>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
