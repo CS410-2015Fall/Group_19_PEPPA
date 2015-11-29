@@ -20,6 +20,7 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
+	}
 };
 // Bind Event Listeners
 //
@@ -48,7 +49,7 @@ function backb(){
             navigator.app.exitApp();
         }
         else {
-            else { window.location.href = $("#index"); }
+            window.location.href = $("#index");
         }
     }, false);    
 }
@@ -117,13 +118,16 @@ $(document).delegate("#logout", "pagebeforecreate", function () {
     });
 
 $(document).delegate("#index", "pagebeforeshow", function () {
+console.log("Checking for session data");
 var session = PePPA.Session.getInstance().get();
 var today = new Date();
-if (session && session.keepSignedIn && new Date(session.expirationDate).getTime() > today.getTime()) {
+if (session && new Date(session.expirationDate).getTime() > today.getTime()) {
+	console.log("Session is valid");
 	document.getElementById("l-in").style.display = "none";
 	document.getElementById("l-out").style.display = "inline";
 	}
 	else if (session == null){
+	console.log("Session is not valid");
 	document.getElementById("l-out").style.display = "none";
 	document.getElementById("l-in").style.display = "inline";	
 	}	

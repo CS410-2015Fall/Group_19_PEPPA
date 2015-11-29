@@ -18,7 +18,7 @@ PePPA.SignInController.prototype.init = function () {
     this.$ctnErr = $("#ctn-err", this.$signInPage);
     this.$txtEmailAddress = $("#txt-email-address", this.$signInPage);
     this.$txtPassword = $("#txt-password", this.$signInPage);
-    this.$chkKeepSignedIn = $("#chk-keep-signed-in", this.$signInPage);
+//    this.$chkKeepSignedIn = $("#chk-keep-signed-in", this.$signInPage);
 };
 
 PePPA.SignInController.prototype.emailAddressIsValid = function (email) {
@@ -37,7 +37,7 @@ PePPA.SignInController.prototype.resetSignInForm = function () {
     this.$txtPassword.removeClass(invalidInputStyle);
     this.$txtEmailAddress.val("");
     this.$txtPassword.val("");
-    this.$chkKeepSignedIn.prop("checked", false);
+//    this.$chkKeepSignedIn.prop("checked", false);
 };
 
 PePPA.SignInController.prototype.onSignInCommand = function () {
@@ -99,7 +99,7 @@ PePPA.SignInController.prototype.onSignInCommand = function () {
                     userProfileModel: resp.extras.userProfileModel,
                     sessionId: resp.extras.sessionId,
                     expirationDate: expirationDate,
-                    keepSignedIn:me.$chkKeepSignedIn.is(":checked")
+//                    keepSignedIn:me.$chkKeepSignedIn.is(":checked")
                 });
 				console.log("Session Data Saved");
 				console.log(PePPA.Session.getInstance().get());
