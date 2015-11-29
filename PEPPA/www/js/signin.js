@@ -112,13 +112,12 @@ PePPA.SignInController.prototype.onSignInCommand = function () {
                 if (resp.extras.msg) {
                     switch (resp.extras.msg) {
                         case PePPA.ApiMessages.DB_ERROR:
-                        // TODO: Use a friendlier error message below.
-                            me.$ctnErr.html("<p>Oops! PePPA had a problem and could not log you on.  Please try again in a few minutes.</p>");
+                            me.$ctnErr.html("<p>Sorry! We couldn't log you in at this moment, please try again later.</p>");
                             me.$ctnErr.addClass("bi-ctn-err").slideDown();
                             break;
                         case PePPA.ApiMessages.INVALID_PWD:
                         case PePPA.ApiMessages.EMAIL_NOT_FOUND:
-                            me.$ctnErr.html("<p>You entered a wrong username or password.  Please try again.</p>");
+                            me.$ctnErr.html("<p>You have entered an incorrect username or password.  Please try again.</p>");
                             me.$ctnErr.addClass("bi-ctn-err").slideDown();
                             me.$txtEmailAddress.addClass(invalidInputStyle);
                             break;
@@ -130,7 +129,7 @@ PePPA.SignInController.prototype.onSignInCommand = function () {
             $.mobile.loading("hide");
             console.log(e.message);
             // TODO: Use a friendlier error message below.
-            me.$ctnErr.html("<p>Oops! PePPA had a problem and could not log you on.  Please try again in a few minutes.</p>");
+            me.$ctnErr.html("<p><p>Sorry! We couldn't log you in at this moment, please try again later.</p>");
             me.$ctnErr.addClass("bi-ctn-err").slideDown();
         }
     });
