@@ -19,7 +19,7 @@ module.exports = function(config) {
 //	  'PEPPA/www/js/jquery.mobile.js',
       'PEPPA/www/js/*.js',
       'PEPPA/test/client-tests/*.js',
-	  'PEPPA/test/spec/**/*.js'
+	  'PEPPA/spec/client-tests/authentication-spec.js'
     ],
 
 
