@@ -10,7 +10,8 @@ $(document).delegate("#taskpage", "pagebeforeshow", function() {
 		//console.log(item+" "+i+" length= "+$("#task-"+i).length);
 		// if item exists in the localStorage and does not already exist in listview, load it onto listview
 		if (itemName != null && itemTime != null && !$("#task-"+i).length) {
-			$('#tasklist').append($('<li id="task-'+i+'"></li>').append($('<a href="#" data-icon="delete"></a>').append(
+			$('#tasklist').append($('<li id="task-'+i+'"></li>').append(
+			$('<a href="#taskcomplete" data-rel="popup" data-position-to="window" data-transition="pop" data-icon="delete"></a>').append(
 			$('<h2/>').html(itemTime).append($('<p/>').html(itemName)))));
 		}
 	}
@@ -80,8 +81,11 @@ $(document).ready(function() {
 				break;
 			}
 		}
+		localStorage.points = parseInt(localStorage.points) + 10;
+		$('#totalcoins').html("Total Coins: "+localStorage.points);
 		$(this).parent().parent().parent().remove();
 		$('#tasklist').listview('refresh');
+		$("#taskcomplete").popup("open");
 	})
 	
 });
