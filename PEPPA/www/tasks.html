@@ -35,7 +35,7 @@
 		<div class="tasks" id="addtask">
 			<a href="#newtaskpage" data-role="button" data-icon="plus">Add Task</a>
 			<ul id="tasklist" data-role="listview">
-				<li><a href="#" data-icon="delete">New items should appear here</a></li>
+				<!-- new tasks here-->
 			</ul>
 		</div>
 	</div>
@@ -51,6 +51,58 @@
  			<form id="newtask" data-ajax="false">
  				<label for="add_task">I need to...</label>
  				<input type="text" name="task" id="textinput" placeholder="wash my dog">
+				<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+					<legend>Select a Date</legend>
+					<label for="month">Select Month</label>
+					<select name="month" id="month">
+						<option value="#">January</option>
+						<option value="#">February</option>
+						<option value="#">March</option>
+						<option value="#">April</option>
+						<option value="#">May</option>
+						<option value="#">June</option>
+						<option value="#">July</option>
+						<option value="#">August</option>
+						<option value="#">September</option>
+						<option value="#">October</option>
+						<option value="#">November</option>
+						<option value="#">December</option>
+					</select>
+					<label for="day">Select Day</label>
+					<select name="day" id="day">
+						<option value="#">1</option>
+						<option value="#">2</option>
+						<option value="#">3</option>
+						<option value="#">4</option>
+						<option value="#">5</option>
+						<option value="#">6</option>
+						<option value="#">7</option>
+						<option value="#">8</option>
+						<option value="#">9</option>
+						<option value="#">10</option>
+						<option value="#">11</option>
+						<option value="#">12</option>
+						<option value="#">13</option>
+						<option value="#">14</option>
+						<option value="#">15</option>
+						<option value="#">16</option>
+						<option value="#">17</option>
+						<option value="#">18</option>
+						<option value="#">19</option>
+						<option value="#">20</option>
+						<option value="#">21</option>
+						<option value="#">22</option>
+						<option value="#">23</option>
+						<option value="#">24</option>
+						<option value="#">25</option>
+						<option value="#">26</option>
+						<option value="#">27</option>
+						<option value="#">28</option>
+						<option value="#">29</option>
+						<option value="#">30</option>
+						<option value="#">31</option>
+					</select>
+				</fieldset>
 				<input type="submit" data-inline="true" value="Create" data-theme="b">
  			</form>
 			<a href="#taskpage" data-role="button" data-theme="b" data-ajax="false">Back</a>
