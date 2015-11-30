@@ -5,7 +5,7 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "jasmine": "~2.1.0",
+    "jasmine": "~2.1.0"
   },
   "devDependencies": {
     "karma": "~0.13.15",
