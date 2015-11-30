@@ -15,10 +15,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-//	  'PEPPA/www/js/jquery.js',
-//	  'PEPPA/www/js/jquery.mobile.js',
-      'PEPPA/www/js/*.js',
-      'PEPPA/test/client-tests/*.js',
+	  'PEPPA/www/js/jquery.js',
+	  'PEPPA/www/js/jquery-2.1.4.min.js',
+	  'PEPPA/www/js/jquery.mobile.js',
+	  'PEPPA/www/js/jquery.mobile-1.4.5.js',
+	  'PEPPA/www/js/jquery.mobile.js',	  
+      'PEPPA/www/js/signUpController.js',
 	  'PEPPA/spec/client-tests/authentication-spec.js'
     ],
 
