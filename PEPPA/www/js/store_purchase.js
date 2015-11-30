@@ -1,39 +1,33 @@
+var PePPA = PePPA || {};
+
 $(document).delegate("#store", "pagebeforecreate", function () {
 	var that = this,
 		name = "",
 		$storePage = $("#store"),
         $btnSubmit1 = $("#buy_head_1", $storePage),
 		$btnSubmit2 = $("#buy_head_2", $storePage),
-        $btnSubmit3 = $("#buy_head_3", $storePage),
-		session = PePPA.Session.getInstance().get();	
-	alert("You currently have: " + session.points + "points left");	
+        $btnSubmit3 = $("#buy_head_3", $storePage);
 	
 	$btnSubmit1.click(function() {
-	if (!localStorage.getItem('brown_hat')){
+	if (!window.localStorage.getItem("brown_hat")){
 		name = "brown_hat";
-		session = PePPA.Session.getInstance().get();	
-		find_and_return(name, session.points);
-		console.log(session);
+		find_and_return(name, window.localStorage.getItem("points"));
 	}
 	else alert("You've already purchased this item!");
 	});
 	
 	$btnSubmit2.click(function() {
-	if (!localStorage.getItem('bowtie_b')){
+	if (!window.localStorage.getItem("bowtie_b")){
 		name = "bowtie_b";
-		session = PePPA.Session.getInstance().get();			
-		find_and_return(name, session.points);
-		console.log(session);
+		find_and_return(name, window.localStorage.getItem("points"));
 	}
 	else alert("You've already purchased this item!");
 	});
 	
 	$btnSubmit3.click(function() {
-	if (!localStorage.getItem('bowtie_p')){
+	if (!window.localStorage.getItem("bowtie_p")){
 		name = "bowtie_p";
-		session = PePPA.Session.getInstance().get();			
-		find_and_return(name, session.points);
-		console.log(session);
+		find_and_return(name, window.localStorage.getItem("points"));
 	}
 	else alert("You've already purchased this item!");
 	});
@@ -46,6 +40,7 @@ $(document).delegate("#store", "pagebeforeshow", function(){
 		$.mobile.navigate("#tab-head");
 		return;
 	}
+	alert("You currently have: " + window.localStorage.getItem("points") + "points left");	
 });
 
 function find_and_return(name, points){
@@ -56,9 +51,10 @@ function find_and_return(name, points){
         success: function (resp) {
 		if (resp.success === true){
 			console.log("Purchased " + name + " !");
-			localStorage.setItem('points', resp.extras.remainder);
-			localStorage.setItem(name, 'purchased');
-			console.log("Remaining points: " + localStorage.getItem('points'));			
+			window.localStorage.setItem('points', resp.extras.remainder);
+			window.localStorage.setItem(name, 'purchased');
+			console.log("Remaining points: " + window.localStorage.getItem('points'));		
+			console.log(PePPA.Session.getInstance().get());
 		}
 		if (resp.success === false){
 			console.log("Insufficient points");

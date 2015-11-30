@@ -99,9 +99,8 @@ PePPA.SignInController.prototype.onSignInCommand = function () {
                     userProfileModel: resp.extras.userProfileModel,
                     sessionId: resp.extras.sessionId,
                     expirationDate: expirationDate,
-					points: 200
-//                    keepSignedIn:me.$chkKeepSignedIn.is(":checked")
                 });
+				window.localStorage.setItem("points", 200);
 				console.log("Session Data Saved");
 				console.log(PePPA.Session.getInstance().get());
 				
