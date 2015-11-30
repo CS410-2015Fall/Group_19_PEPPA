@@ -77,9 +77,11 @@ PePPA.SignInController.prototype.onSignInCommand = function () {
         me.$txtEmailAddress.addClass(invalidInputStyle);
         return;
     }
+	
+	PePPA.SignInController.login(emailAddress, password);
+};
 
-    $.mobile.loading("show");
-
+PePPA.SignInController.prototype.login = function (emailAddress, password){
     $.ajax({
         type: 'POST',
         url: PePPA.Settings.signInUrl,
@@ -107,7 +109,7 @@ PePPA.SignInController.prototype.onSignInCommand = function () {
                 // Go to main menu.
                 $.mobile.navigate(me.mainMenuPageId);
 				alert('Completed log in!');
-                return;
+                return resp.extras.userProfileModel;
             }
 			else {
 					console.log("Error occurred");
