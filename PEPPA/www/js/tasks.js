@@ -78,8 +78,10 @@ $(document).ready(function() {
 				break;
 			}
 		}
-		localStorage.points = parseInt(localStorage.points) + 10;
-		$('#totalcoins').html("Total Coins: "+localStorage.points);
+		tState = parseInt(window.localStorage.getItem("rtState"));
+		tState++;
+		window.localStorage.setItem("rtState", tState);
+		$('#totalcoins').html("Total Coins: "+ tState);
 		$(this).parent().parent().parent().remove();
 		$('#tasklist').listview('refresh');
 		$("#taskcomplete").popup("open");
