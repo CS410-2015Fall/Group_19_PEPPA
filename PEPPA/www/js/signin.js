@@ -78,7 +78,7 @@ PePPA.SignInController.prototype.onSignInCommand = function () {
         return;
     }
 	
-	PePPA.SignInController.login(emailAddress, password);
+	this.login(emailAddress, password);
 };
 
 PePPA.SignInController.prototype.login = function (emailAddress, password){

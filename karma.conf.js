@@ -17,9 +17,9 @@ module.exports = function(config) {
     files: [
 	  'PEPPA/www/js/jquery.js',
 	  'PEPPA/www/js/jquery-2.1.4.min.js',
-	  'PEPPA/www/js/jquery.mobile.js',
+//	  'PEPPA/www/js/jquery.mobile.js',
 	  'PEPPA/www/js/jquery.mobile-1.4.5.js',
-	  'PEPPA/www/js/jquery.mobile.js',	  
+//	  'PEPPA/www/js/jquery.mobile.js',	  
       'PEPPA/www/js/signUpController.js',
 	  'PEPPA/spec/client-tests/authentication-spec.js'
     ],
