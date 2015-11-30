@@ -46,12 +46,12 @@ function savedStatePI(){
 		pState = 30.0;
 		window.localStorage.setItem("rpState", pState);
 		stateDet(pState);
-		// console.log("pState was:" + pState);
+		console.log("pState was:" + pState  + " if statement ran");
 	} else{
 		pState = parseFloat(temppState);
 		// window.localStorage.setItem("rpState", pState);
 		stateDet(pState);
-		// console.log("pState was:" + pState);
+		console.log("pState was:" + pState + " else statement ran");
 	}
 
 
@@ -60,12 +60,12 @@ function savedStatePI(){
 		tState = 1;
 		window.localStorage.setItem("rtState", tState);
 		$("#totalT").text(tState);
-		// console.log("tState was:" + tState + " if statement ran");
+		console.log("tState was:" + tState + " if statement ran");
 	} else{
 		tState = parseInt(temptState);
 		// window.localStorage.setItem("rtState", tState);
 		$("#totalT").text(tState);
-		// console.log("tState was: " + tState + " else statement ran");
+		console.log("tState was: " + tState + " else statement ran");
 	}
 
 
@@ -73,11 +73,11 @@ function savedStatePI(){
 	if (tempeState == null){
 		eState = 0;
 		window.localStorage.setItem("reState", eState);
-		console.log("eState was:" + eState);
+		console.log("eState was: " + eState + " if statement ran");
 	} else{
 		eState = parseInt(tempeState);
 		// window.localStorage.setItem("reState", eState);
-		console.log("eState was:" + eState);
+		console.log("eState was: " + eState + " else statement ran");
 	}
 
 
@@ -85,11 +85,11 @@ function savedStatePI(){
 	if (tempdState == null){
 		dState = new Date().getTime();
 		window.localStorage.setItem("rdState", dState);
-		console.log("eState was:" + dState);
+		console.log("dState was: " + dState + " if statement ran");
 	} else{
 		dState = parseInt(tempdState);
 		// window.localStorage.setItem("rdState", dState);
-		console.log("dState was:" + dState);
+		console.log("dState was: " + dState + " else statement ran");
 	}
 }
 
@@ -153,6 +153,7 @@ function stateDet(pState){
 		$("#mcw").hide();
 		console.log("Happy state value: " + pState);
 	}
+	window.localStorage.setItem("rpState",pState);
 }
 
 /*Animation for pet and value to add to current state*/
@@ -204,6 +205,7 @@ function petting(){
 		console.log("touchend " + pState);
 		stateDet(pState);
 	});
+
 };
 
 /*Animation for pet when he is annoyed; when it's eyes, nose or mouth is touched*/
@@ -274,8 +276,7 @@ function annoyReward(){
 		pState = 0;
 	} else{
 		pState = pState - 0.5;
-	}
-	
+	}	
 };
 
 /*reset eyes animation*/
@@ -288,13 +289,13 @@ function resetAnim(){
 
 /*Animation + treat function of pet reaction*/
 function treats(){
-	var yOffset = 126.5; //image size offset of y
-	var xOffset = 56; //image size offset of x
+	var yOffset = 26.5; //image size offset of y
+	var xOffset = 58; //image size offset of x
 	$("#totalT").touchstart(function(event){
 		if(tState > 0){
 			event.preventDefault();
 			var e = event.originalEvent;
-			var treatDiv = document.getElementById("index");
+			var treatDiv = document.getElementById("face");
 			var imgTag = document.createElement('img');
 			var x = e.touches[0].pageX;
 			var y = e.touches[0].pageY;
@@ -310,16 +311,54 @@ function treats(){
 			$("#curTreat").css("left", x - xOffset);
 			$("#curTreat").css("position", "fixed");
 			$("#curTreat").css("z-index", 10);
+
+			// PET FACE
+			$("#mcl").hide();
+			$("#msa").hide();
+			$("#tee").hide();
+			$("#ton").hide();
+			$("#tpa").hide();
+			$("#pmh").hide();
+			$("#mhg").show();
+			$("#mcs").hide();
+			$("#mcw").hide();
 		}
-		$("#curTreat").draggable();
 	})
+
+	$("#totalT").touchmove(function(event){
+		event.preventDefault();
+		var e = event.originalEvent;
+		var x = e.touches[0].pageX;
+		var y = e.touches[0].pageY;
+
+		var newT = e.changedTouches[0];
+		xOffset = parseInt(newT.pageX) - x;
+		yOffset = parseInt(newT.pageY) - y;
+		$("#curTreat").css("top", y - yOffset);
+		$("#curTreat").css("left", x - xOffset);
+		// console.log("xOffset" + xOffset);
+		// console.log("yOffset" + yOffset);
+	});
+
 	$("#totalT").touchend(function(){
-		if(collision($("#curTreat"),$(".mu"))){
+		$("#mcl").hide();
+		$("#msa").hide();
+		$("#tee").hide();
+		$("#ton").hide();
+		$("#tpa").hide();
+		$("#pmh").hide();
+		$("#mhg").hide();
+		$("#mcs").show();
+		$("#mcw").show();
+
+		if(collision($("#curTreat"),$("#mhg"))){
 			tState--;
 			treatReward();
 		}
 		var e = document.getElementById("curTreat");
 		e.parentNode.removeChild(e);
+		$("#totalT").text(tState);
+		window.localStorage.setItem("rtState",tState);
 	})
 };
 
@@ -330,16 +369,24 @@ t = treats given; can give as much as you want,
 	use summation 1/n as n -> to infinity; ~2.
 */
 function treatReward(){
+	console.log("treatReward ran")
 	var fday = 86400000; // one full day
 	var currday = new Date().getTime(); //today's day
 	//check if its the same day
-	if((dState + fday) >= currday){	//Next day
+	if((dState + fday) >= currday){	//same day
+		eState++;
+		pState = pState + (1/eState);
+		console.log("today: " + (dState + fday));
+		console.log("tomorrow: " + currday);
+		console.log("eState value: " + (1/eState));
+
+		day = currday;
+		window.localStorage.setItem("reState",eState);		
+	} else{ 						//next day
 		eState = 1;
 		pState = pState + (1/eState);
-		day = currday;
-	} else{ 						//Same day
-		eState++;
-		pState = pState + (1/eState);		
+		console.log("eState value: " + (1/eState));
+		window.localStorage.setItem("reState",eState);			
 	}
 }
 
@@ -351,33 +398,42 @@ function collision(obj1, obj2) {
       var w1 = obj1.outerWidth(true);
       var b1 = y1 + h1;
       var r1 = x1 + w1;
-      var x2 = obj2.offset().left;
-      var y2 = obj2.offset().top;
+      var x2 = obj2.offset().left + 153;
+      var y2 = obj2.offset().top + 456;
       var h2 = obj2.outerHeight(true);
       var w2 = obj2.outerWidth(true);
       var b2 = y2 + h2;
       var r2 = x2 + w2;
+      console.log("obj1: " 
+      	 + x1 + "/" + y1 + "/" + h1 + "/"
+      	 + w1 + "/" + b1 + "/" + r1 + "/");
 
-      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
+      console.log("obj2: " 
+      	 + x2 + "/" + y2 + "/" + h2 + "/"
+      	 + w2 + "/" + b2 + "/" + r2 + "/");
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2){
+      	console.log("false returned for collision");
       	return false;
       } else{
+      	console.log("true returned for collision");
       	return true;
       }
     }
-
-
 
 function onPausePI(){
 	window.localStorage.setItem("rpState",pState);
 	window.localStorage.setItem("rtState",tState);
 	window.localStorage.setItem("reState",eState);
 	window.localStorage.setItem("rdState",dState);
-
 };
 
-// function onResumePI() {
-// 	pState = parseFloat(window.localStorage.getItem("rpState"));
-// 		console.log("onResumeP: " + pState);
-// 	pState = parseInt(window.localStorage.getItem("rtState"));
-// 		console.log("onResumeT: " + pState);
-// }
+function onResumePI() {
+	pState = parseFloat(window.localStorage.getItem("rpState"));
+		console.log("onResumeP: " + pState);
+	tState = parseInt(window.localStorage.getItem("rtState"));
+		console.log("onResumeT: " + tState);
+	eState = parseInt(window.localStorage.getItem("reState"));
+		console.log("onResumeE: " + eState);
+	dState = parseInt(window.localStorage.getItem("rdState"));
+		console.log("onResumeD: " + dState);				
+}

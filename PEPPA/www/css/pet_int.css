@@ -126,12 +126,16 @@
       opacity: 1.0;
       top:-15px;
       left:165;
+    animation: chewS 30s;
+    -webkit-animation: chewS 30s;
 }
 #mcw{
       position: absolute;
       opacity: 1.0;
       top:-15px;
       left:138px;
+    animation: chewW 30s;
+    -webkit-animation: chewW 30s;
 }
 
 
@@ -301,5 +305,42 @@
     }
     100%{
         bottom:0px;
+    }
+}
+
+
+@keyframes chewS{
+    0%{
+        opacity: 1.0;
+    }
+    25%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1.0
+    }
+    75%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1.0;
+    }
+}
+
+@keyframes chewW{
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 1.0;
+    }
+    50%{
+        opacity: 0
+    }
+    75%{
+        opacity: 1.0;
+    }
+    100%{
+        opacity: 0;
     }
 }
