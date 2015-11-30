@@ -1,6 +1,3 @@
-var tasknumber = -1;
-var savedtasknumber = -1;
-
 // $(document).delegate("#tasks", "pagebeforecreate", function() {
 	// var item;
 	// for (i = 0; i<window.localStorage.length; i++) {
@@ -20,10 +17,47 @@ var savedtasknumber = -1;
 	// }
 // });
 $(document).ready(function() {
-	document.getElementById("newtask").onsubmit = function() {
-		$('#tasklist').listview('refresh');
-	//$("input[type=submit]").click(function(e) {
-		//var tasklist = document.getElementById("tasklist");
+	
+	// initial load tasks from local storage
+	
+	var i;
+	var taskList= $('#tasklist');
+	var tasknumber = 0;
+	
+	for (i=0; i<localStorage.length; i++) {
+		var item = localStorage.getItem("task-"+i);
+		// if item exists in the localStorage, load it onto listview
+		if (item != null) {
+			taskList.append($('<li/>', {
+			id: "task-"+i,
+			}).append($('<a href="#" data-icon="delete"></a>').html(item)));
+		}
+		taskList.listview('refresh');
+	}
+	
+	// create a new task and add it to local storage
+	
+	$("#newtask").submit(function() {
+		var input = $("#textinput").val();
+		// if text field not empty
+		if (input != "") {
+			// add to localStorage ("task-NUMBER", "TEXT_INPUT")
+			// start from task number = 0
+			localStorage.setItem("task-"+tasknumber, input);
+			
+			// add the task to the listview
+			taskList.append($('<li/>', {
+				id: "task-"+tasknumber,
+				'data-icon': "delete"
+			}).append($('<a href="#" data-icon="delete"></a>').html(input)));
+			
+			// clear input field
+			input.val("");
+			taskList.listview('refresh');
+			// increment tasknumber
+			tasknumber++;
+		}
+		/*
 		savedtasknumber = window.localStorage.getItem("savedtasknumber");
 		if (tasknumber != savedtasknumber) {
 			tasknumber = savedtasknumber;
@@ -47,5 +81,11 @@ $(document).ready(function() {
 		
 		$('#tasklist').listview('refresh');
 		//return false;
-	};
+		*/
+	});
+	
+	// remove a task and remove it from local storage
+	
+	// todo
+	
 });
