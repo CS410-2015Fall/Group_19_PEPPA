@@ -109,7 +109,7 @@ $(document).delegate("#login", "pagebeforecreate", function () {
     });
 });
 
-$(document).delegate("#logout", "pagebeforecreate", function () {
+$(document).delegate("#logout", "pagebeforeshow", function () {
     app.signoutController.init();
 	console.log("Sign out initialize");
 	console.log('Attempting to sign out');

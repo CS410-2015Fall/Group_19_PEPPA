@@ -11,5 +11,6 @@ PePPA.SignOutController.prototype.init = function () {
 
 PePPA.SignOutController.prototype.logout = function () {
 	PePPA.Session.getInstance().clear();
-	$.mobile.navigate(this.mainMenuPageId);
+	$.mobile.navigate("index.html");
+	return;
 };

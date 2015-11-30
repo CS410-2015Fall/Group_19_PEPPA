@@ -13,7 +13,7 @@ $(document).delegate("#tab-head", "pagebeforecreate", function () {
 			$btnSubmit8 = $("#head_4", $petPage);
 			// $btnSubmit9 = $("#eyes_3", $petPage);
 			// $btnSubmit10 = $("#neck_3", $petPage);
-
+					
         $btnSubmit1.click(function () {
 		// $("#head").html("Head 1 Selected");
 		var faceDiv = document.getElementById("ctmz");
@@ -152,6 +152,7 @@ $(document).delegate("#tab-head", "pagebeforecreate", function () {
 		// 	e.parentNode.removeChild(e);
 		// }})
 });
+
 // eyes
 $(document).delegate("#tab-eyes", "pagebeforecreate", function () {
         var $petPage = $("#tab-eyes");
@@ -450,3 +451,24 @@ $(document).delegate("#tab-neck", "pagebeforecreate", function () {
 			e.parentNode.removeChild(e);
 		}})
 });	
+
+$(document).delegate("#tab-head", "pagebeforeshow", function (){
+		if (localStorage.getItem('brown_hat')){
+			document.getElementById("head_1").style.display = "";
+		}
+		if (!localStorage.getItem('brown_hat')){
+			document.getElementById("head_1").style.display = "none";
+		}
+		if (localStorage.getItem('bowtie_b')){
+			document.getElementById("head_2").style.display = "";
+		}
+		if (!localStorage.getItem('bowtie_b')){
+			document.getElementById("head_2").style.display = "none";
+		}			
+		if (localStorage.getItem('bowtie_p')){
+			document.getElementById("head_3").style.display = "";
+		}
+		if (!localStorage.getItem('bowtie_b')){
+			document.getElementById("head_3").style.display = "none";
+		}					
+});

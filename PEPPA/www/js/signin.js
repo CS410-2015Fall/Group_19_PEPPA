@@ -99,6 +99,7 @@ PePPA.SignInController.prototype.onSignInCommand = function () {
                     userProfileModel: resp.extras.userProfileModel,
                     sessionId: resp.extras.sessionId,
                     expirationDate: expirationDate,
+					points: 200
 //                    keepSignedIn:me.$chkKeepSignedIn.is(":checked")
                 });
 				console.log("Session Data Saved");
@@ -108,8 +109,9 @@ PePPA.SignInController.prototype.onSignInCommand = function () {
                 $.mobile.navigate(me.mainMenuPageId);
 				alert('Completed log in!');
                 return;
-            } else {
-                if (resp.extras.msg) {
+            }
+			else {
+					console.log("Error occurred");
                     switch (resp.extras.msg) {
                         case PePPA.ApiMessages.DB_ERROR:
                             me.$ctnErr.html("<p>Sorry! We couldn't log you in at this moment, please try again later.</p>");
@@ -117,18 +119,17 @@ PePPA.SignInController.prototype.onSignInCommand = function () {
                             break;
                         case PePPA.ApiMessages.INVALID_PWD:
                         case PePPA.ApiMessages.EMAIL_NOT_FOUND:
+							console.log("Incorrect password or email");
                             me.$ctnErr.html("<p>You have entered an incorrect username or password.  Please try again.</p>");
                             me.$ctnErr.addClass("bi-ctn-err").slideDown();
                             me.$txtEmailAddress.addClass(invalidInputStyle);
                             break;
                     }
-                }
             }
         },
         error: function (e) {
             $.mobile.loading("hide");
             console.log(e.message);
-            // TODO: Use a friendlier error message below.
             me.$ctnErr.html("<p><p>Sorry! We couldn't log you in at this moment, please try again later.</p>");
             me.$ctnErr.addClass("bi-ctn-err").slideDown();
         }
