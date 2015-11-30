@@ -404,8 +404,9 @@ function treatReward(){
 function dailyReward(){
 	var fday = 86400000; // one full day
 	var currday = new Date().getTime(); //today's day
+	poState = parseInt(window.localStorage.getItem("rpoState"));
 	//check if its the same day
-	if((dState + fday) < currday){	//next day
+	if((dState + fday) >= currday){	//next day
 		poState = poState + 10;
 		day = currday;
 		window.localStorage.setItem("rpoState",poState);
@@ -458,6 +459,6 @@ function onResumePI() {
 		console.log("onResumeE: " + eState);
 	dState = parseInt(window.localStorage.getItem("rdState"));
 		console.log("onResumeD: " + dState);				
-	poState = parseInt(window.localStorage.setItem("rpoState",poState));	
+	poState = parseInt(window.localStorage.getItem("rpoState"));	
 		console.log("onResumePO: " + poState);	
 }
