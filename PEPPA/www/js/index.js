@@ -80,9 +80,9 @@ $(document).delegate("#signup", "pagebeforeshow", function () {
 
 $(document).delegate("#signup", "pagebeforecreate", function () {
 
-    signupController.init();
+    app.signupController.init();
 	console.log('Sign up initialized');
-    signupController.$btnSubmit.off("tap").on("tap", function () {
+    app.signupController.$btnSubmit.off("tap").on("tap", function () {
 		console.log('Sign up submitting');
         signupController.onSignupCommand();
 		console.log('Finished');
@@ -92,17 +92,17 @@ $(document).delegate("#signup", "pagebeforecreate", function () {
 
 $(document).delegate("#login", "pagebeforeshow", function () {
     // Reset the signup form.
-    signinController.resetSignInForm();
+    app.signinController.resetSignInForm();
 });
 
 
 $(document).delegate("#login", "pagebeforecreate", function () {
 
-    signinController.init();
+    app.signinController.init();
 	console.log("Sign in initialize");
-    signinController.$btnSubmit.off("tap").on("tap", function () {
+    app.signinController.$btnSubmit.off("tap").on("tap", function () {
 		console.log('Attempting to sign in');
-        signinController.onSignInCommand();
+        app.signinController.onSignInCommand();
 		console.log("All done");
     });
 });
