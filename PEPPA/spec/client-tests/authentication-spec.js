@@ -2,6 +2,7 @@ describe("account", function() {
   var signin;
   var emailAddress;
   var password;
+  var PePPA = PePPA;
   
   beforeEach(function()
 	signin = new PePPA.SignInController();
