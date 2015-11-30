@@ -115,9 +115,51 @@
     top: -25px;
     left: 140px;
 }
+#mhg{
+      position: absolute;
+      opacity: 1.0;
+      top:-12px;
+      left:170px;
+}
+#mcs{
+      position: absolute;
+      opacity: 1.0;
+      top:-15px;
+      left:165;
+}
+#mcw{
+      position: absolute;
+      opacity: 1.0;
+      top:-15px;
+      left:138px;
+}
 
 
 
+/*TREATS*/
+.treats {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    background-color: grey;
+    width: 80px;
+    height: 80px;
+    color: white;
+    overflow: hidden;
+    font-size: 32px;
+    border-radius: 40px;
+    text-align: center;
+    z-index: 10;
+}
+
+#totalT {
+    padding: 20%;
+    margin: 0px;
+}
+
+#curTreat{
+
+}
 
 @keyframes blink {
     0%{

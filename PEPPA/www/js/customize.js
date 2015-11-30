@@ -5,18 +5,18 @@ var Accessories ={
 	
 }
 
-document.addEventListener("deviceready", savedState);
+document.addEventListener("deviceready", savedStateC);
 
 
 
-function savedState(){
-	console.log("onResumeC: " + parseFloat(window.localStorage.getItem("rcState")));
-	if (cState = parseFloat(window.localStorage.getItem("rcState")) == null){
-		cState = 30;
-		stateDet(cState);
+function savedStateC(){
+	console.log("onResumeC: " + window.localStorage.getItem("rcState"));
+	cState = window.localStorage.getItem("rcState");
+	if (cState  == null){
+		cState = 30.0;
+		console.log("cState was:" + cState + " if ran");
 	} else{
-		cState = parseFloat(window.localStorage.getItem("rcState"));
-		stateDet(cState);
+		cState = parseFloat(cState);
 	}
 }
 
@@ -30,6 +30,9 @@ function onResumeC() {
 	cState = JSON.parse(window.localStorage.getItem("rcState"));
 		console.log("onResumeC: " + cState);
 }
+
+
+
 
 $(document).delegate("#tab-head", "pagebeforecreate", function () {
         var $petPage = $("#tab-head");

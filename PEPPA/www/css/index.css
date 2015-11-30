@@ -1,4 +1,9 @@
 /*CORDOVA GENERATED*/
+
+html {
+    -webkit-user-select: none;
+}
+
 .open a, .open a:hover {
     padding: 7px 15px;
     background-color: #000;

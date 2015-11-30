@@ -42,13 +42,6 @@ $(document).ready(function(){
  function onDeviceReady(){
     // $(window).unbind();
     // $(window).bind();
-    $("#lec").show();
-    $("#ley").show();
-    $("#leh").hide();
-    $("#rec").show();
-    $("#rey").show();
-    $("#reh").hide();
-    $("#pmh").hide();
 };
 
 document.addEventListener("deviceready", backb, false);

@@ -21,16 +21,7 @@ t = treats given; can give as much as you want, but formula will allow max of 2 
 */
 /*Current State*/
 
-/*time played with pet*/
-var play = 0;
-
-document.addEventListener("pause", onPausePI, false);
-document.addEventListener("resume", onResumePI, false);
-document.addEventListener("deviceready", savedState);
-document.addEventListener("deviceready", annoy);
-document.addEventListener("deviceready", petting);
 // document.addEventListener("deviceready",function(){stateDet(pState);});
-console.log("PET_INT RAN");
 // $(document).ready(function(){
 // 	document.addEventListener("deviceready", onDeviceReady, false);
 // });
@@ -40,45 +31,133 @@ console.log("PET_INT RAN");
 // 	// $(window).bind();
 
 // };
-function savedState(){
-	console.log("onResumePI: " + parseFloat(window.localStorage.getItem("rpState")));
-	if (pState = parseFloat(window.localStorage.getItem("rpState")) == null){
-		pState = 30;
+document.addEventListener("pause", onPausePI, false);
+document.addEventListener("resume", onResumePI, false);
+document.addEventListener("deviceready", savedStatePI);
+document.addEventListener("deviceready", annoy);
+document.addEventListener("deviceready", petting);
+document.addEventListener("deviceready",treats);
+
+
+/*Save the pet state or initiate its saved or new state*/
+function savedStatePI(){
+	temppState = window.localStorage.getItem("rpState");
+	if (temppState == null){
+		pState = 30.0;
+		window.localStorage.setItem("rpState", pState);
 		stateDet(pState);
+		// console.log("pState was:" + pState);
 	} else{
-		pState = parseFloat(window.localStorage.getItem("rpState"));
+		pState = parseFloat(temppState);
+		// window.localStorage.setItem("rpState", pState);
 		stateDet(pState);
+		// console.log("pState was:" + pState);
+	}
+
+
+	temptState = window.localStorage.getItem("rtState");
+	if (temptState == null){
+		tState = 1;
+		window.localStorage.setItem("rtState", tState);
+		$("#totalT").text(tState);
+		// console.log("tState was:" + tState + " if statement ran");
+	} else{
+		tState = parseInt(temptState);
+		// window.localStorage.setItem("rtState", tState);
+		$("#totalT").text(tState);
+		// console.log("tState was: " + tState + " else statement ran");
+	}
+
+
+		tempeState = window.localStorage.getItem("reState");
+	if (tempeState == null){
+		eState = 0;
+		window.localStorage.setItem("reState", eState);
+		console.log("eState was:" + eState);
+	} else{
+		eState = parseInt(tempeState);
+		// window.localStorage.setItem("reState", eState);
+		console.log("eState was:" + eState);
+	}
+
+
+	tempdState = window.localStorage.getItem("rdState");
+	if (tempdState == null){
+		dState = new Date().getTime();
+		window.localStorage.setItem("rdState", dState);
+		console.log("eState was:" + dState);
+	} else{
+		dState = parseInt(tempdState);
+		// window.localStorage.setItem("rdState", dState);
+		console.log("dState was:" + dState);
 	}
 }
+
 /*State (smile) determining function*/
 function stateDet(pState){
 	if(0 <= pState && pState < 30){
+    	$("#lec").show();
+    	$("#ley").show();
+    	$("#leh").hide();
+
+    	$("#rec").show();
+    	$("#rey").show();
+    	$("#reh").hide();
+
 		$("#msa").show();
 		$("#mcl").hide();
 		$("#tee").hide();
 		$("#ton").hide();
 		$("#tpa").hide();
+        $("#pmh").hide();
+		$("#mhg").hide();
+		$("#mcs").hide();
+		$("#mcw").hide();
 		console.log("Sad state value: " + pState);
 	} else if(30 <= pState && pState < 70){
+		$("#lec").show();
+    	$("#ley").show();
+    	$("#leh").hide();
+
+    	$("#rec").show();
+    	$("#rey").show();
+    	$("#reh").hide();
+
 		$("#msa").hide();
 		$("#mcl").show();
 		$("#tee").hide();
 		$("#ton").hide();
 		$("#tpa").hide();
+        $("#pmh").hide();
+		$("#mhg").hide();
+		$("#mcs").hide();
+		$("#mcw").hide();
 		console.log("Neutral state value: " + pState);
 	} else{
+		$("#lec").show();
+    	$("#ley").show();
+    	$("#leh").hide();
+
+    	$("#rec").show();
+    	$("#rey").show();
+    	$("#reh").hide();
+
 		$("#msa").hide();
 		$("#mcl").hide();
 		$("#tee").show();
 		$("#ton").show();
 		$("#tpa").show();
+        $("#pmh").hide();
+		$("#mhg").hide();
+		$("#mcs").hide();
+		$("#mcw").hide();
 		console.log("Happy state value: " + pState);
 	}
 }
 
 /*Animation for pet and value to add to current state*/
 function petting(){
-	console.log("petting ran");
+	var play = 0;
 	$(".face").touchstart(function(e){
 		if(e.target != this){
 			return;
@@ -122,12 +201,12 @@ function petting(){
 			pState = pState + play;
 			play = 0;
 		}
-		console.log("touchstart " + pState);
+		console.log("touchend " + pState);
 		stateDet(pState);
 	});
 };
 
-
+/*Animation for pet when he is annoyed; when it's eyes, nose or mouth is touched*/
 function annoy() {
 	$(".ly").touchstart(function(){
 		$("#ley").hide();
@@ -142,6 +221,7 @@ function annoy() {
 		$("#ley").show();
 		$("#rey").show();
 		stateDet(pState);
+		resetAnim();
 	});
 
 	$(".ry").touchstart(function(){
@@ -157,6 +237,7 @@ function annoy() {
 		$("#ley").show();
 		$("#rey").show();
 		stateDet(pState);
+		resetAnim();
 	});
 
 	$("#nos").touchstart(function(){
@@ -169,6 +250,7 @@ function annoy() {
 	});
 	$("#nos").touchend(function(){
 		stateDet(pState);
+		resetAnim();
 	});
 
 	$(".mu").touchstart(function(){
@@ -181,8 +263,11 @@ function annoy() {
 	});
 	$(".mu").touchend(function(){
 		stateDet(pState);
+		resetAnim();
 	});
 };
+
+/*annoy reward function*/
 function annoyReward(){
 	console.log("annoyed");
 	if(pState < 0){
@@ -193,6 +278,7 @@ function annoyReward(){
 	
 };
 
+/*reset eyes animation*/
 function resetAnim(){
 	$("#ley").css("animation-play-state", "pause");
 	$("#rey").css("animation-play-state", "pause");
@@ -200,12 +286,98 @@ function resetAnim(){
 	$("#rey").css("animation-play-state", "running");
 };
 
+/*Animation + treat function of pet reaction*/
+function treats(){
+	var yOffset = 126.5; //image size offset of y
+	var xOffset = 56; //image size offset of x
+	$("#totalT").touchstart(function(event){
+		if(tState > 0){
+			event.preventDefault();
+			var e = event.originalEvent;
+			var treatDiv = document.getElementById("index");
+			var imgTag = document.createElement('img');
+			var x = e.touches[0].pageX;
+			var y = e.touches[0].pageY;
+	
+			console.log("X: " + x + "px");
+			console.log("Y: " + y + "px");
+
+			imgTag.setAttribute('id',"curTreat");
+			imgTag.setAttribute('src',"img/Treat.png");
+			treatDiv.appendChild(imgTag);
+
+			$("#curTreat").css("top", y - yOffset);
+			$("#curTreat").css("left", x - xOffset);
+			$("#curTreat").css("position", "fixed");
+			$("#curTreat").css("z-index", 10);
+		}
+		$("#curTreat").draggable();
+	})
+	$("#totalT").touchend(function(){
+		if(collision($("#curTreat"),$(".mu"))){
+			tState--;
+			treatReward();
+		}
+		var e = document.getElementById("curTreat");
+		e.parentNode.removeChild(e);
+	})
+};
+
+/*treat reward function
+REMINDER:
+t = treats given; can give as much as you want, 
+	but formula will allow max of 2 points PER DAY
+	use summation 1/n as n -> to infinity; ~2.
+*/
+function treatReward(){
+	var fday = 86400000; // one full day
+	var currday = new Date().getTime(); //today's day
+	//check if its the same day
+	if((dState + fday) >= currday){	//Next day
+		eState = 1;
+		pState = pState + (1/eState);
+		day = currday;
+	} else{ 						//Same day
+		eState++;
+		pState = pState + (1/eState);		
+	}
+}
+
+/*Collision function*/
+function collision(obj1, obj2) {
+      var x1 = obj1.offset().left;
+      var y1 = obj1.offset().top;
+      var h1 = obj1.outerHeight(true);
+      var w1 = obj1.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = obj2.offset().left;
+      var y2 = obj2.offset().top;
+      var h2 = obj2.outerHeight(true);
+      var w2 = obj2.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
+      	return false;
+      } else{
+      	return true;
+      }
+    }
+
+
+
 function onPausePI(){
 	window.localStorage.setItem("rpState",pState);
+	window.localStorage.setItem("rtState",tState);
+	window.localStorage.setItem("reState",eState);
+	window.localStorage.setItem("rdState",dState);
 
 };
 
-function onResumePI() {
-	pState = parseFloat(window.localStorage.getItem("rpState"));
-		console.log("onResumePI: " + pState);
-}
+// function onResumePI() {
+// 	pState = parseFloat(window.localStorage.getItem("rpState"));
+// 		console.log("onResumeP: " + pState);
+// 	pState = parseInt(window.localStorage.getItem("rtState"));
+// 		console.log("onResumeT: " + pState);
+// }

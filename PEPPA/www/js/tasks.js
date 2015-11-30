@@ -45,6 +45,10 @@ $(document).ready(function() {
 	};
 });
 
+function completedTkVal(){
+	
+}
+
 /*
 <<<<<<< HEAD
 
