@@ -19,11 +19,10 @@ $(document).delegate("#taskpage", "pagebeforeshow", function() {
 	console.log("before listview refresh");
 	$('#tasklist').listview('refresh');
 	console.log("after listview refresh");
-	$("#taskcomplete").hide();
+	$("")
 });
 
 $(document).ready(function() {
-	$("#taskcomplete").hide();
 	// initial load tasks from local storage
 	// create a new task and add it to local storage
 	$("#newtask").submit(function() {
@@ -77,21 +76,19 @@ $(document).ready(function() {
 		for (i=1; i<=localStorage.length; i++) {
 			if ("task-"+i == this.parentNode.parentNode.parentNode.id) {
 				localStorage.removeItem(i+1);
-				$("#taskcomplete").show();
 				break;
 			}
 		}
-		$("#taskcomplete").show();
 		tState = parseInt(window.localStorage.getItem("rtState"));
 		tState++;
 		window.localStorage.setItem("rtState", tState);
 		$('#totalcoins').html("Total Coins: " + tState);
 		$(this).parent().parent().parent().remove();
 		$('#tasklist').listview('refresh');
+		$("#taskcomplete").popup("open");
 	})
 	
 });
-
 /*
 <<<<<<< HEAD
 

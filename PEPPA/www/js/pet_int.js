@@ -37,6 +37,7 @@ document.addEventListener("deviceready", savedStatePI);
 document.addEventListener("deviceready", annoy);
 document.addEventListener("deviceready", petting);
 document.addEventListener("deviceready",treats);
+document.addEventListener("deviceready", dailyReward);
 
 
 /*Save the pet state or initiate its saved or new state*/
@@ -381,7 +382,6 @@ t = treats given; can give as much as you want,
 	use summation 1/n as n -> to infinity; ~2.
 */
 function treatReward(){
-	console.log("treatReward ran")
 	var fday = 86400000; // one full day
 	var currday = new Date().getTime(); //today's day
 	//check if its the same day
@@ -391,7 +391,6 @@ function treatReward(){
 		console.log("today: " + (dState + fday));
 		console.log("tomorrow: " + currday);
 		console.log("eState value: " + (1/eState));
-
 		day = currday;
 		window.localStorage.setItem("reState",eState);		
 	} else{ 						//next day
@@ -402,6 +401,16 @@ function treatReward(){
 	}
 }
 
+function dailyReward(){
+	var fday = 86400000; // one full day
+	var currday = new Date().getTime(); //today's day
+	//check if its the same day
+	if((dState + fday) < currday){	//next day
+		poState = poState + 10;
+		day = currday;
+		window.localStorage.setItem("rpoState",poState);
+	}
+}
 /*Collision function*/
 function collision(obj1, obj2) {
       var x1 = obj1.offset().left;
@@ -437,6 +446,7 @@ function onPausePI(){
 	window.localStorage.setItem("rtState",tState);
 	window.localStorage.setItem("reState",eState);
 	window.localStorage.setItem("rdState",dState);
+	window.localStorage.setItem("rpoState",poState);	
 };
 
 function onResumePI() {
@@ -448,4 +458,6 @@ function onResumePI() {
 		console.log("onResumeE: " + eState);
 	dState = parseInt(window.localStorage.getItem("rdState"));
 		console.log("onResumeD: " + dState);				
+	poState = parseInt(window.localStorage.setItem("rpoState",poState));	
+		console.log("onResumePO: " + poState);	
 }
