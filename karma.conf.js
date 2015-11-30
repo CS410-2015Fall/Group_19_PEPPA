@@ -18,7 +18,8 @@ module.exports = function(config) {
 //	  'PEPPA/www/js/jquery.js',
 //	  'PEPPA/www/js/jquery.mobile.js',
       'PEPPA/www/js/*.js',
-      'PEPPA/test/client-tests/*.js'
+      'PEPPA/test/client-tests/*.js',
+	  'PEPPA/test/spec/**/*.js'
     ],
 
 
