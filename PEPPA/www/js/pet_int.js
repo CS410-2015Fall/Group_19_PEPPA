@@ -91,6 +91,18 @@ function savedStatePI(){
 		// window.localStorage.setItem("rdState", dState);
 		console.log("dState was: " + dState + " else statement ran");
 	}
+
+
+	temppoState = window.localStorage.getItem("rpoState");
+	if (temppoState == null){
+		poState = 200;
+		window.localStorage.setItem("rpoState", poState);
+		console.log("poState was: " + poState + " if statement ran");
+	} else{
+		poState = parseInt(temppoState);
+		// window.localStorage.setItem("rpoState", poState);
+		console.log("poState was: " + poState + " else statement ran");
+	}
 }
 
 /*State (smile) determining function*/
