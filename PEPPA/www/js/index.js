@@ -16,32 +16,26 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-//  function initialize(){
-//    this.bindEvents();
-// };
-// // Bind Event Listeners
-// //
-// // Bind any events that are required on startup. Common events are:
-// // 'load', 'deviceready', 'offline', and 'online'.
-// function bindEvents(){
-// document.addEventListener('deviceready', this.onDeviceReady, false);
-// };
-// // deviceready Event Handler
-// //
-// // The scope of 'this' is the event. In order to call the 'receivedEvent'
-// // function, we must explicitly call 'app.receivedEvent(...);'
-// function onDeviceReady() {
-//     // app.receivedEvent('deviceready');
-//     backb();
-// };
-
-$(document).ready(function(){
-    document.addEventListener("deviceready", onDeviceReady, false);
-});
-
- function onDeviceReady(){
-    // $(window).unbind();
-    // $(window).bind();
+var app = {
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+	}
+};
+// Bind Event Listeners
+//
+// Bind any events that are required on startup. Common events are:
+// 'load', 'deviceready', 'offline', and 'online'.
+function bindEvents(){
+document.addEventListener('deviceready', this.onDeviceReady, false);
+};
+// deviceready Event Handler
+//
+// The scope of 'this' is the event. In order to call the 'receivedEvent'
+// function, we must explicitly call 'app.receivedEvent(...);'
+function onDeviceReady() {
+    // app.receivedEvent('deviceready');
+    backb();
 };
 
 document.addEventListener("deviceready", backb, false);
@@ -61,12 +55,23 @@ $(document).on("mobileinit", function (event, ui) {
     $.mobile.defaultPageTransition = "slide";
 });
 
-signupController = new PePPA.SignUpController();
-signinController = new PePPA.SignInController();
-
-$(document).delegate("#index", "pagebeforeshow", function() {
-	// console.log(PePPA.Session.getInstance().get());
+app.signupController = new PePPA.SignUpController();
+app.signinController = new PePPA.SignInController();
+app.signoutController = new PePPA.SignOutController();
+/*
+$(document).on("pagecontainerbeforechange", function (event, ui) {
+if (typeof ui.toPage !== "object") return;
+switch (ui.toPage.attr("id")) {
+    case "index":
+	var session = PePPA.Session.getInstance().get(),
+	today = new Date();
+	if (session && session.keepSignedIn && new Date(session.expirationDate).getTime() > today.getTime()) {
+	alert("Logged in as " + session.userProfileModel.firstName);
+	}
+	}
+>>>>>>> master
 });
+*/
 
 $(document).delegate("#signup", "pagebeforeshow", function () {
     // Reset the signup form.
@@ -100,4 +105,28 @@ $(document).delegate("#login", "pagebeforecreate", function () {
         signinController.onSignInCommand();
 		console.log("All done");
     });
+});
+
+$(document).delegate("#logout", "pagebeforeshow", function () {
+    app.signoutController.init();
+	console.log("Sign out initialize");
+	console.log('Attempting to sign out');
+    app.signoutController.logout();
+	console.log("All done");
+    });
+
+$(document).delegate("#index", "pagebeforeshow", function () {
+console.log("Checking for session data");
+var session = PePPA.Session.getInstance().get();
+var today = new Date();
+if (session && new Date(session.expirationDate).getTime() > today.getTime()) {
+	console.log("Session is valid");
+	document.getElementById("l-in").style.display = "none";
+	document.getElementById("l-out").style.display = "inline";
+	}
+	else if (session == null){
+	console.log("Session is not valid");
+	document.getElementById("l-out").style.display = "none";
+	document.getElementById("l-in").style.display = "inline";	
+	}	
 });

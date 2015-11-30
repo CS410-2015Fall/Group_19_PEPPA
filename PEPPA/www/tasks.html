@@ -82,32 +82,90 @@
 				<span class="open left"><a href="index.html" data-ajax="false">&#8678;</a></span>
 				<span class="title">Tasks</span>
 			</div>
-			<div data-role="main" class="ui-content">
-				<div class="tasks" id="addtask">
-					<a href="#newtaskpage" data-role="button" data-icon="plus" data-ajax="false">Add Task</a>
-					<ul id="tasklist" data-role="listview">
-						<li>New items should appear under here</li>
-						<li><a href="#" data-icon="delete" data-ajax="false">Task Example</a></li>
-					</ul>
-				</div>
+		<div data-role="main" class="ui-content">
+			<div class="tasks" id="addtask">
+				<a href="#newtaskpage" data-role="button" data-icon="plus">Add Task</a>
+				<ul id="tasklist" data-role="listview">
+					<!-- new tasks here-->
+				</ul>
 			</div>
 		</div>
-	<!-- new task page-->
+		</div>
+		
+		<!-- new task page-->
 		<div class="wrapper" data-role="page" id="newtaskpage">
 			<div class="header" data-role="header" data-theme="b">
-				<span class="open left"><a href="#tasks">&#8678;</a></span>
 				<span class="title">New Task</span>
 			</div>
-			<div data-role="main" class="ui-content">
-				<div class="tasks" id="tasks">
-					<form id="newtask" data-ajax="false">
-						<label for="add_task">I need to...</label>
-						<input type="text" name="task" id="textinput" placeholder="wash my dog">
-						<input type="submit" data-inline="true" value="Create" data-theme="b">
-					</form>
-					<a href="#taskpage" data-rel="back" data-role="button" data-theme="b" data-ajax="false">Back</a>
-				</div>
-			</div>
+		<div data-role="main" class="ui-content">
+	 		<div class="tasks" id="tasks">
+	 			<form id="newtask" data-ajax="false">
+	 				<label for="add_task">I need to...</label>
+	 				<input type="text" name="task" id="textinput" placeholder="wash my dog">
+					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+						<legend>Select a Date</legend>
+						<label for="month">Select Month</label>
+						<select name="month" id="month">
+							<option value="#">January</option>
+							<option value="#">February</option>
+							<option value="#">March</option>
+							<option value="#">April</option>
+							<option value="#">May</option>
+							<option value="#">June</option>
+							<option value="#">July</option>
+							<option value="#">August</option>
+							<option value="#">September</option>
+							<option value="#">October</option>
+							<option value="#">November</option>
+							<option value="#">December</option>
+						</select>
+						<label for="day">Select Day</label>
+						<select name="day" id="day">
+							<option value="#">1</option>
+							<option value="#">2</option>
+							<option value="#">3</option>
+							<option value="#">4</option>
+							<option value="#">5</option>
+							<option value="#">6</option>
+							<option value="#">7</option>
+							<option value="#">8</option>
+							<option value="#">9</option>
+							<option value="#">10</option>
+							<option value="#">11</option>
+							<option value="#">12</option>
+							<option value="#">13</option>
+							<option value="#">14</option>
+							<option value="#">15</option>
+							<option value="#">16</option>
+							<option value="#">17</option>
+							<option value="#">18</option>
+							<option value="#">19</option>
+							<option value="#">20</option>
+							<option value="#">21</option>
+							<option value="#">22</option>
+							<option value="#">23</option>
+							<option value="#">24</option>
+							<option value="#">25</option>
+							<option value="#">26</option>
+							<option value="#">27</option>
+							<option value="#">28</option>
+							<option value="#">29</option>
+							<option value="#">30</option>
+							<option value="#">31</option>
+						</select>
+					</fieldset>
+					<input type="submit" data-inline="true" value="Create" data-theme="b">
+	 			</form>
+				<a href="#taskpage" data-role="button" data-theme="b" data-ajax="false">Back</a>
+	 		</div>
+	 	</div>
+		
+		</div>
+		<!-- popup for task completion-->
+		<div data-role="popup" id="taskcomplete" data-theme="b">
+			<p>You earned 10 coins for completing a task!</p>
+			<p id="totalcoins"></p>
+			<a href="#taskpage" data-role="button" data-theme="b">Okay!</a>
 		</div>
 	</body>
 </html>

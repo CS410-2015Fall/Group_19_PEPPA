@@ -44,6 +44,7 @@
 		<!--<script src="js/jquery.mobile-1.4.5.js"></script>-->
 		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="js/signin.js"></script>
+		<script type="text/javascript" src="js/signout.js"></script>
 		<script type="text/javascript" src="js/session.js"></script>
 		<script type="text/javascript" src="js/settings.js"></script>
 		<script type="text/javascript" src="js/messages.js"></script>
@@ -53,6 +54,8 @@
 		<script type="text/javascript" src="js/schedule.js"></script>
 		<script type="text/javascript" src="js/tasks.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/store_purchase.js"></script>
+		
     </head>
     <body>
 	<div class="wrapper" data-role="page" id="index">
@@ -64,7 +67,8 @@
 				<li class="tasks"><a href="tasks.html" title="Tasks" data-ajax="false">Tasks</a></li>
 				<!-- <li class="weather"><a href="weather.html" title="Weather">Weather</a></li>
 				<li class="setting"><a href="settings.html" title="Setting">Setting</a></li>	 -->
-				<li class="login"><a href="login.html" title="Login">Log-in or Set-up</a></li>
+				<li class="login" id="l-in"><a href="login.html" title="Login">Log-in or Set-up</a></li>
+				<li class="logout" id="l-out"  style="display:none" ><a href="logout.html" title="Logout">Log-out</a></li>				
 				<!-- <li class="report"><a href="#" title="Report">Report Bug</a></li> -->
 			</ul>
 		</div>
@@ -198,9 +202,9 @@
 		</div>
 		<div data-role="main" class="ui-content">
 		<div class="ui-grid-b" id="tab">
-			<div class="ui-block-a"><a data-role="button" data-inline="true" id="neck_1"><img src="img/bowtie_b.png" height="40%" width="40%"/></a></div>
-			<div class="ui-block-b"><a data-role="button" data-inline="true" id="neck_2"><img src="img/bowtie_p.png" height="40%" width="40%"/></a></div>
-			<div class="ui-block-c"><a data-role="button" data-inline="true" id="neck_3"></a></div>
+			<div class="ui-block-a"><a data-role="button" data-inline="true" id="buy_head_1"><img src="img/hat.png" height="40%" width="40%"/></a></div>
+			<div class="ui-block-b"><a data-role="button" data-inline="true" id="buy_head_2"><img src="img/bowtie_b.png" height="40%" width="40%"/></a></div>
+			<div class="ui-block-c"><a data-role="button" data-inline="true" id="buy_head_3"><img src="img/bowtie_p.png" height="40%" width="40%"/></a></div>
 		</div>
 		</div>
 		<div class="footer" data-role="footer" data-theme="b" data-position="fixed" data-id="store">
