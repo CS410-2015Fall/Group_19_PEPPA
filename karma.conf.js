@@ -15,10 +15,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '../js/*.js',
-      '../www/js/*.js',
-      '../test/*.js',
-      '../test/client-tests/*.js'
+//	  'PEPPA/www/js/jquery.js',
+//	  'PEPPA/www/js/jquery.mobile.js',
+      'PEPPA/www/js/*.js',
+      'PEPPA/test/client-tests/*.js'
     ],
 
 
