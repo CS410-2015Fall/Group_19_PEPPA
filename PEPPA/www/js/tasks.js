@@ -68,12 +68,15 @@ $(document).ready(function() {
 	
 	$("#tasklist li a").live("click", function() {
 		console.log("removing element with id: "+this.parentNode.parentNode.parentNode.id);
-		localStorage.removeItem(this.parentNode.parentNode.parentNode.id);
-		console.log(this.parentNode.parentNode.parentNode);
-		console.log(this.parentNode.parentNode.parentNode.id);
+		var name = this.parentNode.parentNode.parentNode.id+"input";
+		var time = this.parentNode.parentNode.parentNode.id+"time";
+		localStorage.removeItem(name);
+		localStorage.removeItem(time);
+		//console.log(this.parentNode.parentNode.parentNode);
+		//console.log(this.parentNode.parentNode.parentNode.id);
 		for (i=1; i<=localStorage.length; i++) {
 			if ("task-"+i == this.parentNode.parentNode.parentNode.id) {
-				localStorage.removeItem(i);
+				localStorage.removeItem(i+1);
 				break;
 			}
 		}
