@@ -107,7 +107,7 @@ PePPA.SignInController.prototype.login = function (emailAddress, password){
 				console.log(PePPA.Session.getInstance().get());
 				
                 // Go to main menu.
-                $.mobile.navigate(me.mainMenuPageId);
+                $.mobile.navigate("#index");
 				alert('Completed log in!');
                 return resp.extras.userProfileModel;
             }
@@ -115,15 +115,15 @@ PePPA.SignInController.prototype.login = function (emailAddress, password){
 					console.log("Error occurred");
                     switch (resp.extras.msg) {
                         case PePPA.ApiMessages.DB_ERROR:
-                            me.$ctnErr.html("<p>Sorry! We couldn't log you in at this moment, please try again later.</p>");
-                            me.$ctnErr.addClass("bi-ctn-err").slideDown();
+                            this.$ctnErr.html("<p>Sorry! We couldn't log you in at this moment, please try again later.</p>");
+                            this.$ctnErr.addClass("bi-ctn-err").slideDown();
                             break;
                         case PePPA.ApiMessages.INVALID_PWD:
                         case PePPA.ApiMessages.EMAIL_NOT_FOUND:
 							console.log("Incorrect password or email");
-                            me.$ctnErr.html("<p>You have entered an incorrect username or password.  Please try again.</p>");
-                            me.$ctnErr.addClass("bi-ctn-err").slideDown();
-                            me.$txtEmailAddress.addClass(invalidInputStyle);
+                            this.$ctnErr.html("<p>You have entered an incorrect username or password.  Please try again.</p>");
+                            this.$ctnErr.addClass("bi-ctn-err").slideDown();
+                            this.$txtEmailAddress.addClass(invalidInputStyle);
                             break;
                     }
             }
@@ -131,8 +131,8 @@ PePPA.SignInController.prototype.login = function (emailAddress, password){
         error: function (e) {
             $.mobile.loading("hide");
             console.log(e.message);
-            me.$ctnErr.html("<p><p>Sorry! We couldn't log you in at this moment, please try again later.</p>");
-            me.$ctnErr.addClass("bi-ctn-err").slideDown();
+            this.$ctnErr.html("<p><p>Sorry! We couldn't log you in at this moment, please try again later.</p>");
+            this.$ctnErr.addClass("bi-ctn-err").slideDown();
         }
     });
 };
