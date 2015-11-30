@@ -13,7 +13,7 @@
     "karma-jasmine": "~0.3.6",
     "jasmine-node": "~1.14.5",
     "phantomjs": "~1.9.19",
-    "karma-phantomjs-launcher": "~0.2.1",
+    "karma-phantomjs-launcher": "~0.2.1"
   },
   "scripts": {
     "test": "karma start"
