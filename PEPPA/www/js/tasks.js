@@ -1,25 +1,27 @@
 var tasknumber;
 
 $(document).delegate("#taskpage", "pagebeforeshow", function() {
-	console.log("before listview refresh");
 	$('#tasklist').listview('refresh');
-	console.log("after listview refresh");
 	var i;
 	for (i=0; i<localStorage.length; i++) {
 		var itemName = localStorage.getItem("task-"+i+"input");
 		var itemTime = localStorage.getItem("task-"+i+"time");
-		//console.log(item+" "+i+" length= "+$("#task-"+i).length);
+		//console.log(itemName+" "+i+" length= "+$("#task-"+i).length);
 		// if item exists in the localStorage and does not already exist in listview, load it onto listview
-		if (itemName != null && itemTime != null && !$("#task-"+i).length) {
-			$('#tasklist').append($('<li id="task-'+i+'"></li>').append(
-			$('<a href="#taskcomplete" data-rel="popup" data-position-to="window" data-transition="pop" data-icon="delete"></a>').append(
-			$('<h2/>').html(itemTime).append($('<p/>').html(itemName)))));
+		if ($("#task-"+i).length != 0) {
+			// skip the item
+			console.log("skipped this item: task-"+i);
+		} else {
+			if (itemName != null && itemTime != null) {
+				$('#tasklist').append($('<li id="task-'+i+'"></li>').append(
+				$('<a href="#taskcomplete" data-rel="popup" data-position-to="window" data-transition="pop" data-icon="delete"></a>').append(
+				$('<h2/>').html(itemTime).append($('<p/>').html(itemName)))));
+				console.log("added onto listview: task-"+i);
+			}
 		}
 	}
-	console.log("before listview refresh");
 	$('#tasklist').listview('refresh');
 	console.log("after listview refresh");
-	$("")
 });
 
 $(document).ready(function() {
@@ -64,15 +66,10 @@ $(document).ready(function() {
 			
 			// set a notification to fire
 			var date = new Date();
-			console.log(date);
 			var m = parseInt(monthInt);
-			console.log(m);
 			var d = parseInt(day);
-			console.log(d);
 			date.setMonth(m);
-			console.log(date);
 			date.setDate(d);
-			console.log(date);
 			cordova.plugins.notification.local.schedule({
 				id: tasknumber,
 				title: input,
