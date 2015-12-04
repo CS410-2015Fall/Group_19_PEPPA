@@ -28,6 +28,7 @@ $(document).ready(function() {
 	$("#newtask").submit(function() {
 		var input = $("#textinput").val();
 		var month = $("#month option:selected").text();
+		var monthInt = $("#month option:selected").val();
 		var day = $("#day option:selected").text();
 		var time = month+" "+day;
 		// if text field not empty
@@ -60,6 +61,24 @@ $(document).ready(function() {
 			// increment tasknumber
 			tasknumber++;
 			localStorage.setItem("tasknumber", tasknumber);
+			
+			// set a notification to fire
+			var date = new Date();
+			console.log(date);
+			var m = parseInt(monthInt);
+			console.log(m);
+			var d = parseInt(day);
+			console.log(d);
+			date.setMonth(m);
+			console.log(date);
+			date.setDate(d);
+			console.log(date);
+			cordova.plugins.notification.local.schedule({
+				id: tasknumber,
+				title: input,
+				text: time,
+				at: date
+			});
 		}
 	});
 	
